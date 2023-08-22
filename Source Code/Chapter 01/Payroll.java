@@ -7,5 +7,6 @@ public class Payroll
       
       grossPay = hours * payRate;
       System.out.println("Your gross pay is $" + grossPay);
+      System.out.println("Your gross pay is $" + grossPay);
    }
 }
