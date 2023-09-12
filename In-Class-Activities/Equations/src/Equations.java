@@ -19,8 +19,14 @@ public class Equations {
 		System.out.println(intResult2);
 		System.out.println(intResult3);
 		
+		// calculate the square root of 10 
 		double intMathTester = Math.sqrt(10);
 		System.out.println(intMathTester);
+		
+		//
+		String strName = "MJ Ahmad";
+		strName = "Mohammad Ahmad";
+		System.out.println(strName);
 
 				
 
