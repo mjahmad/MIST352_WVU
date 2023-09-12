@@ -1,6 +1,7 @@
-/*
- * Program to test some equations
- * Chapter 2 9/12/23
+/**
+ * Program for Chapter 2 activities
+ * @param
+ * @author mahmad2
  */
 public class Equations {
 
