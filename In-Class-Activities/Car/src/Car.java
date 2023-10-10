@@ -5,12 +5,20 @@ public class Car {
     private int year;
     private double price;
 
-    // Constructors
+    // Constructor1 
     public Car(String make, String model, int year, double price) {
         this.make = make;
         this.model = model;
         this.year = year;
         this.price = price;
+    }
+    // Constructor2 
+
+    public Car() {
+        this.make = "Not Provided";
+        this.model = "Not Provided";
+        this.year = 0000;
+        this.price = 0.0;
     }
 
     // Getter methods
@@ -49,10 +57,14 @@ public class Car {
 
     // Method to display car information
     public void displayInfo() {
-        System.out.println("Make: " + make);
+        System.out.println("---------------------------------");
+
+    	System.out.println("Make: " + make);
         System.out.println("Model: " + model);
         System.out.println("Year: " + year);
         System.out.println("Price: $" + price);
+        System.out.println("---------------------------------");
+
     }
 
  
