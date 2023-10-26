@@ -19,8 +19,7 @@ public class LogicalAnd
       salary = keyboard.nextDouble();
 
       // Get the number of years at the current job. +
-      System.out.print("Enter the number of years "
-		                 "at your current job: ");
+      System.out.print("Enter the number of years at your current job: ");
       yearsOnJob = keyboard.nextDouble();
 
       // Determine whether the user qualifies for the loan.
