@@ -1,4 +1,7 @@
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -83,5 +86,17 @@ public class MethodsInMain {
 		
 		
 	}
+		
+		public static void WriteDataToText(String strLocation) throws IOException
+		{
+			FileWriter fw =     new FileWriter(strLocation, true);
+			PrintWriter pw = new PrintWriter(fw);
+			pw.print("hi");
+			pw.close();
+			
+			
+			
+			
+		}
 
 }
