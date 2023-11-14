@@ -36,12 +36,15 @@ public class Increments_Examples {
 		System.out.printf("\nThe current value  : %d",value);
 		
 		
-		System.out.printf("\nThe current value++: %d",value++);
+		System.out.printf("\nThe current ++value: %d",++value);
+		//System.out.printf("\nThe current AFTER  : %d",value);
+
 		
 		System.out.printf("\nThe current ++value++: %d",++value);
-		//System.out.printf("\nThe current value++: %d",value++);
-		//System.out.printf("\nThe current value++: %d",value++);
+		System.out.printf("\nThe current value++: %d",value++);
+		System.out.printf("\nThe current value++: %d",value++);
 
+		System.out.printf("\nThe current value%d",value);
 
 		
 

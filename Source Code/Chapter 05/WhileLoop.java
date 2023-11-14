@@ -6,14 +6,14 @@ public class WhileLoop
 {
    public static void main(String[] args)
    {
-      int number = 1;
+      int number = 0;
 
-      while (number <= 5)
+      while (number <1000)
       {
-         System.out.println("Hello");
+         System.out.printf("\nCurrent number: %d. Hello",number);
          number++;
       }
 
-      System.out.println("That's all!");
+      System.out.println("\nThats all\n");
    }
 }
