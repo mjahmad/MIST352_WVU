@@ -13,18 +13,23 @@ public class FileReadDemo
       Scanner keyboard = new Scanner(System.in);
 
       // Get the filename.
-      System.out.print("Enter the filename: ");
-      String filename = keyboard.nextLine();
+      //System.out.print("Enter the filename: ");
+      String filename = "d:\\a.csv";
+      
+      //keyboard.nextLine();
 
       // Open the file.
-      File file = new File(filename);
-      Scanner inputFile = new Scanner(file);
+      File theFile = new File(filename);
+      Scanner inputFile = new Scanner(theFile);
 
       // Read lines from the file until no more are left.
+      inputFile.nextLine();
       while (inputFile.hasNext())
       {
          // Read the next name.
-         String friendName = inputFile.nextLine();
+         String friendName = inputFile.nextLine().split(",")[0];
+         int LastFS = friendName.lastIndexOf("/");
+         friendName = friendName.substring(LastFS+1, friendName.length());
 
          // Display the last name read.
          System.out.println(friendName);

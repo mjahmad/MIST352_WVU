@@ -19,9 +19,7 @@ public class NestedLoopsExamples {
 		System.out.println("How many rows do you want to print?");
 		int numberOfRows = userInput.nextInt();
 	
-		
-
-	     System.out.println("Triangle using nested for loops:");
+		 System.out.println("Triangle using nested for loops:");
 	     printTriangleWithForLoops(numberOfRows);
 
 	     System.out.println("\nTriangle using nested while loops:");
@@ -81,13 +79,11 @@ public class NestedLoopsExamples {
 	}	
 	
 	
-	
-
 	    /**
 	     * Uses nested for loops to print a right-angled triangle of stars.
 	     * @param rows the number of rows in the triangle
 	     */
-	    public static void printTriangleWithForLoops(int rows) {
+	public static void printTriangleWithForLoops(int rows) {
 	        for (int i = 0; i < rows; i++) {
 	            for (int j = 0; j <= i; j++) {
 	                System.out.print("* ");
@@ -100,7 +96,7 @@ public class NestedLoopsExamples {
 	     * Uses nested while loops to print a right-angled triangle of stars.
 	     * @param rows the number of rows in the triangle
 	     */
-	    public static void printTriangleWithWhileLoops(int rows) {
+	public static void printTriangleWithWhileLoops(int rows) {
 	        int i = 0;
 	        while (i < rows) {
 	            int j = 0;
@@ -117,7 +113,7 @@ public class NestedLoopsExamples {
 	     * Uses nested do-while loops to print a right-angled triangle of stars.
 	     * @param rows the number of rows in the triangle
 	     */
-	    public static void printTriangleWithDoWhileLoops(int rows) {
+	public static void printTriangleWithDoWhileLoops(int rows) {
 	        int i = 0;
 	        do {
 	            int j = 0;
@@ -136,7 +132,7 @@ public class NestedLoopsExamples {
 	     * Uses a combination of for, while, and do-while loops to print a right-angled triangle of stars.
 	     * @param rows the number of rows in the triangle
 	     */
-	    public static void printTriangleWithMixedLoops(int rows) {
+	public static void printTriangleWithMixedLoops(int rows) {
 	        for (int i = 0; i < rows; i++) {
 	            int j = 0;
 	            while (j <= i) {
@@ -160,7 +156,7 @@ public class NestedLoopsExamples {
 	         * @param n the size of the magic square (must be an odd number)
 	         * @return a 2D array representing the magic square
 	         */
-	        public static int[][] generateMagicSquare(int n) {
+	 public static int[][] generateMagicSquare(int n) {
 	            if (n % 2 == 0) {
 	                throw new IllegalArgumentException("Size must be an odd number.");
 	            }
@@ -201,7 +197,7 @@ public class NestedLoopsExamples {
 	         * Prints the magic square.
 	         * @param magicSquare the magic square to be printed
 	         */
-	        public static void printMagicSquare(int[][] magicSquare) {
+	 public static void printMagicSquare(int[][] magicSquare) {
 	            for (int i = 0; i < magicSquare.length; i++) {
 	                for (int j = 0; j < magicSquare.length; j++) {
 	                    System.out.print(magicSquare[i][j] + "\t");
