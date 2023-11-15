@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,14 +17,18 @@ public class MethodsInMain {
 
 	/**
 	 * @param args
+	 * @throws FileNotFoundException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
+		String strTheFile ="src/data.txt";
 		
 		// Calling a a non-void method is straight forward
-		DoSomething();
+		//DoSomething();
 		
-		DoSomethingElse() ;
+		//System.out.println(DoSomethingElse()%10) ;
+		//ReadDataFromText("src/data.txt");
+		System.out.println(FindSomething(strTheFile,"Davis"));
 		
 	}
 	/**
@@ -45,10 +50,11 @@ public class MethodsInMain {
 	/**
 	 * Method that accepts a location of at text file and prints out its data in different ways
 	 * @param strFileLocation
+	 * @throws FileNotFoundException 
 	 */
-	public static void ReadDataFromText(String strFileLocation) {
+	public static void ReadDataFromText(String strFileLocation) throws FileNotFoundException {
 		File myData = new File (strFileLocation);
-		Scanner scnReader = new Scanner (System.in);
+		Scanner scnReader = new Scanner (myData);
 		while (scnReader.hasNext())
 		{
 			String strLine = scnReader.nextLine();
@@ -59,7 +65,7 @@ public class MethodsInMain {
 			System.out.println(strLine.split(",")[0]);
 			
 			System.out.println("Print second element in the row, assuming data is comma seperated");
-			System.out.println(strLine.split(",")[1]);
+			System.out.println(strLine.split(",")[5]);
 			
 		}
 	}
@@ -69,11 +75,12 @@ public class MethodsInMain {
 		 * @param strFileLocation: Location of text file
 		 * @param strWord2Find   : Word to find in the text file
 		 * @return: True if the word is found, otherwise return False
+		 * @throws FileNotFoundException 
 		 */
 		
-		public static Boolean FindSomething(String strFileLocation, String strWord2Find) {
+	public static Boolean FindSomething(String strFileLocation, String strWord2Find) throws FileNotFoundException {
 			File myData = new File (strFileLocation);
-			Scanner scnReader = new Scanner (System.in);
+			Scanner scnReader = new Scanner (myData);
 			while (scnReader.hasNext())
 			{
 				String strLine = scnReader.nextLine();
