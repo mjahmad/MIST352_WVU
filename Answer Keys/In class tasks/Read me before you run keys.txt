@@ -1,0 +1,1 @@
+On Eclipse, after importing each of these projects, you may have to rename the java files to match the project name. Eclipse will suggest you do this anyway wbefore you run each project.
