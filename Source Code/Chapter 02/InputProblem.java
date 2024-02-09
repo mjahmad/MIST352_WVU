@@ -20,12 +20,12 @@ public class InputProblem
       age = keyboard.nextInt();
       
       // Get the user's income
-      System.out.print("What is your annual income? ");
+      System.out.println("What is your annual income? ");
       income = keyboard.nextDouble();
       
       // Get the user's name.
       System.out.print("What is your name? ");
-      name = keyboard.nextLine();
+      name = keyboard.next();
       
       // Display the information back to the user.
       System.out.println("Hello " + name + ". Your age is "

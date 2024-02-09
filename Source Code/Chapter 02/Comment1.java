@@ -7,10 +7,15 @@ public class Comment1
 {
    public static void main(String[] args)       
    {
-      double payRate;         // Holds the hourly pay rate
-      double hours;           // Holds the hours worked
-      int employeeNumber;     // Holds the employee number
+      double payRate =0.1;         // Holds the hourly pay rate
+      double hours=10;           // Holds the hours worked
+      int employeeNumber =101;     // Holds the employee number
+      String name="MJ";
       
+      
+      System.out.println("The payrate is "+payRate + " The hours is"+hours +" emp numnber is "+employeeNumber);
+
+      System.out.printf("The name is %s The payrate is %.2f The hours is %.2f emp numnber is %d",name,payRate,hours,employeeNumber);
       // The Remainder of This Program is Omitted.
    }
 }
