@@ -6,6 +6,31 @@ public class Squares
 {
    public static void main(String[] args)
    {
+	   
+	   int intValue=1;
+	   while (intValue <=100)
+	   {
+		   
+		   if (intValue%2 ==0)
+		   {
+			   //System.out.println(intValue + "-Even");
+   
+		   }
+		   else
+		   {
+			   System.out.println(intValue + "-Odd");
+
+		   }
+		   
+		   intValue++;
+	   }
+	   
+	   
+	   
+	   
+	   
+	   
+	   
       //int number; // Loop control variable
 
 //      System.out.println("Number   Number Squared");
@@ -49,22 +74,22 @@ public class Squares
 //      while (intCounter <= 100)
 //      {System.out.println(intCounter);
 //      intCounter+=2;
+////      }
+//      
+//      int intCounter2 = -1;
+//      while(intCounter2 >=-10)
+//      {
+//    	  System.out.println(intCounter2)   	  ;
+//      intCounter2--;
 //      }
-      
-      int intCounter2 = -1;
-      while(intCounter2 >=-10)
-      {
-    	  System.out.println(intCounter2)   	  ;
-      intCounter2--;
-      }
-	  System.out.println("=================================")   	  ;
-
-      
-      for (int intCounter3 = -1; intCounter3 >= -10; intCounter3--)
-      {
-    	  System.out.println(intCounter3)   	  ;
-
-      }
+//	  System.out.println("=================================")   	  ;
+//
+//      
+//      for (int intCounter3 = -1; intCounter3 >= -10; intCounter3--)
+//      {
+//    	  System.out.println(intCounter3)   	  ;
+//
+//      }
 
    }
 }

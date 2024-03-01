@@ -16,18 +16,20 @@ public class SwitchDemo
 
       // Ask the user to enter A, B, or C.
       System.out.print("Enter A, B, or C: ");
-      input = keyboard.nextLine();
+      input = (keyboard.nextLine()).toUpperCase();
       choice = input.charAt(0);  // Get the first char
       
       // Determine which character the user entered.
       switch (choice)
       {
-         case 'A':
+         case 'A': 
             System.out.println("You entered A.");
             break;
+    
          case 'B':
             System.out.println("You entered B.");
             break;
+     
          case 'C':
             System.out.println("You entered C.");
             break;

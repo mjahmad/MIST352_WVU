@@ -9,19 +9,36 @@ public class Clock
 {
    public static void main(String[] args)
    {
-      DecimalFormat fmt = new DecimalFormat("00");
+	   for (int intHours=0; intHours<=12; intHours++)
+	   {
+		   System.out.println("================================");
 
-      for (int hours = 1; hours <= 12; hours++)
-      {
-          for (int minutes = 0; minutes <= 59; minutes++)
-          {
-             for (int seconds = 0; seconds <= 59; seconds++)
-             {
-                System.out.print(fmt.format(hours) + ":"); 
-                System.out.print(fmt.format(minutes) + ":"); 
-                System.out.println(fmt.format(seconds));
-              }
-          }
-       }
+		   //System.out.println("hours\t"+intHours);
+		   System.out.println("================================");
+
+		   for (int intMinutes =0; intMinutes <60; intMinutes++)
+		   {
+			   //System.out.println("minutes\t"+intMinutes);
+			   
+			   for (int intSeconds=0;intSeconds<60;intSeconds++)
+			   {
+				   //System.out.println("second\t"+intSeconds);
+				   
+				   System.out.printf("\n%d:%d:%d\n",intHours,intMinutes,intSeconds);
+
+				   
+			   }
+			   
+
+		   }
+		   
+	   }
+	   
+	   
+	   
+	   
+	   
+
+     
    }
 }
