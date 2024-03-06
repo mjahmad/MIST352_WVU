@@ -121,6 +121,13 @@ public class OneDArray {
 
 		}
 		System.out.printf("==================================\n");
+		
+		int intCounter=10;
+		while(intCounter <=15)
+		{
+			System.out.println (++intCounter);
+		}
+
 
 		
 	}

@@ -45,6 +45,8 @@ public class ReadWriteTXT {
 		
 		inputFile.close();
 		outputFile.close();
+		
+		
 	}
 
 }
