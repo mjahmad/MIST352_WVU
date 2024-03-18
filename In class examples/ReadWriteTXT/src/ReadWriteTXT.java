@@ -46,6 +46,10 @@ public class ReadWriteTXT {
 		inputFile.close();
 		outputFile.close();
 		
+		outputFile.println("Cats everywhere");
+
+		
+		
 		
 	}
 
