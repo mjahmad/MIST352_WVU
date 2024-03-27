@@ -42,7 +42,11 @@ public class HW3 {
 			case 1:
 				myData.ViewEmployeeAndIDs();
 				break;
-			
+			case 3:
+				//you should ask for employee name using GUI
+				myData.ViewRoles();
+				break;
+				
 			}
 			intChoice  = Integer.parseInt( JOptionPane.showInputDialog(null,  ViewOptions()));	
 		}
