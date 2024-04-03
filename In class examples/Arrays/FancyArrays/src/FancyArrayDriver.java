@@ -116,6 +116,17 @@ public class FancyArrayDriver {
 				
 				//Calling the method that finds whether a number , 1, is in the array or not
 				System.out.println(second2DArray.containsElement(1));
+				
+				
+				System.out.println("Create a 1D array object by reading a text file");
+
+				 TextFileToArray example1 = new TextFileToArray("src/data1.txt", 5); // Adjust path and number of lines as needed
+			     example1.printArray();
+			     
+				System.out.println("Create a 2D array object by reading a text file");
+
+			     CSVFileTo2DArray example2 = new CSVFileTo2DArray("src/data2.csv", 5, 3); // Adjust path, rows, and columns as needed
+			     example2.printArray();
 
 
 
