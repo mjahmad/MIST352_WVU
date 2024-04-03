@@ -11,7 +11,7 @@ public class SameArray
       int[] array2 = array1;
 
       // Change one of the elements using array1.
-      array1[0] = 200;
+      array1[0] = 00;
 
       // Change one of the elements using array2.
       array2[4] = 1000;
