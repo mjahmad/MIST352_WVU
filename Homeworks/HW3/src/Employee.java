@@ -47,6 +47,7 @@ public class Employee {
 	 * @return bar: representation in start of the salary. Each * represents $10,000
 	 */
    public String SalaryBarChart(double salary) {
+	   return bar;
 			
 
 	    	}
@@ -60,6 +61,7 @@ public class Employee {
    public String SummerizeEmployee()
 	 
 	 {
+		return "";
 		
 	 }
 	 

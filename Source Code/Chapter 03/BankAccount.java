@@ -19,9 +19,9 @@ public class BankAccount
    public BankAccount(double startBalance,
                       double intRate)
    {
-      balance = startBalance;
-      interestRate = intRate;
-      interest = 0.0;
+      this.balance = startBalance;
+      this.interestRate = intRate;
+      this.interest  = 0.0;
    }
 
    /**
