@@ -134,6 +134,31 @@ public class Fancy1DArray {
         System.out.println();
     }
 	
+	 /**
+     * Reverses the given array and returns a new array with the elements
+     * in reverse order. The original array remains unchanged.
+     *
+     * @param originalArray The array whose elements are to be reversed.
+     *                      It must not be {@code null}.
+     * @return A new int array containing the elements of the original array
+     *         in reverse order. The size of the returned array matches the
+     *         size of the input array.
+     */
+    public static int[] reverseArray(int[] originalArray) {
+        int length = originalArray.length;
+        int[] reversedArray = new int[length];
+
+        // Iterate over the original array from start to end.
+        // For each element in the original array, place it in the
+        // reversed array starting from the end towards the start.
+        for (int i = 0; i < length; i++) {
+            reversedArray[i] = originalArray[length - 1 - i];
+        }
+
+        // Return the newly created reversed array.
+        return reversedArray;
+    }
+	
 
 
 }
