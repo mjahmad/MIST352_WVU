@@ -17,7 +17,7 @@ public class PayrollDemo
       // Create a Scanner object for keyboard input.
       Scanner keyboard = new Scanner(System.in);
       
-      // Create a Payroll object.
+      // Create a Payroll object named pr
 
       
       // Get the hours and pay rate for each employee.
