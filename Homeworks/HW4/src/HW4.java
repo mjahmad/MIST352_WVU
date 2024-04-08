@@ -27,11 +27,27 @@ public class HW4 {
     //***********************************************************************************************
         //to do:
         	// 1. print out the array of csv files by calling the PrintArray method below
-        	// 2. access the array csvFileNames add the directory to each file name. So, the file Ant1.csv should become src/Data/Ant1.csv       	
+        	PrintArray(csvFileNames);
+        	
+        	// 2. access the array csvFileNames add the directory to each file name. So, the file Ant1.csv should become src/Data/Ant1.csv   
+        	for (int counter =0; counter < csvFileNames.length; counter++)
+    			csvFileNames[counter]= directoryPath+"/"+csvFileNames[counter];
         	// 3. print out the array of csv files again after adding directory to each by calling the PrintArray method below
+         	PrintArray(csvFileNames);
         	// 4. Go through the array again (using while / for loop), every time you access a cell, create an object of type Csv2Arff.
-        	// 5. Call the proper method to write the arff file for the current csv file in the loop.
+         	for (int counter =0; counter < csvFileNames.length; counter++)
+         	{
+         		Csv2Arff theArffFile= new Csv2Arff(csvFileNames[counter]);
+            	// 5. Call the proper method to write the arff file for the current csv file in the loop.
+         		theArffFile.Convert2Arff(csvFileNames[counter]);
+         		
+         	}
         	// 6. Ask the user for any name of a file to look in, and then column number and row number.
+         	String output ="";
+         	int row=10;
+         	int column=5;
+         	Csv2Arff arffOutPut =  new Csv2Arff(output);
+         	arffOutPut.RetrieveCell(output,row,column);
         		// 6.1 Printout the value from that file.
                
     }
@@ -42,7 +58,8 @@ public class HW4 {
 	 */
 	public static void PrintArray(String[] array)
 	{
-
+		for (int counter =0; counter < array.length; counter++)
+			System.out.println(array[counter]);
 	}
 
 	/**
