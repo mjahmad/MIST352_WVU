@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry excluding="ValueReturn with Documentation/|TwoArgs2 with Documentation/|Increments_Examples/src/" kind="src" path=""/>
-	<classpathentry kind="src" path="Increments_Examples/src"/>
-	<classpathentry kind="src" path="TwoArgs2 with Documentation"/>
-	<classpathentry kind="src" path="ValueReturn with Documentation"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
