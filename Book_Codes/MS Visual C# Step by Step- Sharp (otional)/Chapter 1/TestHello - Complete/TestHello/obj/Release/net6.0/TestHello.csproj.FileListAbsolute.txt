@@ -1,0 +1,8 @@
+G:\My Drive\WVU\MIS\Teachings\2025\Fall 2025\MIST352 - C#\MIST352_WVU\Book_Codes\MS Visual C# Step by Step- Sharp\Chapter 1\TestHello - Complete\TestHello\obj\Release\net6.0\TestHello.GeneratedMSBuildEditorConfig.editorconfig
+G:\My Drive\WVU\MIS\Teachings\2025\Fall 2025\MIST352 - C#\MIST352_WVU\Book_Codes\MS Visual C# Step by Step- Sharp\Chapter 1\TestHello - Complete\TestHello\obj\Release\net6.0\TestHello.AssemblyInfoInputs.cache
+G:\My Drive\WVU\MIS\Teachings\2025\Fall 2025\MIST352 - C#\MIST352_WVU\Book_Codes\MS Visual C# Step by Step- Sharp\Chapter 1\TestHello - Complete\TestHello\obj\Release\net6.0\TestHello.AssemblyInfo.cs
+G:\My Drive\WVU\MIS\Teachings\2025\Fall 2025\MIST352 - C#\MIST352_WVU\Book_Codes\MS Visual C# Step by Step- Sharp\Chapter 1\TestHello - Complete\TestHello\obj\Release\net6.0\TestHello.csproj.CoreCompileInputs.cache
+G:\My Drive\WVU\MIS\Teachings\2025\Fall 2025\MIST352 - C#\MIST352_WVU\Book_Codes\MS Visual C# Step by Step- Sharp\Chapter 1\TestHello - Complete\TestHello\obj\Release\net6.0\TestHello.sourcelink.json
+G:\My Drive\WVU\MIS\Teachings\2025\Fall 2025\MIST352 - C#\MIST352_WVU\Book_Codes\MS Visual C# Step by Step- Sharp\Chapter 1\TestHello - Complete\TestHello\obj\Release\net6.0\TestHello.dll
+G:\My Drive\WVU\MIS\Teachings\2025\Fall 2025\MIST352 - C#\MIST352_WVU\Book_Codes\MS Visual C# Step by Step- Sharp\Chapter 1\TestHello - Complete\TestHello\obj\Release\net6.0\refint\TestHello.dll
+G:\My Drive\WVU\MIS\Teachings\2025\Fall 2025\MIST352 - C#\MIST352_WVU\Book_Codes\MS Visual C# Step by Step- Sharp\Chapter 1\TestHello - Complete\TestHello\obj\Release\net6.0\TestHello.pdb

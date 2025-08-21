@@ -1,0 +1,11 @@
+Usage Notice:
+
+The source code examples in this directory are drawn directly and as is from:
+
+1. The Visual C# How to Program, 6/e public GitHub repository maintained by Deitel & Associates, Inc. and Pearson Education, Inc.—used under the terms specified in the repository (“These files are for your personal use and may not be redistributed or reposted.”) (https://github.com/pdeitel/VCSharpHTP6), and
+
+2. The O’Reilly Learning Platform version of Microsoft Visual C#, 6th Edition (ISBN 978-0137619856), which is accessed through institutional or individual subscription and subject to O’Reilly Media’s standard usage and copyright policies. (https://www.microsoftpressstore.com/store/microsoft-visual-c-sharp-step-by-step-9780137619832#downloads)
+
+All content is employed strictly for educational purposes. If you wish to use or redistribute any of these materials beyond this course, please refer to the original sources or contact the respective rights holders for permission.
+
+You do not need to download those source codes, they are already available on the MIST352 github repository
