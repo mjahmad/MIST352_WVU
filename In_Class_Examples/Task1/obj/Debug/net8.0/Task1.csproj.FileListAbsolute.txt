@@ -1,0 +1,15 @@
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\bin\Debug\net8.0\Task1.exe
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\bin\Debug\net8.0\Task1.deps.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\bin\Debug\net8.0\Task1.runtimeconfig.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\bin\Debug\net8.0\Task1.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\bin\Debug\net8.0\Task1.pdb
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\obj\Debug\net8.0\Task1.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\obj\Debug\net8.0\Task1.AssemblyInfoInputs.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\obj\Debug\net8.0\Task1.AssemblyInfo.cs
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\obj\Debug\net8.0\Task1.csproj.CoreCompileInputs.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\obj\Debug\net8.0\Task1.sourcelink.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\obj\Debug\net8.0\Task1.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\obj\Debug\net8.0\refint\Task1.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\obj\Debug\net8.0\Task1.pdb
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\obj\Debug\net8.0\Task1.genruntimeconfig.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Task1\obj\Debug\net8.0\ref\Task1.dll
