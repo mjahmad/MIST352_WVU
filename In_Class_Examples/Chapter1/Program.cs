@@ -1,4 +1,18 @@
-﻿namespace Chapter1
+﻿/*
+--------------------------------------------------------
+Author: Mohammad Jamil Ahmad
+Date:   August 28, 2025
+Chapter 1
+Purpose: Demonstration of variables, input, and output
+Description:
+This program calculates the area of a circle,
+asks for user input (name, age, etc.),
+and demonstrates different Console.WriteLine formats.
+
+--------------------------------------------------------
+*/
+
+namespace Chapter1
 {
     using System;
 
