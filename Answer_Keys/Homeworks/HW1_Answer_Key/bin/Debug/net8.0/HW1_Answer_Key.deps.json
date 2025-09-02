@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "HW1_Answer_Key/1.0.0": {
+        "runtime": {
+          "HW1_Answer_Key.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HW1_Answer_Key/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
