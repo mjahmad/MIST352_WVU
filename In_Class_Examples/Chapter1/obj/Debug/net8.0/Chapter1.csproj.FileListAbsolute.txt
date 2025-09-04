@@ -1,0 +1,15 @@
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\bin\Debug\net8.0\Chapter1.exe
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\bin\Debug\net8.0\Chapter1.deps.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\bin\Debug\net8.0\Chapter1.runtimeconfig.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\bin\Debug\net8.0\Chapter1.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\bin\Debug\net8.0\Chapter1.pdb
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\obj\Debug\net8.0\Chapter1.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\obj\Debug\net8.0\Chapter1.AssemblyInfoInputs.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\obj\Debug\net8.0\Chapter1.AssemblyInfo.cs
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\obj\Debug\net8.0\Chapter1.csproj.CoreCompileInputs.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\obj\Debug\net8.0\Chapter1.sourcelink.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\obj\Debug\net8.0\Chapter1.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\obj\Debug\net8.0\refint\Chapter1.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\obj\Debug\net8.0\Chapter1.pdb
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\obj\Debug\net8.0\Chapter1.genruntimeconfig.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Chapter1\obj\Debug\net8.0\ref\Chapter1.dll
