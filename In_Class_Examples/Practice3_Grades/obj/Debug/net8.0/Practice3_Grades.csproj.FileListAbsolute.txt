@@ -1,0 +1,15 @@
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\bin\Debug\net8.0\Practice3_Grades.exe
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\bin\Debug\net8.0\Practice3_Grades.deps.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\bin\Debug\net8.0\Practice3_Grades.runtimeconfig.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\bin\Debug\net8.0\Practice3_Grades.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\bin\Debug\net8.0\Practice3_Grades.pdb
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\obj\Debug\net8.0\Practice3_Grades.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\obj\Debug\net8.0\Practice3_Grades.AssemblyInfoInputs.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\obj\Debug\net8.0\Practice3_Grades.AssemblyInfo.cs
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\obj\Debug\net8.0\Practice3_Grades.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\obj\Debug\net8.0\Practice3_Grades.sourcelink.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\obj\Debug\net8.0\Practice3_Grades.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\obj\Debug\net8.0\refint\Practice3_Grades.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\obj\Debug\net8.0\Practice3_Grades.pdb
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\obj\Debug\net8.0\Practice3_Grades.genruntimeconfig.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice3_Grades\obj\Debug\net8.0\ref\Practice3_Grades.dll
