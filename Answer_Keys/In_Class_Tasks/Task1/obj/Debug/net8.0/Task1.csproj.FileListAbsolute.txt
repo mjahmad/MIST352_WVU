@@ -1,0 +1,15 @@
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\bin\Debug\net8.0\Task1.exe
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\bin\Debug\net8.0\Task1.deps.json
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\bin\Debug\net8.0\Task1.runtimeconfig.json
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\bin\Debug\net8.0\Task1.dll
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\bin\Debug\net8.0\Task1.pdb
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\obj\Debug\net8.0\Task1.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\obj\Debug\net8.0\Task1.AssemblyInfoInputs.cache
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\obj\Debug\net8.0\Task1.AssemblyInfo.cs
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\obj\Debug\net8.0\Task1.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\obj\Debug\net8.0\Task1.sourcelink.json
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\obj\Debug\net8.0\Task1.dll
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\obj\Debug\net8.0\refint\Task1.dll
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\obj\Debug\net8.0\Task1.pdb
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\obj\Debug\net8.0\Task1.genruntimeconfig.cache
+D:\MIST352_Fall25\Mohammad_Ahmad_MIST352_Fall2025\In_Class_Tasks\Task1\obj\Debug\net8.0\ref\Task1.dll
