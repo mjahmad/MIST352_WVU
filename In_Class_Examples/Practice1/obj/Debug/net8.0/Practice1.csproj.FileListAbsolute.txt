@@ -1,0 +1,15 @@
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\bin\Debug\net8.0\Practice1.exe
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\bin\Debug\net8.0\Practice1.deps.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\bin\Debug\net8.0\Practice1.runtimeconfig.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\bin\Debug\net8.0\Practice1.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\bin\Debug\net8.0\Practice1.pdb
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\obj\Debug\net8.0\Practice1.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\obj\Debug\net8.0\Practice1.AssemblyInfoInputs.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\obj\Debug\net8.0\Practice1.AssemblyInfo.cs
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\obj\Debug\net8.0\Practice1.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\obj\Debug\net8.0\Practice1.sourcelink.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\obj\Debug\net8.0\Practice1.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\obj\Debug\net8.0\refint\Practice1.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\obj\Debug\net8.0\Practice1.pdb
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\obj\Debug\net8.0\Practice1.genruntimeconfig.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Practice1\obj\Debug\net8.0\ref\Practice1.dll

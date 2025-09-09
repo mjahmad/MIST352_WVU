@@ -1,0 +1,15 @@
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\bin\Debug\net8.0\Table.exe
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\bin\Debug\net8.0\Table.deps.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\bin\Debug\net8.0\Table.runtimeconfig.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\bin\Debug\net8.0\Table.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\bin\Debug\net8.0\Table.pdb
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\obj\Debug\net8.0\Table.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\obj\Debug\net8.0\Table.AssemblyInfoInputs.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\obj\Debug\net8.0\Table.AssemblyInfo.cs
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\obj\Debug\net8.0\Table.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\obj\Debug\net8.0\Table.sourcelink.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\obj\Debug\net8.0\Table.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\obj\Debug\net8.0\refint\Table.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\obj\Debug\net8.0\Table.pdb
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\obj\Debug\net8.0\Table.genruntimeconfig.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Table\obj\Debug\net8.0\ref\Table.dll
