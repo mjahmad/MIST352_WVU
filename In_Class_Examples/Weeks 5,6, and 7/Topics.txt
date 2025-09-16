@@ -1,3 +1,10 @@
 More for loops
-More If statements (and other similar techniques)
+More If statements (and other similar techniques) 
+Operators AND &&, OR ||, and NOT !
 Introduction to Classes and Objects
+
+Programs used here:
+1. IF_Statements: An example on how to use If, else if, and else to calculate letter grade of a given grade.
+	This program has mechanisms to verify user input and handle it correctly . If user skips input or provides nothing or 	provides text instead of grade, the program handles it.
+2. IF_Array_ForLoops: Same as the first program however, here we have multiple grades stored in an array. 
+	This program reads grades from user, stores them in an array, then creates an other array filled with letter grades of the grades in the first array.
