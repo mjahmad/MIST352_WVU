@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "IF_Multiple_Grades_Evaluation/1.0.0": {
+        "runtime": {
+          "IF_Multiple_Grades_Evaluation.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "IF_Multiple_Grades_Evaluation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

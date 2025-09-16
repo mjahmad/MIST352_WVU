@@ -1,0 +1,15 @@
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\bin\Debug\net8.0\IF_Simple_Grade.exe
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\bin\Debug\net8.0\IF_Simple_Grade.deps.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\bin\Debug\net8.0\IF_Simple_Grade.runtimeconfig.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\bin\Debug\net8.0\IF_Simple_Grade.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\bin\Debug\net8.0\IF_Simple_Grade.pdb
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\obj\Debug\net8.0\IF_Simple_Grade.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\obj\Debug\net8.0\IF_Simple_Grade.AssemblyInfoInputs.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\obj\Debug\net8.0\IF_Simple_Grade.AssemblyInfo.cs
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\obj\Debug\net8.0\IF_Simple_Grade.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\obj\Debug\net8.0\IF_Simple_Grade.sourcelink.json
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\obj\Debug\net8.0\IF_Simple_Grade.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\obj\Debug\net8.0\refint\IF_Simple_Grade.dll
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\obj\Debug\net8.0\IF_Simple_Grade.pdb
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\obj\Debug\net8.0\IF_Simple_Grade.genruntimeconfig.cache
+D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\IF_Simple_Grade\obj\Debug\net8.0\ref\IF_Simple_Grade.dll
