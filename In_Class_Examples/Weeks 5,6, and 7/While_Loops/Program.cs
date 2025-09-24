@@ -12,27 +12,30 @@ namespace While_Loops
         static void Main(string[] args)
         {
             double[] dblNumbers = { 19.0, 18, 10, 0.7, 5.5 };
-            //for (int intIndex = 0; intIndex < dblNumbers.Length; intIndex++)
-            //{
-            //    Console.WriteLine(dblNumbers[intIndex]);
-            //}
-
-            //while loop
-            int intWhileIndex = 0;
-            while (intWhileIndex < dblNumbers.Length)
+            for (int intIndex = dblNumbers.Length - 1; intIndex >=0; intIndex--)
             {
-                Console.WriteLine(dblNumbers[intWhileIndex]);
-                //intWhileIndex++;
-
+                Console.WriteLine(dblNumbers[intIndex]);
+                intIndex++;
             }
 
-            //String strPassword = "";
-            //while (strPassword!="Cats")
-            //{
-            //    Console.WriteLine("Give me a password");
-            //    strPassword = Console.ReadLine();
 
+            //int intWhileIndex = 0;
+            //while (intWhileIndex < dblNumbers.Length)
+            //{
+            //    Console.WriteLine(dblNumbers[intWhileIndex]);
+            //    intWhileIndex++;
             //}
+
+            /*       String strMagicWord = "";
+                   Console.WriteLine("What is 5 * 5?");
+                   while (strMagicWord != "25")
+                   { 
+                       Console.WriteLine("wrong answer. Try again");
+                       strMagicWord = Console.ReadLine();
+                   }
+
+
+       */
 
 
 
