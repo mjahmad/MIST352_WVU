@@ -10,3 +10,4 @@ Programs used here:
 	This program reads grades from user, stores them in an array, then creates an other array filled with letter grades of the grades in the first array.
 3. IF_Simple_Grade:Simple grade evaluation using one or more grades from the user.
 4. IF_Multiple_Grades_Evaluation:Asks user for multiple grade. Evaluate and summarize.
+5. The use of While loop compared to for loop when accessing an array. An example also on how to use while loop for evaluating user input until they provide a desired input.
