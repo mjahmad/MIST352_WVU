@@ -1,0 +1,15 @@
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\bin\Debug\net8.0\ConsoleApp1.exe
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\bin\Debug\net8.0\ConsoleApp1.deps.json
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\bin\Debug\net8.0\ConsoleApp1.runtimeconfig.json
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\bin\Debug\net8.0\ConsoleApp1.dll
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\bin\Debug\net8.0\ConsoleApp1.pdb
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.AssemblyInfoInputs.cache
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.AssemblyInfo.cs
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.sourcelink.json
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.dll
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\obj\Debug\net8.0\refint\ConsoleApp1.dll
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.pdb
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.genruntimeconfig.cache
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam1 Review\ConsoleApp1\obj\Debug\net8.0\ref\ConsoleApp1.dll
