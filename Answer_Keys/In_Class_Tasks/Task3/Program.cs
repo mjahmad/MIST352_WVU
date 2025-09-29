@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+﻿/*
+ */
+=======
 ﻿// Mini Point-of-Sale (POS) — Variable Item Count
 // -------------------------------------------------------
 // Concepts practiced:
@@ -16,11 +20,20 @@
 using System;
 using System.Globalization;
 using System.Text;
+>>>>>>> c3fbbbe91c8aa20e8bb1f9be32a65e052c2519bc
 
 namespace Task3
 {
     internal class Program
     {
+<<<<<<< HEAD
+        static void Main(string[] args)
+        {
+            Console.WriteLine("How many itesm would yo like to order?>");
+            int intItemCount = int.Parse(Console.ReadLine());
+            
+            //define arrays of size intItemcount
+=======
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
@@ -42,12 +55,28 @@ namespace Task3
             // ─────────────────────────────────────────────────────────
             // Allocate arrays based on user input
             // ─────────────────────────────────────────────────────────
+>>>>>>> c3fbbbe91c8aa20e8bb1f9be32a65e052c2519bc
             string[] strNames = new string[intItemCount];
             double[] dblPrices = new double[intItemCount];
             int[] intQtys = new int[intItemCount];
             int[] intStocks = new int[intItemCount];
             double[] dblLineDiscounts = new double[intItemCount];
             double[] dblLineTotals = new double[intItemCount];
+<<<<<<< HEAD
+            bool[] blnReord = new bool[intItemCount];
+
+            //the main for loop to accept items data and store them in the arrays above.
+
+            for (int intIndex = 0; intIndex < strNames.Length; intIndex++)
+            { }
+
+
+
+
+
+
+
+=======
             bool[] blnReorder = new bool[intItemCount];
 
             Console.WriteLine("\n=== Mini POS: Enter item details ===");
@@ -137,6 +166,7 @@ namespace Task3
 
             Console.WriteLine("\nDone. Press Enter to exit.");
             Console.ReadLine();
+>>>>>>> c3fbbbe91c8aa20e8bb1f9be32a65e052c2519bc
         }
     }
 }

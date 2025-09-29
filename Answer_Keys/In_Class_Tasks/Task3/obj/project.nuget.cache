@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "i13OxR+R/oU=",
+  "success": true,
+  "projectFilePath": "D:\\MIST352_Fall25\\MIST352_WVU\\Answer_Keys\\In_Class_Tasks\\Task3\\Task3.csproj",
+=======
   "dgSpecHash": "tdd8AVpVWIQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\mjahm\\OneDrive\\Desktop\\Task3\\Task3.csproj",
+>>>>>>> c3fbbbe91c8aa20e8bb1f9be32a65e052c2519bc
   "expectedPackageFiles": [],
   "logs": []
 }
