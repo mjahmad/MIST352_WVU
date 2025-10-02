@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Methods_Arrays_Switch_3/1.0.0": {
+        "runtime": {
+          "Methods_Arrays_Switch_3.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Methods_Arrays_Switch_3/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
