@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\bin\Debug\net8.0\Methods_1.exe
 D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\bin\Debug\net8.0\Methods_1.deps.json
 D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\bin\Debug\net8.0\Methods_1.runtimeconfig.json
@@ -13,3 +14,20 @@ D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\D
 D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\Methods_1.pdb
 D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\Methods_1.genruntimeconfig.cache
 D:\MIST352_Fall25\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\ref\Methods_1.dll
+=======
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\bin\Debug\net8.0\Methods_1.exe
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\bin\Debug\net8.0\Methods_1.deps.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\bin\Debug\net8.0\Methods_1.runtimeconfig.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\bin\Debug\net8.0\Methods_1.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\bin\Debug\net8.0\Methods_1.pdb
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\Methods_1.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\Methods_1.AssemblyInfoInputs.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\Methods_1.AssemblyInfo.cs
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\Methods_1.csproj.CoreCompileInputs.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\Methods_1.sourcelink.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\Methods_1.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\refint\Methods_1.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\Methods_1.pdb
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\Methods_1.genruntimeconfig.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 5,6, and 7\Methods_1\obj\Debug\net8.0\ref\Methods_1.dll
+>>>>>>> b87ee5d3a7eb29a0438970b78ee36726d1e59363
