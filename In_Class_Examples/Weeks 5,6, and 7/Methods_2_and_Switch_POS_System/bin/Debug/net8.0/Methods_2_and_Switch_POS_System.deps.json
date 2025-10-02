@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Methods_2_and_Switch_POS_System/1.0.0": {
+        "runtime": {
+          "Methods_2_and_Switch_POS_System.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Methods_2_and_Switch_POS_System/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
