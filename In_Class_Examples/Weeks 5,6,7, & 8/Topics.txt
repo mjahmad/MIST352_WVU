@@ -13,3 +13,6 @@ Programs used here:
 5. The use of While loop compared to for loop when accessing an array. An example also on how to use while loop for evaluating user input until they provide a desired input.
 
 6. Methods_1: Introduction to methods in C#.
+7. Methods_2_and_Switch_POS_System
+8. Methods_Arrays_Switch_3
+9. Methods_Passing_Types
