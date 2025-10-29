@@ -1,0 +1,15 @@
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\bin\Debug\net8.0\Students_Application.exe
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\bin\Debug\net8.0\Students_Application.deps.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\bin\Debug\net8.0\Students_Application.runtimeconfig.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\bin\Debug\net8.0\Students_Application.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\bin\Debug\net8.0\Students_Application.pdb
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\obj\Debug\net8.0\Students_Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\obj\Debug\net8.0\Students_Application.AssemblyInfoInputs.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\obj\Debug\net8.0\Students_Application.AssemblyInfo.cs
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\obj\Debug\net8.0\Students_Application.csproj.CoreCompileInputs.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\obj\Debug\net8.0\Students_Application.sourcelink.json
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\obj\Debug\net8.0\Students_Application.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\obj\Debug\net8.0\refint\Students_Application.dll
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\obj\Debug\net8.0\Students_Application.pdb
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\obj\Debug\net8.0\Students_Application.genruntimeconfig.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Students_Application\obj\Debug\net8.0\ref\Students_Application.dll
