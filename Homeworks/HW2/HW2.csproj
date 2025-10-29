@@ -8,9 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="prices.txt">
+    <None Remove="prices.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="prices.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Program.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Compile>
   </ItemGroup>
 
 </Project>

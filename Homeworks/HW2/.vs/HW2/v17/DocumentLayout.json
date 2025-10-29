@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\GitHub_Repos\\MIST352_WVU\\Homeworks\\HW2\\",
+  "WorkspaceRootPath": "D:\\MIST352_Fall25\\MIST352_WVU\\Homeworks\\HW2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C8D2B14F-585A-48F5-ABC7-8E7AC50E101C}|HW2.csproj|e:\\github_repos\\mist352_wvu\\homeworks\\hw2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C8D2B14F-585A-48F5-ABC7-8E7AC50E101C}|HW2.csproj|d:\\mist352_fall25\\mist352_wvu\\homeworks\\hw2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D2B14F-585A-48F5-ABC7-8E7AC50E101C}|HW2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D2B14F-585A-48F5-ABC7-8E7AC50E101C}|HW2.csproj|d:\\mist352_fall25\\mist352_wvu\\homeworks\\hw2\\prices.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C8D2B14F-585A-48F5-ABC7-8E7AC50E101C}|HW2.csproj|solutionrelative:prices.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "prices.txt",
+              "DocumentMoniker": "D:\\MIST352_Fall25\\MIST352_WVU\\Homeworks\\HW2\\prices.txt",
+              "RelativeDocumentMoniker": "prices.txt",
+              "ToolTip": "D:\\MIST352_Fall25\\MIST352_WVU\\Homeworks\\HW2\\prices.txt",
+              "RelativeToolTip": "prices.txt",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-10-21T17:43:00.484Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
@@ -24,11 +41,15 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "E:\\GitHub_Repos\\MIST352_WVU\\Homeworks\\HW2\\Program.cs",
+              "DocumentMoniker": "D:\\MIST352_Fall25\\MIST352_WVU\\Homeworks\\HW2\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\GitHub_Repos\\MIST352_WVU\\Homeworks\\HW2\\Program.cs",
+              "ToolTip": "D:\\MIST352_Fall25\\MIST352_WVU\\Homeworks\\HW2\\Program.cs",
               "RelativeToolTip": "Program.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAHQAAAAAAAAAAAAwwJIAAAAAAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAABoAAAAAAAAAAAAAwCQAAAAAAAAAAAAAAA==",
+>>>>>>> 1159850 (added Class Student from 10/28/25)
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-14T16:12:30.537Z",
               "EditorCaption": ""

@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\MIST352_Fall25\\MIST352_WVU\\In_Class_Examples\\Weeks 9 \u0026 10\\Circle\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FF68F2BC-5507-43F8-A54E-AEA9611AE3F0}|Circle.csproj|d:\\mist352_fall25\\mist352_wvu\\in_class_examples\\weeks 9 \u0026 10\\circle\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF68F2BC-5507-43F8-A54E-AEA9611AE3F0}|Circle.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\MIST352_Fall25\\MIST352_WVU\\In_Class_Examples\\Weeks 9 \u0026 10\\Circle\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\MIST352_Fall25\\MIST352_WVU\\In_Class_Examples\\Weeks 9 \u0026 10\\Circle\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T15:33:50.701Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
