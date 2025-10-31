@@ -25,9 +25,16 @@ public class Student
     public Student(String anID)
     {
         ID = anID;
-        FirstName = "";
-        LastName = "";
+        FirstName = "Not Provided";
+        LastName = "Not Provided";
 
+    }
+
+    public Student(String LName, String FName)
+    {
+        LastName = LName;
+        FirstName = FName;
+        ID = "000-00-0000";
     }
 
     public void SetGPA(double theGPA)

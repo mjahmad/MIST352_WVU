@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\MIST352_Fall25\\MIST352_WVU\\In_Class_Examples\\Weeks 9 \u0026 10\\Students_Program\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5C61BAC4-686F-44CF-AF44-00AA7B1842E7}|Students_Program.csproj|d:\\mist352_fall25\\mist352_wvu\\in_class_examples\\weeks 9 \u0026 10\\students_program\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C61BAC4-686F-44CF-AF44-00AA7B1842E7}|Students_Program.csproj|solutionrelative:student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C61BAC4-686F-44CF-AF44-00AA7B1842E7}|Students_Program.csproj|d:\\mist352_fall25\\mist352_wvu\\in_class_examples\\weeks 9 \u0026 10\\students_program\\fancystudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C61BAC4-686F-44CF-AF44-00AA7B1842E7}|Students_Program.csproj|solutionrelative:fancystudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5C61BAC4-686F-44CF-AF44-00AA7B1842E7}|Students_Program.csproj|d:\\mist352_fall25\\mist352_wvu\\in_class_examples\\weeks 9 \u0026 10\\students_program\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,14 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Student.cs",
-              "DocumentMoniker": "D:\\MIST352_Fall25\\MIST352_WVU\\In_Class_Examples\\Weeks 9 \u0026 10\\Students_Program\\Student.cs",
-              "RelativeDocumentMoniker": "Student.cs",
-              "ToolTip": "D:\\MIST352_Fall25\\MIST352_WVU\\In_Class_Examples\\Weeks 9 \u0026 10\\Students_Program\\Student.cs",
-              "RelativeToolTip": "Student.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAkwAMAAAASAAAAAAAAAA==",
+              "Title": "FancyStudent.cs",
+              "DocumentMoniker": "D:\\MIST352_Fall25\\MIST352_WVU\\In_Class_Examples\\Weeks 9 \u0026 10\\Students_Program\\FancyStudent.cs",
+              "RelativeDocumentMoniker": "FancyStudent.cs",
+              "ToolTip": "D:\\MIST352_Fall25\\MIST352_WVU\\In_Class_Examples\\Weeks 9 \u0026 10\\Students_Program\\FancyStudent.cs",
+              "RelativeToolTip": "FancyStudent.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAgwD4AAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T15:41:11.903Z",
+              "WhenOpened": "2025-10-30T16:10:13.033Z",
               "EditorCaption": ""
             },
             {
@@ -45,7 +45,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\MIST352_Fall25\\MIST352_WVU\\In_Class_Examples\\Weeks 9 \u0026 10\\Students_Program\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA0AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T14:55:12.362Z",
               "EditorCaption": ""
