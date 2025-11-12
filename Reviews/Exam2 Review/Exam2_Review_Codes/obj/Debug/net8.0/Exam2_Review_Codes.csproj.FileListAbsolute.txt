@@ -1,0 +1,15 @@
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\bin\Debug\net8.0\Exam2_Review_Codes.exe
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\bin\Debug\net8.0\Exam2_Review_Codes.deps.json
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\bin\Debug\net8.0\Exam2_Review_Codes.runtimeconfig.json
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\bin\Debug\net8.0\Exam2_Review_Codes.dll
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\bin\Debug\net8.0\Exam2_Review_Codes.pdb
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\obj\Debug\net8.0\Exam2_Review_Codes.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\obj\Debug\net8.0\Exam2_Review_Codes.AssemblyInfoInputs.cache
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\obj\Debug\net8.0\Exam2_Review_Codes.AssemblyInfo.cs
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\obj\Debug\net8.0\Exam2_Review_Codes.csproj.CoreCompileInputs.cache
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\obj\Debug\net8.0\Exam2_Review_Codes.sourcelink.json
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\obj\Debug\net8.0\Exam2_Review_Codes.dll
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\obj\Debug\net8.0\refint\Exam2_Review_Codes.dll
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\obj\Debug\net8.0\Exam2_Review_Codes.pdb
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\obj\Debug\net8.0\Exam2_Review_Codes.genruntimeconfig.cache
+E:\GitHub_Repos\MIST352_WVU\Reviews\Exam2 Review\Exam2_Review_Codes\obj\Debug\net8.0\ref\Exam2_Review_Codes.dll

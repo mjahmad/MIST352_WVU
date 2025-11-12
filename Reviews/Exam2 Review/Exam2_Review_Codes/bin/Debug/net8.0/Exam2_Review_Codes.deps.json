@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Exam2_Review_Codes/1.0.0": {
+        "runtime": {
+          "Exam2_Review_Codes.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Exam2_Review_Codes/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
