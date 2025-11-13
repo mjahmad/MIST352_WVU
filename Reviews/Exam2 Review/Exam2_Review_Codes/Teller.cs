@@ -72,13 +72,13 @@ using System.Xml.Linq;
 
     public void DisplayInfo()
     {
-        Console.WriteLine($"{_ID} == {_Name}");
+        Console.WriteLine($"{_id} == {_name}");
     }
 
     public void DisplayLastName()
     {
-        int pos = _Name.LastIndexOf(" ") + 1;
-        Console.WriteLine(_Name.Substring(pos, _Name.Length - pos));
+        int pos = _name.LastIndexOf(" ") + 1;
+        Console.WriteLine(_name.Substring(pos, _name.Length - pos));
 
     }
 
