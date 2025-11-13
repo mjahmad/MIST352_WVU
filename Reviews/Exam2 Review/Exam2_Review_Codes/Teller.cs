@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 
     public class Teller
     {
     private int _id;
     public string _name;
+    private string _lastName;
 
     // ====================Properties=========================
     public int ID
@@ -54,18 +57,29 @@ using System.Threading.Tasks;
     }
 
     // 3. Allow creating teller by providing all info
-    public Teller(int intID, string strName)
+    public Teller(int id, string name)
     {
-        _id = intID;
-        _name = strName;
-
+        _id = id;
+        _name = name;
+        // Also, extract last name and set _lastName to the extracted last name.
+        int pos = _name.LastIndexOf(" ") + 1;
+        _lastName = _name.Substring(pos, _name.Length - pos);
     }
 
 
     // ====================Methods=========================
+
+
     public void DisplayInfo()
     {
-        Console.WriteLine($"Teller ID: {_id}\tName: {_name}");
+        Console.WriteLine($"{_ID} == {_Name}");
+    }
+
+    public void DisplayLastName()
+    {
+        int pos = _Name.LastIndexOf(" ") + 1;
+        Console.WriteLine(_Name.Substring(pos, _Name.Length - pos));
+
     }
 
 
