@@ -1,0 +1,16 @@
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\bin\Debug\net8.0\HW2.exe
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\bin\Debug\net8.0\HW2.deps.json
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\bin\Debug\net8.0\HW2.runtimeconfig.json
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\bin\Debug\net8.0\HW2.dll
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\bin\Debug\net8.0\HW2.pdb
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\obj\Debug\net8.0\HW2.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\obj\Debug\net8.0\HW2.AssemblyInfoInputs.cache
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\obj\Debug\net8.0\HW2.AssemblyInfo.cs
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\obj\Debug\net8.0\HW2.csproj.CoreCompileInputs.cache
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\obj\Debug\net8.0\HW2.sourcelink.json
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\obj\Debug\net8.0\HW2.dll
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\obj\Debug\net8.0\refint\HW2.dll
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\obj\Debug\net8.0\HW2.pdb
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\obj\Debug\net8.0\HW2.genruntimeconfig.cache
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\obj\Debug\net8.0\ref\HW2.dll
+E:\GitHub_Repos\MIST352_WVU\Homeworks\HW2\bin\Debug\net8.0\prices.txt
