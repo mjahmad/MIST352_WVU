@@ -1,0 +1,11 @@
+D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\bin\Debug\Simple_GUI.exe.config
+D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\bin\Debug\Simple_GUI.exe
+D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\bin\Debug\Simple_GUI.pdb
+D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple_GUI.csproj.AssemblyReference.cache
+D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple_GUI.Properties.Resources.resources
+D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple_GUI.csproj.GenerateResource.cache
+D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple_GUI.csproj.CoreCompileInputs.cache
+D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple_GUI.exe
+D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple_GUI.pdb
+D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple_GUI.exe.config
+D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple_GUI.Form1.resources
