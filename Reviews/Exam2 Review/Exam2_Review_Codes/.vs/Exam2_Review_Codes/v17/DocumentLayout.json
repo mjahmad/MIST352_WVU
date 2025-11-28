@@ -3,16 +3,26 @@
   "WorkspaceRootPath": "D:\\MIST352_WVU\\Reviews\\Exam2 Review\\Exam2_Review_Codes\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{61179173-0925-4B4C-BD55-22390F80DFA0}|Exam2_Review_Codes.csproj|d:\\mist352_wvu\\reviews\\exam2 review\\exam2_review_codes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61179173-0925-4B4C-BD55-22390F80DFA0}|Exam2_Review_Codes.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{61179173-0925-4B4C-BD55-22390F80DFA0}|Exam2_Review_Codes.csproj|d:\\mist352_fall25\\mist352_wvu\\reviews\\exam2 review\\exam2_review_codes\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61179173-0925-4B4C-BD55-22390F80DFA0}|Exam2_Review_Codes.csproj|solutionrelative:bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 4ae800637b1a60adc04d103dd99493795ba5ba0c
     },
     {
       "AbsoluteMoniker": "D:0:0:{61179173-0925-4B4C-BD55-22390F80DFA0}|Exam2_Review_Codes.csproj|d:\\mist352_wvu\\reviews\\exam2 review\\exam2_review_codes\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61179173-0925-4B4C-BD55-22390F80DFA0}|Exam2_Review_Codes.csproj|solutionrelative:bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{61179173-0925-4B4C-BD55-22390F80DFA0}|Exam2_Review_Codes.csproj|d:\\mist352_wvu\\reviews\\exam2 review\\exam2_review_codes\\teller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61179173-0925-4B4C-BD55-22390F80DFA0}|Exam2_Review_Codes.csproj|solutionrelative:teller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{61179173-0925-4B4C-BD55-22390F80DFA0}|Exam2_Review_Codes.csproj|d:\\mist352_fall25\\mist352_wvu\\reviews\\exam2 review\\exam2_review_codes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61179173-0925-4B4C-BD55-22390F80DFA0}|Exam2_Review_Codes.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 4ae800637b1a60adc04d103dd99493795ba5ba0c
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +32,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,13 +40,21 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 1,
+=======
+              "DocumentIndex": 0,
+>>>>>>> 4ae800637b1a60adc04d103dd99493795ba5ba0c
               "Title": "Bank.cs",
               "DocumentMoniker": "D:\\MIST352_WVU\\Reviews\\Exam2 Review\\Exam2_Review_Codes\\Bank.cs",
               "RelativeDocumentMoniker": "Bank.cs",
               "ToolTip": "D:\\MIST352_WVU\\Reviews\\Exam2 Review\\Exam2_Review_Codes\\Bank.cs",
               "RelativeToolTip": "Bank.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAGIAAAAAAAAAAAAkwIcAAAAAAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+>>>>>>> 4ae800637b1a60adc04d103dd99493795ba5ba0c
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T20:23:33.226Z",
               "EditorCaption": ""
@@ -49,20 +67,28 @@
               "RelativeDocumentMoniker": "Teller.cs",
               "ToolTip": "D:\\MIST352_WVU\\Reviews\\Exam2 Review\\Exam2_Review_Codes\\Teller.cs",
               "RelativeToolTip": "Teller.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAADQAAAAAAAAAAAAYwFcAAAAAAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwA0AAAAWAAAAAAAAAA==",
+>>>>>>> 4ae800637b1a60adc04d103dd99493795ba5ba0c
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T20:46:03.049Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\MIST352_WVU\\Reviews\\Exam2 Review\\Exam2_Review_Codes\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\MIST352_WVU\\Reviews\\Exam2 Review\\Exam2_Review_Codes\\Program.cs",
               "RelativeToolTip": "Program.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAEIAAAAAAAAAAAAkwGcAAAAAAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAADoAAAAAAAAAAAAQwAQAAABSAAAAAAAAAA==",
+>>>>>>> 4ae800637b1a60adc04d103dd99493795ba5ba0c
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T00:08:13.683Z",
               "EditorCaption": ""
