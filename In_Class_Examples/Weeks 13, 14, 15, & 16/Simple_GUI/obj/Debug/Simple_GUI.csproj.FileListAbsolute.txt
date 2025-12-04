@@ -9,3 +9,14 @@ D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple
 D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple_GUI.pdb
 D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple_GUI.exe.config
 D:\MIST352_WVU\In_Class_Examples\Weeks 9 ,10, and 12\Simple_GUI\obj\Debug\Simple_GUI.Form1.resources
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 13, 14, 15, & 16\Simple_GUI\bin\Debug\Simple_GUI.exe.config
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 13, 14, 15, & 16\Simple_GUI\bin\Debug\Simple_GUI.exe
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 13, 14, 15, & 16\Simple_GUI\bin\Debug\Simple_GUI.pdb
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 13, 14, 15, & 16\Simple_GUI\obj\Debug\Simple_GUI.csproj.AssemblyReference.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 13, 14, 15, & 16\Simple_GUI\obj\Debug\Simple_GUI.exe.config
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 13, 14, 15, & 16\Simple_GUI\obj\Debug\Simple_GUI.Form1.resources
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 13, 14, 15, & 16\Simple_GUI\obj\Debug\Simple_GUI.Properties.Resources.resources
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 13, 14, 15, & 16\Simple_GUI\obj\Debug\Simple_GUI.csproj.GenerateResource.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 13, 14, 15, & 16\Simple_GUI\obj\Debug\Simple_GUI.csproj.CoreCompileInputs.cache
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 13, 14, 15, & 16\Simple_GUI\obj\Debug\Simple_GUI.exe
+E:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Weeks 13, 14, 15, & 16\Simple_GUI\obj\Debug\Simple_GUI.pdb
