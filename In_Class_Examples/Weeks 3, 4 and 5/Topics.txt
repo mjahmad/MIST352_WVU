@@ -1,7 +1,0 @@
-Variables declarations and initialization 
-Data types
-User input (and conversion)
-Strings (and its methods)
-Arrays
-For loops
-If statements - Intro
