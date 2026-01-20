@@ -1,0 +1,15 @@
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\obj\Debug\net8.0\PayrollApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\obj\Debug\net8.0\PayrollApp.AssemblyInfoInputs.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\obj\Debug\net8.0\PayrollApp.AssemblyInfo.cs
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\obj\Debug\net8.0\PayrollApp.csproj.CoreCompileInputs.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\obj\Debug\net8.0\PayrollApp.sourcelink.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\bin\Debug\net8.0\PayrollApp.exe
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\bin\Debug\net8.0\PayrollApp.deps.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\bin\Debug\net8.0\PayrollApp.runtimeconfig.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\bin\Debug\net8.0\PayrollApp.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\bin\Debug\net8.0\PayrollApp.pdb
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\obj\Debug\net8.0\PayrollApp.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\obj\Debug\net8.0\refint\PayrollApp.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\obj\Debug\net8.0\PayrollApp.pdb
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\obj\Debug\net8.0\PayrollApp.genruntimeconfig.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 2\PayrollApp\obj\Debug\net8.0\ref\PayrollApp.dll
