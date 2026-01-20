@@ -12,6 +12,7 @@ namespace PayrollApp
         {
             Console.WriteLine("Hello. This prpogram calcualtes your total payroll, given hours and hourly rate");
             Console.WriteLine("How many hours did you work this week?");
+
             
             //declare a numerical variable.
             double noOfHours;
