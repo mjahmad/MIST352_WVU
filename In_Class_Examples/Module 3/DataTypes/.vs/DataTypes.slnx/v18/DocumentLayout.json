@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GitHub_Repos\\MIST352_WVU\\In_Class_Examples\\Module 3\\DataTypes\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8B0D4F40-93E1-4828-9349-FB8210C0B09B}|DataTypes\\DataTypes.csproj|d:\\github_repos\\mist352_wvu\\in_class_examples\\module 3\\datatypes\\datatypes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B0D4F40-93E1-4828-9349-FB8210C0B09B}|DataTypes\\DataTypes.csproj|solutionrelative:datatypes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GitHub_Repos\\MIST352_WVU\\In_Class_Examples\\Module 3\\DataTypes\\DataTypes\\Program.cs",
+              "RelativeDocumentMoniker": "DataTypes\\Program.cs",
+              "ToolTip": "D:\\GitHub_Repos\\MIST352_WVU\\In_Class_Examples\\Module 3\\DataTypes\\DataTypes\\Program.cs",
+              "RelativeToolTip": "DataTypes\\Program.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAAALUAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T20:38:35.509Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
