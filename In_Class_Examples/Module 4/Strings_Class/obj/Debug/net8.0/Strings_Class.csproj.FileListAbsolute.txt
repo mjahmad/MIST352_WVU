@@ -1,0 +1,15 @@
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\bin\Debug\net8.0\Strings_Class.exe
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\bin\Debug\net8.0\Strings_Class.deps.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\bin\Debug\net8.0\Strings_Class.runtimeconfig.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\bin\Debug\net8.0\Strings_Class.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\bin\Debug\net8.0\Strings_Class.pdb
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\obj\Debug\net8.0\Strings_Class.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\obj\Debug\net8.0\Strings_Class.AssemblyInfoInputs.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\obj\Debug\net8.0\Strings_Class.AssemblyInfo.cs
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\obj\Debug\net8.0\Strings_Class.csproj.CoreCompileInputs.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\obj\Debug\net8.0\Strings_Class.sourcelink.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\obj\Debug\net8.0\Strings_Class.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\obj\Debug\net8.0\refint\Strings_Class.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\obj\Debug\net8.0\Strings_Class.pdb
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\obj\Debug\net8.0\Strings_Class.genruntimeconfig.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 4\Strings_Class\obj\Debug\net8.0\ref\Strings_Class.dll
