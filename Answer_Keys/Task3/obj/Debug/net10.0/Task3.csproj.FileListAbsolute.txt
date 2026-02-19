@@ -1,0 +1,15 @@
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\bin\Debug\net10.0\Task3.exe
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\bin\Debug\net10.0\Task3.deps.json
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\bin\Debug\net10.0\Task3.runtimeconfig.json
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\bin\Debug\net10.0\Task3.dll
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\bin\Debug\net10.0\Task3.pdb
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\obj\Debug\net10.0\Task3.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\obj\Debug\net10.0\Task3.AssemblyInfoInputs.cache
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\obj\Debug\net10.0\Task3.AssemblyInfo.cs
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\obj\Debug\net10.0\Task3.csproj.CoreCompileInputs.cache
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\obj\Debug\net10.0\Task3.sourcelink.json
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\obj\Debug\net10.0\Task3.dll
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\obj\Debug\net10.0\refint\Task3.dll
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\obj\Debug\net10.0\Task3.pdb
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\obj\Debug\net10.0\Task3.genruntimeconfig.cache
+D:\GitHub_Repos\MIST352_WVU\Answer_Keys\Task3\obj\Debug\net10.0\ref\Task3.dll
