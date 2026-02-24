@@ -1,0 +1,15 @@
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\bin\Debug\net8.0\ForLoops.exe
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\bin\Debug\net8.0\ForLoops.deps.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\bin\Debug\net8.0\ForLoops.runtimeconfig.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\bin\Debug\net8.0\ForLoops.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\bin\Debug\net8.0\ForLoops.pdb
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\obj\Debug\net8.0\ForLoops.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\obj\Debug\net8.0\ForLoops.AssemblyInfoInputs.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\obj\Debug\net8.0\ForLoops.AssemblyInfo.cs
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\obj\Debug\net8.0\ForLoops.csproj.CoreCompileInputs.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\obj\Debug\net8.0\ForLoops.sourcelink.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\obj\Debug\net8.0\ForLoops.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\obj\Debug\net8.0\refint\ForLoops.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\obj\Debug\net8.0\ForLoops.pdb
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\obj\Debug\net8.0\ForLoops.genruntimeconfig.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\ForLoops\obj\Debug\net8.0\ref\ForLoops.dll
