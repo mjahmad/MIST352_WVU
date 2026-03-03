@@ -1,0 +1,15 @@
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\bin\Debug\net8.0\While_Loops_Switch.exe
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\bin\Debug\net8.0\While_Loops_Switch.deps.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\bin\Debug\net8.0\While_Loops_Switch.runtimeconfig.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\bin\Debug\net8.0\While_Loops_Switch.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\bin\Debug\net8.0\While_Loops_Switch.pdb
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\obj\Debug\net8.0\While_Loops_Switch.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\obj\Debug\net8.0\While_Loops_Switch.AssemblyInfoInputs.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\obj\Debug\net8.0\While_Loops_Switch.AssemblyInfo.cs
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\obj\Debug\net8.0\While_Loops_Switch.csproj.CoreCompileInputs.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\obj\Debug\net8.0\While_Loops_Switch.sourcelink.json
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\obj\Debug\net8.0\While_Loops_Switch.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\obj\Debug\net8.0\refint\While_Loops_Switch.dll
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\obj\Debug\net8.0\While_Loops_Switch.pdb
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\obj\Debug\net8.0\While_Loops_Switch.genruntimeconfig.cache
+D:\MIST352_Spring2026\MIST352_WVU\In_Class_Examples\Module 6\While_Loops_Switch\obj\Debug\net8.0\ref\While_Loops_Switch.dll
