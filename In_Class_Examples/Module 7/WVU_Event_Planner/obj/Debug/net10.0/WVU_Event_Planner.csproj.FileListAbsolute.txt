@@ -1,0 +1,15 @@
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\bin\Debug\net10.0\WVU_Event_Planner.exe
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\bin\Debug\net10.0\WVU_Event_Planner.deps.json
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\bin\Debug\net10.0\WVU_Event_Planner.runtimeconfig.json
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\bin\Debug\net10.0\WVU_Event_Planner.dll
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\bin\Debug\net10.0\WVU_Event_Planner.pdb
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\obj\Debug\net10.0\WVU_Event_Planner.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\obj\Debug\net10.0\WVU_Event_Planner.AssemblyInfoInputs.cache
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\obj\Debug\net10.0\WVU_Event_Planner.AssemblyInfo.cs
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\obj\Debug\net10.0\WVU_Event_Planner.csproj.CoreCompileInputs.cache
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\obj\Debug\net10.0\WVU_Event_Planner.sourcelink.json
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\obj\Debug\net10.0\WVU_Event_Planner.dll
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\obj\Debug\net10.0\refint\WVU_Event_Planner.dll
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\obj\Debug\net10.0\WVU_Event_Planner.pdb
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\obj\Debug\net10.0\WVU_Event_Planner.genruntimeconfig.cache
+D:\GitHub_Repos\MIST352_WVU\In_Class_Examples\Module 7\WVU_Event_Planner\obj\Debug\net10.0\ref\WVU_Event_Planner.dll

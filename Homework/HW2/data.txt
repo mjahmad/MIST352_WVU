@@ -1,10 +1,10 @@
-1001,John Smith,3.45
+1001,John Smith,2.45
 1002,Emily Johnson,3.82
-1003,Michael Brown,2.95
+1003,Michael Brown,1.95
 1004,Sarah Davis,3.67
 1005,David Wilson,3.21
 1006,Jessica Taylor,3.90
 1007,Daniel Anderson,2.88
-1008,Ashley Thomas,3.54
+1008,Ashley Thomas,1.54
 1009,Matthew Jackson,3.12
 1010,Olivia White,3.76
