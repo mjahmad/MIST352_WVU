@@ -1,0 +1,15 @@
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\obj\Debug\net8.0\Task7.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\obj\Debug\net8.0\Task7.AssemblyInfoInputs.cache
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\obj\Debug\net8.0\Task7.AssemblyInfo.cs
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\obj\Debug\net8.0\Task7.csproj.CoreCompileInputs.cache
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\obj\Debug\net8.0\Task7.sourcelink.json
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\bin\Debug\net8.0\Task7.exe
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\bin\Debug\net8.0\Task7.deps.json
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\bin\Debug\net8.0\Task7.runtimeconfig.json
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\bin\Debug\net8.0\Task7.dll
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\bin\Debug\net8.0\Task7.pdb
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\obj\Debug\net8.0\Task7.dll
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\obj\Debug\net8.0\refint\Task7.dll
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\obj\Debug\net8.0\Task7.pdb
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\obj\Debug\net8.0\Task7.genruntimeconfig.cache
+D:\MIST352_Spring2026\MIST352_WVU\Answer_Keys\Task7\obj\Debug\net8.0\ref\Task7.dll
