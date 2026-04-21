@@ -1,0 +1,7 @@
+E:\My Drive\WVU\MIS\TT 25-\2026\Spring 2026\MIST352 - C#\Homework\Homework3\HW3-Answer\obj\Debug\net10.0\HW3-Answer.GeneratedMSBuildEditorConfig.editorconfig
+E:\My Drive\WVU\MIS\TT 25-\2026\Spring 2026\MIST352 - C#\Homework\Homework3\HW3-Answer\obj\Debug\net10.0\HW3-Answer.AssemblyInfoInputs.cache
+E:\My Drive\WVU\MIS\TT 25-\2026\Spring 2026\MIST352 - C#\Homework\Homework3\HW3-Answer\obj\Debug\net10.0\HW3-Answer.AssemblyInfo.cs
+E:\My Drive\WVU\MIS\TT 25-\2026\Spring 2026\MIST352 - C#\Homework\Homework3\HW3-Answer\obj\Debug\net10.0\HW3-Answer.csproj.CoreCompileInputs.cache
+E:\My Drive\WVU\MIS\TT 25-\2026\Spring 2026\MIST352 - C#\Homework\Homework3\HW3-Answer\obj\Debug\net10.0\HW3-Answer.dll
+E:\My Drive\WVU\MIS\TT 25-\2026\Spring 2026\MIST352 - C#\Homework\Homework3\HW3-Answer\obj\Debug\net10.0\refint\HW3-Answer.dll
+E:\My Drive\WVU\MIS\TT 25-\2026\Spring 2026\MIST352 - C#\Homework\Homework3\HW3-Answer\obj\Debug\net10.0\HW3-Answer.pdb
