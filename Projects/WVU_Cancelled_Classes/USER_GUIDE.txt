@@ -1,0 +1,482 @@
+================================================================================
+  WVU CLASS CANCELLATION PREDICTION SYSTEM  |  User Guide  |  v3.0
+  MIST 352  –  Jackson Gorman
+================================================================================
+
+TABLE OF CONTENTS
+  1.  Overview
+  2.  How to Run
+  3.  First-Time Setup: WVU_canceled_history.txt
+  4.  Menu Options (detailed)
+  5.  How the Prediction Model Works
+  6.  Data Sources & What Each Field Means
+  7.  Understanding the Severity Score
+  8.  Troubleshooting
+  9.  C# Class Reference (developer notes)
+ 10.  Keyboard Shortcuts Summary
+
+================================================================================
+1. OVERVIEW
+================================================================================
+
+This is a console application for Windows that predicts the likelihood of WVU
+cancelling classes in Morgantown, WV on any given day.
+
+It pulls REAL weather data from two official sources:
+  • NOAA GHCN-Daily (historical data for all of 2025 – 13 weather metrics)
+  • Open-Meteo (live current conditions + 7-day forecast, no API key needed)
+
+It matches that data to a list of dates YOU provide (WVU_canceled_history.txt)
+and trains a simple machine-learning model to find the pattern.  Then it scores
+today – and any future forecast day – against that pattern.
+
+Features at a glance:
+  [1]  Today's weather + rule-engine + ML probability
+  [2]  Full-year 2025 heatmap calendar (GitHub-style) with cancellation markers
+  [3]  ASCII map of Morgantown, WV with live weather overlay
+  [4]  Animated "Weather Intelligence Center" war room (rotating radar, gauge)
+  [5]  Top 15 most severe days of 2025 ranked by composite score
+  [6]  7-Day WVU cancellation forecast (real Open-Meteo forecast data)
+  [7]  Statistics & Correlation Engine (5 interactive tabs)
+  [H]  In-app help screen
+  [Q]  Quit
+
+================================================================================
+2. HOW TO RUN
+================================================================================
+
+REQUIREMENTS
+  • .NET 10.0 SDK  (https://dotnet.microsoft.com/download)
+  • Internet connection (for NOAA + Open-Meteo API calls)
+  • Windows 10 or 11 (color/Unicode rendering)
+  • Console window at least 80 columns wide; 30 rows tall recommended
+
+FROM VISUAL STUDIO
+  1. Open Project_2.sln (or Project_2.slnx) in Visual Studio
+  2. Press F5 (run with debugger) or Ctrl+F5 (run without)
+
+FROM THE TERMINAL
+  cd "...\Project\Project2\Project_2"
+  dotnet run
+
+  Or run the pre-built executable directly:
+  .\bin\Debug\net10.0\Project_2.exe
+
+STARTUP SEQUENCE
+  The app downloads NOAA data on every launch. This is a one-time ~10-30 second
+  wait per session. A spinner shows progress. If the download fails (no internet,
+  NOAA outage), built-in 10-day sample data is used automatically.
+
+================================================================================
+3. FIRST-TIME SETUP: WVU_canceled_history.txt
+================================================================================
+
+This file is the heart of the prediction system. It tells the model which days
+WVU actually cancelled or delayed classes.
+
+LOCATION:  Project_2\WVU_canceled_history.txt
+
+FORMAT (one date per line):
+  YYYY-MM-DD | Any description you like
+
+EXAMPLE ENTRIES:
+  2025-01-06 | Winter storm - ice/snow accumulation
+  2025-01-21 | Extreme cold / wind chill
+  2025-02-12 | Winter Storm Blair
+  2025-02-13 | Day 2 of Winter Storm Blair
+  2025-03-03 | Late-season snowstorm
+
+RULES:
+  • Lines starting with # are comments – they are IGNORED.
+  • The date must be in YYYY-MM-DD format exactly.
+  • Dates outside 2025 are ignored (the model only uses 2025 NOAA data).
+  • Everything after the | is a description – it can say anything.
+  • Blank lines are also ignored.
+
+HOW TO FIND CANCELLED DAYS:
+  • WVU official alerts: wvu.edu/emergency or AlertWVU
+  • Search Google:  "WVU canceled classes 2025 January"
+  • WVU social media (@WestVirginiaU on Twitter/X)
+  • Local news: MetroNews, WV Metro (wvmetronews.com)
+
+The more dates you add, the better the model predicts future cancellations.
+Even 3-5 dates will produce a meaningful model.  10+ dates gives a strong one.
+
+================================================================================
+4. MENU OPTIONS (DETAILED)
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+[1]  TODAY'S FULL CONDITIONS + PREDICTION
+────────────────────────────────────────────────────────────────────────────────
+Shows a full breakdown of today's weather fetched live from Open-Meteo:
+  • Min and max temperature (color-coded: blue=freezing, yellow=warm)
+  • Snowfall, snow depth, precipitation
+  • Average wind speed and peak gust
+  • Event flags: FOG, ICE, FREEZE, BLWSNOW, THUNDER
+
+Then shows two assessments side-by-side:
+
+  RULE ENGINE (DecisionEngine):  A simple threshold system.
+    Cancel if:  snow ≥ 6", OR ice/freeze event, OR temp ≤ 10°F, OR
+                (snow ≥ 4" AND temp ≤ 28°F), OR (gust ≥ 35 mph AND snow ≥ 2")
+    This always runs even with no history data.
+
+  ML PREDICTOR (CancellationPredictor):  Data-driven probability 0–100%.
+    Compares today to the average profile of cancellation days vs. normal days.
+    Requires at least one date in WVU_canceled_history.txt to be meaningful.
+
+────────────────────────────────────────────────────────────────────────────────
+[2]  HISTORICAL WEATHER TIMELINE  (2025 calendar heatmap)
+────────────────────────────────────────────────────────────────────────────────
+A full-year calendar display inspired by GitHub's contribution graph.
+
+HEATMAP SYMBOLS (snowfall + severity combined):
+  ·   No data for that day
+  ░   Trace snowfall (< 1 inch) or low severity
+  ▒   Light snow or moderate severity (score 15–34)
+  ▓   Moderate snow or elevated severity (score 35–59)
+  █   Heavy snow / high severity (score ≥ 60)
+  ❄   WVU cancellation day (from your history file) – shown in RED
+
+NAVIGATION:
+  ← / →  Move to previous / next month
+  1–9     Jump to January through September
+  0       Jump to October
+  Q       Return to main menu
+
+The lower section shows a detailed day-by-day table for the selected month,
+with every weather metric and event flag listed.
+
+────────────────────────────────────────────────────────────────────────────────
+[3]  MORGANTOWN WEATHER MAP
+────────────────────────────────────────────────────────────────────────────────
+An ASCII map of Morgantown, WV showing:
+  • Monongahela River (rendered in blue ~)
+  • Campus landmarks: WVU Main, Evansdale, Milan Puskar Stadium, Coliseum,
+    PRT Station, WVU Health Hospital, Downtown Morgantown, Cheat Lake, Star City
+  • Live weather overlaid on the right margin:
+      - Symbol:    weather emoji (❄ 🌨 🌧 ⛈ 🌫 ☀ etc.)
+      - SNOW bar:  filled █ proportional to snowfall inches
+      - TEMP bar:  filled █ proportional to temperature
+      - WIND arrow and speed
+      - SEVERITY score with color (green/yellow/red)
+  • Event flags (FOG, ICE, FREEZE, BLWSNOW, THUNDER) in red if active
+
+────────────────────────────────────────────────────────────────────────────────
+[4]  WEATHER INTELLIGENCE CENTER  [animated]
+────────────────────────────────────────────────────────────────────────────────
+A full-screen animated console dashboard. Elements:
+
+  RADAR (left panel):
+    A rotating sweep line (▓ bright, ░ trailing fade) scans 360° at 3°/frame.
+    Range rings at 3, 6, 9 units mark proximity zones.
+    Weather "blips" (◦) appear based on snowfall + precipitation intensity.
+    The more snow, the denser the blip field.
+
+  CONDITIONS PANEL (upper right):
+    Seven animated bar gauges for every weather metric, color-coded by severity.
+    Event flags appear bracketed in their warning color.
+
+  CANCELLATION PROBABILITY GAUGE (mid right):
+    Animates from 0% up to the predicted value.
+    Color:  green < 40%,  yellow 40–69%,  red ≥ 70%
+
+  2025 SEVERITY TIMELINE (bottom):
+    Scrolls through the entire year.  Each character represents one day:
+    ·=none  ░=trace  ▒=light  ▓=moderate  █=severe
+
+  CANCELLATION ALERT (flashing strip, ≥ 70% only):
+    A red alert bar flashes across the screen when risk is high.
+
+Press any key to stop the animation and return to the menu.
+
+────────────────────────────────────────────────────────────────────────────────
+[5]  TOP 15 MOST SEVERE DAYS OF 2025
+────────────────────────────────────────────────────────────────────────────────
+Ranks all 2025 days by their Severity Score (0–100 composite).
+Shows full weather metrics for each day.
+Red = score ≥ 60, Yellow = score 30–59, Green = score < 30.
+
+────────────────────────────────────────────────────────────────────────────────
+[6]  7-DAY WVU CANCELLATION FORECAST OUTLOOK  ★ NEW ★
+────────────────────────────────────────────────────────────────────────────────
+Fetches the REAL 7-day forecast from Open-Meteo for Morgantown, WV.
+Each day shows a full color-coded card:
+
+  ┌── TUESDAY 2026-01-28 ──── ⚠ WINTER WATCH ──────────────────┐
+  │  🌨 LIGHT SNOW     |  28.1°F – 35.4°F  |  Snow: 2.5"  Precip: 0.30"  │
+  │  Wind: 22 mph  Gust: 38 mph   |   [ICE]                               │
+  │  Cancel Risk:  ██████████████████████░░░░░░░░░░░░  65%  ELEVATED      │
+  └──────────────────────────────────────────────────────────────────────────┘
+
+Risk levels:
+  MINIMAL  (0–14%)   • Green   • No action needed
+  LOW      (15–39%)  • Green   • Normal operations expected
+  MODERATE (40–69%)  • Yellow  • Watch WVU AlertWVU notifications
+  HIGH     (70–100%) • Red     • Cancellation very likely – plan ahead
+
+A "Week at a Glance" summary at the bottom shows all 7 days as mini probability
+bars and identifies the single highest-risk day.
+
+────────────────────────────────────────────────────────────────────────────────
+[7]  WEATHER STATISTICS & CORRELATION ENGINE  ★ NEW ★
+────────────────────────────────────────────────────────────────────────────────
+Five interactive tabs (navigate with ← → arrow keys):
+
+  TAB 0 – MONTHLY SNOWFALL
+    Horizontal bar chart of total snowfall inches per month.
+    Peak snowfall day and date annotated on each bar.
+
+  TAB 1 – TEMPERATURE RANGE CHART
+    A 12-month × 10-row grid showing min–max temperature range per month.
+    ████ = average temperature   ░░░░ = min-max spread
+    The 32°F freeze line is highlighted in cyan.
+
+  TAB 2 – EXTREME RECORDS
+    Best/worst value for every metric with the date it occurred:
+    coldest, warmest, snowiest day, deepest snow, highest gusts, etc.
+    Plus counts of fog/ice/thunder/freeze/blowing-snow days.
+
+  TAB 3 – CANCELLATION FACTOR ANALYSIS
+    Compares average conditions on CANCEL days vs. NORMAL days for every metric.
+    A bar shows "signal strength" – how much more extreme cancel days were.
+    Requires at least one entry in WVU_canceled_history.txt.
+    Also shows a mini bar chart of cancellation days grouped by month.
+
+  TAB 4 – SEVERITY DISTRIBUTION HISTOGRAM
+    Shows how many 2025 days fell into each severity bucket (0-9, 10-19, ...).
+    Color coded: gray=none, green=low, yellow=moderate, red=high.
+    Summary counts low/moderate/high-risk days with percentages.
+
+================================================================================
+5. HOW THE PREDICTION MODEL WORKS
+================================================================================
+
+Step 1 – Data loading
+  NOAA GHCN-Daily data for 2025 is downloaded (~2-10 MB CSV).
+  Each row is matched to a WeatherDay object with 13 fields.
+
+Step 2 – Matching history
+  Every date in WVU_canceled_history.txt is looked up in the NOAA data.
+  If a NOAA record exists for that date, it is labeled "cancelled = true".
+  All other NOAA dates get "cancelled = false".
+
+Step 3 – Training
+  The predictor calculates:
+    avgCancelSnow  = mean snowfall on cancelled days
+    avgCancelTemp  = mean min temperature on cancelled days
+    avgCancelWind  = mean wind gust on cancelled days
+    avgCancelScore = mean severity score on cancelled days
+    cancelRate     = (cancelled days) / (total days)
+
+Step 4 – Prediction
+  For a new WeatherDay (today or a forecast day):
+    snowSim  = min(today.Snowfall  / avgCancelSnow,  1.5)
+    tempSim  = min(avgCancelTemp   / max(today.MinTemp, 1), 1.5)
+    windSim  = min(today.WindGust  / avgCancelWind,  1.5)
+    scoreSim = min(today.Severity  / avgCancelScore, 1.5)
+
+    similarity = snowSim×0.35 + tempSim×0.20 + windSim×0.15 + scoreSim×0.30
+
+    probability = cancelRate × similarity
+                + 0.15 if HasIce or HasFreeze
+                + 0.08 if HasBlowingSnow
+
+    Result is clamped to [0, 1] and displayed as a percentage.
+
+Interpretation:
+  The model answers: "How similar is today to the average cancellation day?"
+  A probability of 0% means nothing matches.  100% means every metric matches
+  or exceeds the typical cancellation profile.
+
+LIMITATIONS:
+  • The model needs at least 2–3 cancellation dates to produce useful output.
+  • NOAA data has a 1-2 day lag; Open-Meteo is real-time but modeled.
+  • The Morgantown station (USC00555882) is near downtown; campus conditions
+    may differ slightly (Evansdale / Beechurst elevation differences).
+
+================================================================================
+6. DATA SOURCES & WEATHER FIELDS
+================================================================================
+
+NOAA GHCN-Daily (historical 2025):
+  Station ID:  USC00555882  (MORGANTOWN LOCK 4, WV)
+  URL:  https://noaa-ghcn-pds.s3.amazonaws.com/csv/by_station/USC00555882.csv
+
+  Field      NOAA Code  Raw Unit      Displayed As
+  ─────────────────────────────────────────────────
+  MinTemp    TMIN       tenths °C     °F
+  MaxTemp    TMAX       tenths °C     °F
+  Snowfall   SNOW       mm            inches
+  SnowDepth  SNWD       mm            inches
+  Precip     PRCP       tenths mm     inches
+  WindSpeed  AWND       tenths m/s    mph
+  WindGust   WSF2       tenths m/s    mph  (fastest 2-min wind)
+  HasFog     WT01       1=yes         boolean
+  HasThunder WT03       1=yes         boolean
+  HasIce     WT04       1=yes         boolean (ice pellets/sleet)
+  HasFreeze  WT06       1=yes         boolean (freezing rain/glaze)
+  HasBlwSnow WT09       1=yes         boolean (blowing/drifting snow)
+
+Open-Meteo (current + forecast):
+  URL:  https://api.open-meteo.com/v1/forecast?latitude=39.6295&longitude=-79.9559
+  • No API key required
+  • Fields: temperature_2m (max/min), snowfall_sum, precipitation_sum,
+            wind_speed_10m_max, wind_gusts_10m_max, weather_code (WMO)
+  • WMO weather codes decoded into: fog, ice, freezing rain, thunder, blowing snow
+
+================================================================================
+7. UNDERSTANDING THE SEVERITY SCORE
+================================================================================
+
+The Severity Score is a composite 0–100 integer used throughout the app.
+It is computed by WeatherDay.SeverityScore() from these weighted rules:
+
+  Min Temperature:
+    ≤ 20°F  → +30 pts
+    ≤ 28°F  → +20 pts
+    ≤ 32°F  → +10 pts
+
+  Snowfall:
+    ≥ 6.0"  → +40 pts
+    ≥ 4.0"  → +30 pts
+    ≥ 2.0"  → +15 pts
+    ≥ 1.0"  → + 5 pts
+
+  Wind Gust:
+    ≥ 45 mph → +20 pts
+    ≥ 30 mph → +10 pts
+
+  Event Flags:
+    HasIce OR HasFreeze     → +25 pts  (these are the most dangerous)
+    HasBlowingSnow          → +10 pts
+    SnowDepth ≥ 8"          → +10 pts  (road clearing difficulty)
+
+  Maximum: 100 pts (capped)
+
+Risk zones:
+   0–29  = Low     (green)
+  30–59  = Moderate (yellow)
+  60+    = High    (red)
+
+The decision engine uses score ≥ 45 as a rule-based cancel threshold.
+
+================================================================================
+8. TROUBLESHOOTING
+================================================================================
+
+PROBLEM: App hangs for >60 seconds on startup
+SOLUTION: The NOAA S3 bucket or Open-Meteo may be slow. Wait up to 90 s.
+          If it never resolves, kill it (Ctrl+C) and restart – it will
+          use cached/fallback data.
+
+PROBLEM: "Could not reach NOAA. Using built-in sample data."
+SOLUTION: No internet connection, or NOAA S3 is temporarily unavailable.
+          The app will still work with 10 sample days. Predictions will be
+          less accurate.  Try again later when connectivity is restored.
+
+PROBLEM: Probability is always 0% or very low
+SOLUTION: WVU_canceled_history.txt has no uncommented dates.
+          Remove the # from the lines in that file, or add new date lines.
+
+PROBLEM: Probability seems too high even on clear days
+SOLUTION: Not enough normal (non-cancellation) days in the model.
+          This is fixed automatically once more NOAA data loads.
+          Also check if you accidentally uncommented too many history dates.
+
+PROBLEM: Console colors look wrong or garbled
+SOLUTION: Make sure you are running in Windows Terminal or a modern console.
+          Legacy cmd.exe may not render all Unicode correctly.
+          Right-click title bar → Properties → set font to Consolas or Cascadia Code.
+
+PROBLEM: "Build error: The type or namespace 'Linq' could not be found"
+SOLUTION: The .csproj has ImplicitUsings enabled; this should be auto-imported.
+          If not, add:  using System.Linq;  at the top of WeatherStats.cs.
+
+PROBLEM: Animation in [4] War Room looks choppy or misaligned
+SOLUTION: Maximize the console window to at least 80×30 characters.
+          Animation is optimized for 100×30 or larger.
+
+================================================================================
+9. C# CLASS REFERENCE (DEVELOPER NOTES)
+================================================================================
+
+WeatherDay.cs
+  Core data model. Holds all 13 NOAA weather metrics for one calendar day.
+  Key method: SeverityScore() → int (composite 0-100 risk score)
+  Constructors: default, legacy 3-arg (temp/snow/depth), full 13-arg.
+
+NOAAService.cs
+  Data access layer. Two public methods:
+    GetHistoricalData(year) → WeatherDay[]
+      Downloads station USC00555882 CSV, parses all elements, returns sorted year.
+    GetCurrentWeather() → WeatherDay
+      Calls Open-Meteo, decodes WMO weather codes into event flags.
+
+CancellationRecord.cs
+  Simple labeled record: (date string, wasCancelled bool, WeatherDay reference).
+
+CancellationPredictor.cs
+  ML model. Two paths:
+    TrainModel()  – uses the _records array (legacy path).
+    TrainFromHistory(days[], historyFilePath)  – loads history file, matches dates.
+  Predict(WeatherDay) → double  – returns 0.0–1.0 probability.
+  PrintPrediction(WeatherDay)   – renders the animated probability bar.
+
+DecisionEngine.cs
+  Rule-based threshold system. Evaluate(WeatherDay) → (bool cancel, string reason).
+  PrintAssessment(WeatherDay)   – prints the green/red recommendation.
+
+MapDisplay.cs          [Feature 2]
+  Static class. Show(WeatherDay) – renders the ASCII Morgantown map.
+
+WeatherTimeline.cs     [Feature 1b]
+  Static class. Show(days[], historyFile) – interactive calendar heatmap.
+
+AnimatedDashboard.cs   [Feature 3]
+  Static class. Run(today, history[], probability) – animated war room.
+  Uses Console.SetCursorPosition() for smooth multi-region updates.
+  Uses a background Thread for the spinning radar sweep.
+
+ForecastDisplay.cs     [Feature 4 – NEW]
+  Static class. Show(CancellationPredictor) – fetches + renders 7-day outlook.
+
+WeatherStats.cs        [Feature 5 – NEW]
+  Static class. Show(days[], historyFile) – 5-tab statistics dashboard.
+  Uses System.Linq for aggregation (Average, Sum, Max, Count, etc.).
+
+Program.cs
+  Entry point. Orchestrates startup loading, menu loop, and all feature calls.
+  Spinner() helper runs a background thread to animate while data loads.
+
+================================================================================
+10. KEYBOARD SHORTCUTS SUMMARY
+================================================================================
+
+GLOBAL
+  Q          Return to main menu / quit the application
+
+MAIN MENU
+  1–7        Launch feature
+  H          In-app help
+  Q          Quit
+
+TIMELINE [2]
+  ←          Previous month
+  →          Next month
+  1–9        Jump to January–September
+  0          Jump to October
+  Q          Back to menu
+
+WAR ROOM [4]
+  Any key    Stop animation and return to menu
+
+STATISTICS [7]
+  ←          Previous tab
+  →          Next tab
+  Q          Back to menu
+
+================================================================================
+  End of User Guide  |  MIST 352  |  Jackson Gorman  |  WVU Spring 2026
+================================================================================

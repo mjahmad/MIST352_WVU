@@ -1,0 +1,15 @@
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\bin\Debug\net10.0\Farm.exe
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\bin\Debug\net10.0\Farm.deps.json
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\bin\Debug\net10.0\Farm.runtimeconfig.json
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\bin\Debug\net10.0\Farm.dll
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\bin\Debug\net10.0\Farm.pdb
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\obj\Debug\net10.0\Farm.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\obj\Debug\net10.0\Farm.AssemblyInfoInputs.cache
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\obj\Debug\net10.0\Farm.AssemblyInfo.cs
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\obj\Debug\net10.0\Farm.csproj.CoreCompileInputs.cache
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\obj\Debug\net10.0\Farm.sourcelink.json
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\obj\Debug\net10.0\Farm.dll
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\obj\Debug\net10.0\refint\Farm.dll
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\obj\Debug\net10.0\Farm.pdb
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\obj\Debug\net10.0\Farm.genruntimeconfig.cache
+D:\GitHub_Repos\MIST352_WVU\Projects\Farm\obj\Debug\net10.0\ref\Farm.dll

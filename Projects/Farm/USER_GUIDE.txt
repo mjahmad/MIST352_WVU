@@ -1,0 +1,278 @@
+╔══════════════════════════════════════════════════════════════╗
+║          FARM & GARDEN PLANNER v2.0 — USER GUIDE           ║
+║               MIST 352 — Spring 2026                        ║
+║               Student: Lindsey Guhne                        ║
+╚══════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHAT IS THIS APP?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Farm & Garden Planner is a full-featured console application that
+combines real-time NOAA weather data with a smart garden management
+system. It helps farmers and gardeners:
+
+  • See today's and this week's weather forecast
+  • Know exactly what to plant based on YOUR location and climate
+  • Visualize your garden layout in ASCII art
+  • Decide whether to water, plant, or protect your crops today
+  • Calculate frost dates from real historical NOAA data
+  • Plan with the moon phases (biodynamic gardening)
+  • Compare this year's weather to historical averages
+  • Track your garden journal and harvest countdowns
+
+The app uses TWO live NOAA data sources:
+  1. api.weather.gov  — Real 7-day US weather forecast (no API key needed)
+  2. NOAA GHCN       — Historical weather records from thousands of stations
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HOW TO RUN THE APP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Requirements:
+  • .NET 10.0 SDK installed (dotnet.microsoft.com)
+  • Internet connection (for live NOAA data)
+
+Steps:
+  1. Open a terminal in the Project_2 folder
+  2. Run:  dotnet run
+  3. Enter your location when prompted (e.g., "Morgantown, WV")
+     or press ENTER for the default (Morgantown, WV)
+  4. Wait ~15–30 seconds for data to load from NOAA
+
+Note: If NOAA APIs are slow or unavailable, the app falls back to
+      demo weather data automatically so it always works offline.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MENU OPTIONS — FULL FEATURE LIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[1]  WEATHER DASHBOARD & 7-DAY FORECAST
+     ─────────────────────────────────────
+     Displays a full color-coded weather dashboard including:
+     • Today's detailed weather card (temp, wind, rain, humidity)
+     • ASCII bar chart comparing 7-day highs and lows
+     • Full 7-day grid with all metrics
+     • Garden-at-a-Glance summary: frost risk, heat waves,
+       ideal conditions for specific plant types
+
+     DATA PULLED: temperature (high/low), wind speed/direction,
+     precipitation probability, relative humidity, weather description,
+     detailed forecast text.
+
+[2]  PLANT RECOMMENDATIONS FOR YOUR AREA
+     ─────────────────────────────────────
+     Uses NOAA historical data to determine your USDA Hardiness Zone,
+     then recommends plants suited to your climate and this month.
+
+     Shows:
+     • Your USDA Zone (derived from historical minimum temperatures)
+     • Plants you can start planting RIGHT NOW this month
+     • Full 12-month planting calendar for all suitable plants
+       (P = Plant month, H = Harvest month)
+     • Water needs, sun needs, days to harvest for each plant
+
+     PLANT DATABASE: 19 plants — vegetables, herbs, and flowers.
+
+[3]  VIEW & MANAGE MY GARDEN
+     ─────────────────────────────────────
+     First shows a SCENIC VIEW with ASCII art for each plant type
+     in your garden, then opens the interactive grid manager.
+
+     Grid Manager features:
+     • 6×10 plot grid (60 total plots)
+     • Add plants by row/col with optional notes
+     • Remove plants
+     • View plant details + real-time growth progress bar
+     • Watering and care advice based on today's forecast
+     • Garden is SAVED automatically to garden_state.json
+
+[4]  GARDEN CARE ADVISOR (WATER / PLANT?)
+     ─────────────────────────────────────
+     Answers the daily questions every farmer has:
+     • Should I water today? (checks rain chance, humidity)
+     • Should I plant today? (checks temp, wind, conditions)
+     • What plants are ideal for today's exact temperatures?
+     • Pest & disease risk based on humidity and heat
+     • Day-by-day task list for the whole week:
+       [Water] [FROST COVER] [Mulch/Shade] [Stake plants]
+
+[5]  FROST DATE CALCULATOR
+     ─────────────────────────────────────
+     Uses actual NOAA GHCN historical data to calculate:
+     • Last spring frost date (from last year's data)
+     • First fall frost date
+     • Growing season length in days
+     • Days left in the growing season (if currently active)
+     • Monthly frost risk table (None / Low / Moderate / High)
+     • Frost protection tips
+     • ALERT if any day in the 7-day forecast has frost risk
+
+[6]  COMPANION PLANTING GUIDE
+     ─────────────────────────────────────
+     • Analyzes YOUR garden for companion plant conflicts/synergies
+     • Suggests missing companion plants for each crop you have
+     • Top 10 proven companion pairings with benefits explained
+     • Three Sisters garden guide (Corn + Beans + Squash)
+     • Browse any plant to see its full companion list
+
+[7]  MOON PHASE PLANTING GUIDE  [WOW FEATURE]
+     ─────────────────────────────────────
+     Biodynamic farmers have planted by moon phases for centuries.
+     This feature uses precise astronomical calculations to show:
+     • Tonight's exact moon phase (Day X of 29.5-day cycle)
+     • ASCII moon visualization + progress bar
+     • Specific planting advice for the current phase
+     • Best plant types to start RIGHT NOW
+     • 14-day lunar calendar with planting recommendations
+     • Full explanation of all 8 moon phases and their meaning
+
+     The phase is calculated using the Julian Day method referenced
+     from the known New Moon of January 6, 2000.
+
+[8]  WEATHER vs. HISTORICAL COMPARISON  [WOW FEATURE]
+     ─────────────────────────────────────
+     Compares this week's live forecast against NOAA historical
+     averages from last year:
+     • Avg high/low this week vs. historical average for this month
+     • "ABOVE/BELOW normal" indicators with color coding
+     • Day-by-day temperature deviation bar chart
+     • Full 12-month historical table (avg high, low, precip, snow,
+       frost days)
+     • Climate insights: "Running 6°F hotter than normal — consider
+       shade cloth and extra watering"
+
+[9]  GARDEN JOURNAL & HARVEST TRACKER  [WOW FEATURE]
+     ─────────────────────────────────────
+     Part farm diary, part harvest countdown dashboard.
+
+     Harvest Tracker:
+     • Shows every plant in your garden with a progress bar
+     • Color-coded: green = ready, yellow = growing, cyan = early
+     • Alerts when plants are READY TO HARVEST
+     • Shows days grown vs. days to harvest for each plot
+
+     Journal:
+     • Log entries by type: observation / harvest / issue / note
+     • Entries tagged with date, plant name, and type
+     • Color-coded log view (green=harvest, red=issue, cyan=observation)
+     • Summary stats: total entries, harvest count, issue count
+     • Entries saved permanently to garden_journal.txt
+
+[10] BROWSE ALL PLANT PROFILES (ASCII ART)
+     ─────────────────────────────────────
+     Lists all 19 plants by category with key stats, then lets you
+     pull up a full profile for any plant showing:
+     • Custom ASCII art visualization
+     • All growing details (zone, temp range, water, sun, timing)
+     • Companion plants and plants to avoid
+     • Expert planting tip
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HOW TO PRESENT THIS TO AN AUDIENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RECOMMENDED DEMO FLOW (7–10 minutes):
+
+  STEP 1 — Open the app, enter your city (or audience's city).
+             While it loads, explain what NOAA is and why real data
+             matters vs. made-up placeholder numbers.
+
+  STEP 2 — Show the main menu. Point out color coding and [WOW] tags.
+             Build the audience's curiosity before diving in.
+
+  STEP 3 — Go to [1] Weather Dashboard.
+             → "This is pulling LIVE data from api.weather.gov
+               right now. The bar chart is color-coded by temperature."
+             → Point out frost risk line if present.
+
+  STEP 4 — Go to [2] Plant Recommendations.
+             → "The app figured out we're in Zone 6 — from actual
+               NOAA temperature records, not a lookup table."
+             → Show the planting calendar. Explain P/H columns.
+
+  STEP 5 — Go to [3] Garden View.
+             → Add a tomato at Row 2, Col 3.
+             → Add a marigold at Row 2, Col 4.
+             → Show the ASCII scenic view.
+             → "This garden saves between sessions — open it tomorrow,
+               your data is still here."
+
+  STEP 6 — Go to [7] Moon Phase Guide. [WOW]
+             → "Biodynamic farmers have used lunar planting for
+               1,000 years. We calculate the exact phase using
+               the Julian Day method — real astronomy."
+
+  STEP 7 — Go to [8] Weather vs. History. [WOW]
+             → "Is this April hotter than usual? We compare against
+               last year's NOAA station data to find out — and tell
+               you what it means for your crops."
+
+  STEP 8 — Go to [9] Journal & Harvest Tracker. [WOW]
+             → "Watch the progress bar fill as days pass. When it
+               hits 100% — it's harvest time. The journal logs
+               everything: harvests, issues, observations."
+
+  STEP 9 — Go to [5] Frost Date Calculator.
+             → "Last spring frost, first fall frost, your growing
+               season length — all from real NOAA station data
+               downloaded live."
+
+  CLOSING — "10 features, real government weather data, no GUI
+             framework, no paid APIs, zero API keys. Just .NET 10
+             and code."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SAVED FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  garden_state.json   — Your garden plots (auto-saved on every change)
+  garden_journal.txt  — Your journal log (append-only)
+
+Both files live in the same folder as the compiled executable.
+Delete them to start fresh.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ARCHITECTURE OVERVIEW (for technical questions)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Program.cs              Main menu and startup
+  NOAAService.cs          All external API calls (weather.gov + GHCN)
+  WeatherDay.cs           Data model for a single forecast day
+  HistoricalStats.cs      Data model for monthly historical averages
+  Plant.cs                Plant data model
+  PlantDatabase.cs        19-plant database with ASCII art
+  PlantAdvisor.cs         Plant recommendation engine + calendar
+  GardenEntry.cs          Individual garden plot record
+  GardenManager.cs        Garden CRUD + JSON persistence
+  GardenVisualizer.cs     ASCII art rendering for garden + plants
+  FrostCalculator.cs      Frost date analysis from NOAA data
+  WeatherDashboard.cs     Color weather display + bar charts
+  CompanionPlanting.cs    Companion plant guide + garden analysis
+  MoonPhaseCalculator.cs  Astronomical moon phase calculation
+  WeatherComparison.cs    Current vs. historical weather comparison
+  GardenJournal.cs        Journal log + harvest countdown tracker
+  ConsoleUI.cs            Shared console formatting helpers
+
+  External APIs used:
+    - OpenStreetMap Nominatim (geocoding — location to lat/lon)
+    - api.weather.gov (7-day forecast — US only, no API key)
+    - NOAA GHCN AWS S3 (historical climate records)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BUGS FIXED FROM ORIGINAL (Phase 2 → Final)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Namespace was "Project_1" throughout — fixed to "Project_2"
+  2. 7-day forecast returned same day repeated 7× — fixed with
+     real api.weather.gov integration (daytime/nighttime pairing)
+  3. Wind speed/direction were hardcoded placeholders — now live
+  4. Year hardcoded to 2026 — now dynamic (DateTime.Now.Year - 1)
+  5. WebClient deprecated — replaced with HttpClient throughout
+  6. JSON parsing used GetString() on numeric lat/lon — fixed
+  7. Station CSV downloaded 3× for same station — single download,
+     parsed once for all metrics
+  8. No error handling — all API calls have try/catch with fallback
+  9. All 7 forecast days were identical objects — now independent
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

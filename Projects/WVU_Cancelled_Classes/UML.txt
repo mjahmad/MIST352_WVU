@@ -1,0 +1,86 @@
+@startuml
+
+class WeatherDay {
+  +string Date
+  +double MinTemp
+  +double MaxTemp
+  +double Snowfall
+  +double SnowDepth
+  +double Precipitation
+  +double WindSpeed
+  +double WindGust
+  +bool HasFog
+  +bool HasIce
+  +bool HasThunder
+  +bool HasBlowingSnow
+  +bool HasFreeze
+
+  +int SeverityScore()
+  +void DisplayInfo()
+}
+
+class NOAAService {
+  -string _location
+  +WeatherDay[] GetHistoricalData(int year)
+  +WeatherDay GetCurrentWeather()
+}
+
+class CancellationRecord {
+  +string _date
+  +bool _wasCancelled
+  +WeatherDay _weather
+}
+
+class CancellationPredictor {
+  -CancellationRecord[] _records
+  -double _avgCancelSnow
+  -double _avgCancelTemp
+  -double _avgCancelWind
+  -double _avgCancelScore
+
+  +void TrainModel()
+  +void TrainFromHistory(WeatherDay[], string)
+  +double Predict(WeatherDay)
+}
+
+class DecisionEngine {
+  +double _tempThreshold
+  +double _snowThreshold
+  +double _gustThreshold
+  +int _scoreThreshold
+
+  +bool ShouldCancel(WeatherDay)
+  +(bool, string) Evaluate(WeatherDay)
+}
+
+class AnimatedDashboard {
+  +void Run(WeatherDay, WeatherDay[], double)
+}
+
+class MapDisplay {
+  +void Show(WeatherDay)
+}
+
+class ForecastDisplay {
+  +void Show(CancellationPredictor)
+}
+
+class WeatherTimeline {
+  +void Show(WeatherDay[], string)
+}
+
+class WeatherStats {
+  +void Show(WeatherDay[], string)
+}
+
+NOAAService --> WeatherDay
+CancellationPredictor --> CancellationRecord
+CancellationRecord --> WeatherDay
+DecisionEngine --> WeatherDay
+ForecastDisplay --> CancellationPredictor
+AnimatedDashboard --> WeatherDay
+MapDisplay --> WeatherDay
+WeatherTimeline --> WeatherDay
+WeatherStats --> WeatherDay
+
+@enduml
