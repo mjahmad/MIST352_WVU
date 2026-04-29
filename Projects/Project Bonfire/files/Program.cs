@@ -64,56 +64,67 @@ namespace Project_1
         // ── startup helpers ───────────────────────────────────────────────
 
         static void DrawSplash()
-        {
-            Console.Clear();
-            ConsoleUI.SetFire();
-            Console.WriteLine();
-            Console.WriteLine("  ╔═══════════════════════════════════════════════════╗");
-            Console.WriteLine("  ║                                                   ║");
-            ConsoleUI.SetWhite();
-            Console.Write("  ║");
-            ConsoleUI.SetFire();
-            Console.Write("      (  )   (   )  )                              ");
-            ConsoleUI.SetWhite();
-            Console.WriteLine("║");
+{
+    Console.Clear();
 
-            Console.Write("  ║");
-            ConsoleUI.SetFire();
-            Console.Write("       ) (   )  (  (                               ");
-            ConsoleUI.SetWhite();
-            Console.WriteLine("║");
+    int boxWidth = 56;
 
-            Console.Write("  ║");
-            ConsoleUI.SetFire();
-            Console.Write("       ( )  (    ) )                               ");
-            ConsoleUI.SetWhite();
-            Console.WriteLine("║");
+    string title = "🔥 BONFIRE PLANNER v2.0 🔥";
+    string subtitle = "Powered by NOAA api.weather.gov";
+    string footer = "MIST 352 – Spring 2026";
 
-            Console.Write("  ║");
-            ConsoleUI.SetWhite();
-            Console.Write("    ══════════════════════════════════════════════  ");
-            Console.WriteLine("║");
+    // Top border in RED
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("╔════════════════════════════════════════════════════════╗");
 
-            Console.Write("  ║");
-            Console.Write("       🔥  BONFIRE PLANNER  v2.0  🔥               ");
-            Console.WriteLine("║");
+    // White text inside
+    PrintCenteredLine(title, boxWidth, ConsoleColor.White);
+    PrintCenteredLine(subtitle, boxWidth, ConsoleColor.Gray);
+    PrintCenteredLine(footer, boxWidth, ConsoleColor.White);
 
-            Console.Write("  ║");
-            ConsoleUI.SetDim();
-            Console.Write("          Powered by NOAA api.weather.gov              ");
-            ConsoleUI.SetWhite();
-            Console.WriteLine("║");
+    // Bottom border in RED
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("╚════════════════════════════════════════════════════════╝");
 
-            Console.Write("  ║");
-            ConsoleUI.SetDim();
-            Console.Write("          MIST 352 — Spring 2026                       ");
-            ConsoleUI.SetWhite();
-            Console.WriteLine("║");
+    Console.ResetColor();
+    Console.WriteLine();
+}
 
-            Console.WriteLine("  ╚═══════════════════════════════════════════════════╝");
-            ConsoleUI.Reset();
-            Console.WriteLine();
-        }
+static void PrintCenteredLine(string text, int width, ConsoleColor textColor)
+{
+    int leftPadding = (width - text.Length) / 2;
+
+    if (leftPadding < 0)
+        leftPadding = 0;
+
+    text = text.PadLeft(text.Length + leftPadding).PadRight(width);
+
+    // Red side borders
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.Write("║");
+
+    // White/Gray text
+    Console.ForegroundColor = textColor;
+    Console.Write(text);
+
+    // Red closing border
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("║");
+
+    Console.ResetColor();
+}
+
+static void PrintCenteredLine(string text, int width)
+{
+    int leftPadding = (width - text.Length) / 2;
+
+    if (leftPadding < 0)
+        leftPadding = 0;
+
+    text = text.PadLeft(text.Length + leftPadding).PadRight(width);
+
+    Console.WriteLine($"║{text}║");
+}
 
         static string GetLocation()
         {

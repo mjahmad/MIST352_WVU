@@ -8,26 +8,24 @@
     "net10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\mjahm\\.nuget\\packages\\": {}
+    "/Users/kaylamatey/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub_Repos\\MIST352_Spring2026_Students\\Kayla_Matey_MIST352_Fall2025\\Project Bonfire\\files\\Project_2.csproj",
+      "projectUniqueName": "/Users/kaylamatey/Downloads/MIST352_Fall25/Kayla_Matey_MIST352_Fall2025/Project Bonfire/files/Project_2.csproj",
       "projectName": "BonfirePlanner",
-      "projectPath": "D:\\GitHub_Repos\\MIST352_Spring2026_Students\\Kayla_Matey_MIST352_Fall2025\\Project Bonfire\\files\\Project_2.csproj",
-      "packagesPath": "C:\\Users\\mjahm\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub_Repos\\MIST352_Spring2026_Students\\Kayla_Matey_MIST352_Fall2025\\Project Bonfire\\files\\obj\\",
+      "projectPath": "/Users/kaylamatey/Downloads/MIST352_Fall25/Kayla_Matey_MIST352_Fall2025/Project Bonfire/files/Project_2.csproj",
+      "packagesPath": "/Users/kaylamatey/.nuget/packages/",
+      "outputPath": "/Users/kaylamatey/Downloads/MIST352_Fall25/Kayla_Matey_MIST352_Fall2025/Project Bonfire/files/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mjahm\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/kaylamatey/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -67,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.203/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

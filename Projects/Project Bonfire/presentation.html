@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonfire Planner v2.0 — MIST 352 WVU</title>
+<style>
+  /* ── Reset & base ─────────────────────────────────────────────────────── */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #1a1a2e; color: #eee; }
+
+  /* ── Edit mode banner ────────────────────────────────────────────────── */
+  #edit-banner {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: #EAAA00; color: #002855;
+    text-align: center; padding: 8px 16px;
+    font-weight: bold; font-size: 0.95em; letter-spacing: 0.5px;
+  }
+  body.edit-mode #edit-banner { display: block; }
+  body.edit-mode .slide { padding-top: 60px; }
+
+  /* ── Slide container & slides ────────────────────────────────────────── */
+  .slide-container { width: 100%; max-width: 960px; margin: 0 auto; }
+
+  .slide {
+    display: none;
+    min-height: 100vh;
+    padding: 48px 64px 80px;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .slide.active { display: flex; }
+
+  .slide::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 6px;
+    background: linear-gradient(90deg, #002855, #EAAA00, #002855);
+  }
+
+  .slide-num {
+    position: absolute; bottom: 20px; right: 30px;
+    font-size: 13px; color: #ffdddd; opacity: 0.8; letter-spacing: 1px;
+  }
+
+  /* ── Typography ──────────────────────────────────────────────────────── */
+  h1 { font-size: 2.6em; color: #ffffff; line-height: 1.2; margin-bottom: 12px; }
+  h2 { font-size: 1.9em; color: #EAAA00; margin-bottom: 24px; border-bottom: 2px solid #EAAA00; padding-bottom: 8px; }
+  h3 { font-size: 1.2em; color: #7ecfff; margin-bottom: 8px; margin-top: 18px; }
+  .subtitle { font-size: 1.3em; color: #7ecfff; margin-bottom: 8px; }
+  .course-tag { font-size: 1em; color: #bbb; margin-top: 12px; }
+  p { font-size: 1.05em; line-height: 1.7; color: #eee; margin-bottom: 12px; }
+  code { background: rgba(255,255,255,0.12); padding: 1px 6px; border-radius: 4px; font-size: 0.92em; color: #fff; }
+
+  ul { list-style: none; padding: 0; }
+  ul li { padding: 7px 0 7px 28px; position: relative; font-size: 1.02em; line-height: 1.5; color: #eee; }
+  ul li::before { content: '▶'; position: absolute; left: 0; color: #ff4d4d; font-size: 0.75em; top: 10px; }
+
+  /* ── Layouts ─────────────────────────────────────────────────────────── */
+  .two-col   { display: grid; grid-template-columns: 1fr 1fr;     gap: 32px; margin-top: 16px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 16px; }
+
+  .card { background: rgba(255,255,255,0.055); border: 1px solid rgba(255,77,77,0.35); border-radius: 10px; padding: 20px; }
+  .card h3 { margin-top: 0; }
+
+  .badge { display: inline-block; background: #EAAA00; color: #002855; font-weight: bold; font-size: 0.85em; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; }
+  .badge-blue { display: inline-block; background: #002855; color: #EAAA00; border: 1px solid #EAAA00; font-weight: bold; font-size: 0.85em; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; }
+
+  .highlight-box { background: rgba(229,57,53,0.14); border-left: 4px solid #ff4d4d; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .highlight-box-blue { background: rgba(255,255,255,0.08); border-left: 4px solid #ffffff; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+
+  .flow-row  { display: flex; align-items: center; gap: 12px; margin: 16px 0; flex-wrap: wrap; }
+  .flow-box  { background: rgba(255,255,255,0.08); border: 1px solid #ffb3b3; border-radius: 8px; padding: 12px 18px; text-align: center; font-size: 0.95em; color: #ffdddd; min-width: 120px; }
+  .flow-arrow { font-size: 1.5em; color: #ff4d4d; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.95em; }
+  th { background: rgba(229,57,53,0.25); color: #ffffff; padding: 10px 14px; text-align: left; border-bottom: 2px solid #ff4d4d; }
+  td { padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.10); color: #eee; }
+  tr:hover td { background: rgba(255,255,255,0.05); }
+
+  .wvu-logo-text { font-size: 3.5em; font-weight: 900; color: #002855; background: #EAAA00; display: inline-block; padding: 8px 20px; border-radius: 8px; margin-bottom: 24px; letter-spacing: 2px; }
+
+  .dev-row { display: flex; gap: 24px; margin-top: 20px; }
+  .dev-col { flex: 1; background: rgba(255,255,255,0.045); border-radius: 10px; padding: 20px; border: 1px solid rgba(255,255,255,0.10); }
+  .dev-col.gold-border { border-color: rgba(255,77,77,0.45); }
+  .dev-col.blue-border { border-color: rgba(255,255,255,0.35); }
+
+  /* ── Edit mode: editable element highlighting ────────────────────────── */
+  body.edit-mode [contenteditable="true"] {
+    outline: 2px dashed rgba(255,77,77,0.7);
+    border-radius: 4px;
+    min-height: 1em;
+    cursor: text;
+    transition: outline 0.2s;
+  }
+  body.edit-mode [contenteditable="true"]:focus {
+    outline: 2px solid #ffffff;
+    background: rgba(255,255,255,0.08);
+  }
+  body.edit-mode [contenteditable="true"]:empty::before {
+    content: attr(data-placeholder);
+    color: rgba(255,255,255,0.35);
+    font-style: italic;
+  }
+
+  /* ── Save flash ──────────────────────────────────────────────────────── */
+  #save-flash {
+    position: fixed; top: 44px; right: 16px; z-index: 300;
+    background: #00aa44; color: #fff; padding: 6px 16px; border-radius: 20px;
+    font-size: 0.85em; font-weight: bold; opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  #save-flash.show { opacity: 1; }
+
+  /* ── Navigation bar ──────────────────────────────────────────────────── */
+  .nav {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 10px; align-items: center; z-index: 100;
+    background: rgba(26,26,46,0.88); backdrop-filter: blur(6px);
+    padding: 8px 16px; border-radius: 32px;
+    border: 1px solid rgba(255,77,77,0.35);
+  }
+  .nav button {
+    background: rgba(234,170,0,0.85); color: #002855; border: none;
+    padding: 8px 22px; font-size: 0.95em; font-weight: bold;
+    border-radius: 20px; cursor: pointer; transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .nav button:hover { background: #EAAA00; }
+  .nav button:disabled { background: #444; color: #777; cursor: default; }
+  .nav .slide-counter { color: #ffffff; font-size: 0.9em; min-width: 60px; text-align: center; }
+  #edit-btn { background: rgba(255,255,255,0.1); color: #ffffff; border: 1px solid rgba(255,255,255,0.45); }
+  #edit-btn:hover { background: rgba(255,255,255,0.18); }
+  #edit-btn.active { background: #ffffff; color: #b30000; }
+  #reset-btn { background: rgba(255,80,80,0.15); color: #7ecfff; border: 1px solid rgba(255,80,80,0.35); font-size: 0.8em; padding: 8px 14px; }
+  #reset-btn:hover { background: rgba(255,80,80,0.3); color: #ffffff; }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     CLASS DIAGRAM SLIDE
+  ════════════════════════════════════════════════════════════════════════ */
+  .diagram-area { flex: 1; display: flex; flex-direction: column; margin-top: 16px; min-height: 400px; }
+  .drop-zone {
+    flex: 1; border: 2px dashed rgba(255,77,77,0.55); border-radius: 12px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    cursor: pointer; transition: border-color 0.2s, background 0.2s;
+    position: relative; overflow: hidden; min-height: 340px;
+    background: rgba(255,255,255,0.035);
+  }
+  .drop-zone:hover, .drop-zone.drag-over { border-color: #ffffff; background: rgba(255,255,255,0.07); }
+  .drop-zone.has-image { border-style: solid; border-color: rgba(255,77,77,0.35); }
+  .drop-zone-prompt { display: flex; flex-direction: column; align-items: center; gap: 14px; color: #ddd; text-align: center; padding: 24px; pointer-events: none; }
+  .drop-zone-prompt .upload-icon { font-size: 3.5em; }
+  .drop-zone-prompt p { margin: 0; font-size: 1.05em; color: #eee; }
+  .drop-zone-prompt small { color: #aaa; font-size: 0.85em; }
+  #diagram-img { max-width: 100%; max-height: 100%; width: 100%; height: 100%; object-fit: contain; display: none; border-radius: 8px; }
+  .drop-zone.has-image #diagram-img { display: block; }
+  .drop-zone.has-image .drop-zone-prompt { display: none; }
+  .diagram-overlay { position: absolute; top: 8px; right: 8px; display: flex; gap: 6px; }
+  .diagram-overlay button { background: rgba(26,26,46,0.85); color: #ffffff; border: 1px solid rgba(255,255,255,0.45); padding: 5px 12px; border-radius: 14px; font-size: 0.8em; cursor: pointer; backdrop-filter: blur(4px); display: none; }
+  .drop-zone.has-image .diagram-overlay button { display: inline-block; }
+  #diagram-caption { margin-top: 10px; font-size: 0.9em; color: #bbb; text-align: center; font-style: italic; min-height: 1.4em; }
+  #diagram-file-input { display: none; }
+  .upload-btn-inner { background: rgba(234,170,0,0.85); color: #002855; border: none; padding: 9px 24px; border-radius: 20px; font-size: 0.95em; font-weight: bold; cursor: pointer; pointer-events: all; transition: background 0.2s; }
+  .upload-btn-inner:hover { background: #EAAA00; }
+</style>
+</head>
+<body>
+
+<!-- Edit mode banner -->
+<div id="edit-banner">
+  ✏ EDIT MODE — Click any highlighted text to edit it &nbsp;|&nbsp; Changes are auto-saved to this browser &nbsp;|&nbsp; Press Esc or click "Edit Mode" again to exit
+</div>
+
+<!-- Save flash -->
+<div id="save-flash">✓ Saved</div>
+
+<div class="slide-container">
+
+<!-- ══════════════════════ SLIDE 1 — TITLE ══════════════════════ -->
+<div class="slide active" id="slide-1">
+  <div class="wvu-logo-text">WVU</div>
+  <h1 data-key="s1-h1" data-placeholder="Presentation Title">🔥 Bonfire Planner v2.0 🔥</h1>
+  <p class="subtitle" data-key="s1-subtitle" data-placeholder="Subtitle">Powered by Real Weather Data and Smart Fire-Side Decisions</p>
+  <div class="highlight-box" style="margin-top:24px;">
+    <p style="margin:0; font-size:1.1em;" data-key="s1-desc" data-placeholder="Description">
+      A full-featured bonfire planning and decision-support system combining
+      <strong style="color:#ffffff;">live NWS 7-day forecasts</strong>,
+      <strong style="color:#ffb3b3;">wind and smoke direction logic</strong>, and
+      <strong style="color:#ff8080;">fire safety recommendations</strong>
+      — all in a single C# console application with no paid APIs.
+    </p>
+  </div>
+  <p class="course-tag" style="margin-top:28px;" data-key="s1-course" data-placeholder="Course / Team / Semester">MIST 352 &nbsp;|&nbsp; West Virginia University &nbsp;|&nbsp; Spring 2026</p>
+  <div class="slide-num">1 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 2 — DEVELOPMENT STORY ══════════════════════ -->
+<div class="slide" id="slide-2">
+  <h2 data-key="s2-h2" data-placeholder="Slide title">How This System Was Built</h2>
+  <div class="dev-row">
+    <div class="dev-col gold-border">
+      <div class="badge">GROUP WORK — Course Assessments</div>
+      <h3 data-key="s2-h3a" data-placeholder="Heading">Core Classes — Built by the Team</h3>
+      <p data-key="s2-p1" data-placeholder="Description">The group designed and coded the foundational classes of this system throughout MIST 352. These classes form the backbone of the application:</p>
+      <ul>
+        <li data-key="s2-li1" data-placeholder="Bullet"><code>Program.cs</code> — application entry point and main menu flow</li>
+        <li data-key="s2-li2" data-placeholder="Bullet"><code>WeatherDay.cs</code> — daily weather model for forecast information</li>
+        <li data-key="s2-li3" data-placeholder="Bullet"><code>NOAAService.cs</code> — weather API integration layer</li>
+        <li data-key="s2-li4" data-placeholder="Bullet"><code>ConsoleUI.cs</code> — reusable console styling, colors, and section headers</li>
+        <li data-key="s2-li5" data-placeholder="Bullet"><code>BonfirePlan.cs</code> — stores the location, date, time, and fire-planning details</li>
+        <li data-key="s2-li6" data-placeholder="Bullet"><code>FireCondition.cs</code> — evaluates whether weather is safe for a fire</li>
+        <li data-key="s2-li7" data-placeholder="Bullet"><code>MenuHandler.cs</code> — organizes user choices and application navigation</li>
+        <li data-key="s2-li8" data-placeholder="Bullet"><code>UserInput.cs</code> — validates menu selections and typed user entries</li>
+      </ul>
+    </div>
+    <div class="dev-col blue-border">
+      <div class="badge-blue">AI ASSISTED — Advanced Features</div>
+      <h3 data-key="s2-h3b" data-placeholder="Heading">Features Built on Top — Using Claude Code / AI Help</h3>
+      <p data-key="s2-p2" data-placeholder="Description">AI assistance was used to extend the core class foundation with stronger user experience, cleaner output formatting, and more realistic bonfire decision logic:</p>
+      <ul>
+        <li data-key="s2-li9" data-placeholder="Bullet"><code>SeatingAdvisor.cs</code> — recommends seats adjacent to the wind path</li>
+        <li data-key="s2-li10" data-placeholder="Bullet"><code>DrawCompass()</code> — ASCII compass showing wind origin and smoke flow</li>
+        <li data-key="s2-li11" data-placeholder="Bullet"><code>GetOpposite()</code> — calculates where smoke drifts based on wind source</li>
+        <li data-key="s2-li12" data-placeholder="Bullet"><code>GetBestDirection()</code> — safe seating logic based on perpendicular directions</li>
+        <li data-key="s2-li13" data-placeholder="Bullet"><code>DrawSplash()</code> — red and white branded console splash screen</li>
+        <li data-key="s2-li14" data-placeholder="Bullet"><code>PrintCenteredLine()</code> — fixes spacing around emoji-based console text</li>
+        <li data-key="s2-li15" data-placeholder="Bullet"><code>Fire Readiness Summary</code> — combines rain, wind, and comfort conditions</li>
+        <li data-key="s2-li16" data-placeholder="Bullet"><code>Safety Notes</code> — gives practical reminders for real outdoor use</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-num">2 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 3 — WHAT THE APP DOES ══════════════════════ -->
+<div class="slide" id="slide-3">
+  <h2 data-key="s3-h2" data-placeholder="Slide title">What the App Does</h2>
+  <p data-key="s3-intro" data-placeholder="Intro text">A console-based bonfire planning system that turns weather data into clear outdoor recommendations:</p>
+  <div class="three-col" style="margin-top:12px;">
+    <div class="card">
+      <div class="badge">[1]</div>
+      <h3 data-key="s3-c1h" data-placeholder="Feature name">Weather Dashboard</h3>
+      <p data-key="s3-c1p" data-placeholder="Feature description">Displays the forecast for the selected location, including temperature, wind, precipitation, and short conditions.</p>
+    </div>
+    <div class="card">
+      <div class="badge">[2]</div>
+      <h3 data-key="s3-c2h" data-placeholder="Feature name">Fire Condition Check</h3>
+      <p data-key="s3-c2p" data-placeholder="Feature description">Evaluates whether the weather is good for a bonfire based on rain chance, wind strength, and general comfort.</p>
+    </div>
+    <div class="card">
+      <div class="badge">[3]</div>
+      <h3 data-key="s3-c3h" data-placeholder="Feature name">Seating Advisor</h3>
+      <p data-key="s3-c3p" data-placeholder="Feature description">Uses wind direction to recommend where users should sit so they avoid the smoke path.</p>
+    </div>
+    <div class="card">
+      <div class="badge">[4]</div>
+      <h3 data-key="s3-c4h" data-placeholder="Feature name">Wind Compass</h3>
+      <p data-key="s3-c4p" data-placeholder="Feature description">Shows an ASCII compass with North, South, East, West, and a fire marker in the center.</p>
+    </div>
+    <div class="card">
+      <div class="badge">[5]</div>
+      <h3 data-key="s3-c5h" data-placeholder="Feature name">Smoke Flow Diagram</h3>
+      <p data-key="s3-c5p" data-placeholder="Feature description">Draws arrows showing where wind enters and where smoke drifts after passing over the fire.</p>
+    </div>
+    <div class="card">
+      <div class="badge">[6]</div>
+      <h3 data-key="s3-c6h" data-placeholder="Feature name">Safety Reminders</h3>
+      <p data-key="s3-c6p" data-placeholder="Feature description">Provides practical reminders like avoiding high wind, checking rain, and staying out of smoke.</p>
+    </div>
+    <div class="card">
+      <div class="badge">[7] WOW</div>
+      <h3 data-key="s3-c7h" data-placeholder="Feature name">Realistic Seating Logic</h3>
+      <p data-key="s3-c7p" data-placeholder="Feature description">The app does not simply send users to the opposite direction. It recommends sitting adjacent to the wind path.</p>
+    </div>
+    <div class="card">
+      <div class="badge">[8] WOW</div>
+      <h3 data-key="s3-c8h" data-placeholder="Feature name">Styled Console UI</h3>
+      <p data-key="s3-c8p" data-placeholder="Feature description">Uses red and white console styling, clean dividers, centered text, and readable section labels.</p>
+    </div>
+    <div class="card">
+      <div class="badge">[9] WOW</div>
+      <h3 data-key="s3-c9h" data-placeholder="Feature name">Weather-Based Planning</h3>
+      <p data-key="s3-c9p" data-placeholder="Feature description">Brings together forecast conditions and decision logic so the user can plan a better fire night.</p>
+    </div>
+  </div>
+  <div class="slide-num">3 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 4 — SYSTEM ARCHITECTURE ══════════════════════ -->
+<div class="slide" id="slide-4">
+  <h2 data-key="s4-h2" data-placeholder="Slide title">System Architecture</h2>
+  <div class="flow-row">
+    <div class="flow-box" data-key="s4-f1" data-placeholder="Box label">User Location<br><small>city / state input</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f2" data-placeholder="Box label">NOAA / NWS API<br><small>forecast request</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f3" data-placeholder="Box label">WeatherDay<br><small>daily model</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f4" data-placeholder="Box label">FireCondition<br><small>safe or risky</small></div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-box" data-key="s4-f5" data-placeholder="Box label">Wind Direction<br><small>N, NE, E, etc.</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f6" data-placeholder="Box label">GetOpposite()<br><small>smoke direction</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f7" data-placeholder="Box label">GetBestDirection()<br><small>safe seats</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f8" data-placeholder="Box label">SeatingAdvisor<br><small>final output</small></div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-box" data-key="s4-f9" data-placeholder="Box label">ConsoleUI<br><small>colors + layout</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f10" data-placeholder="Box label">Splash Screen<br><small>red + white</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f11" data-placeholder="Box label">Compass View<br><small>ASCII diagram</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f12" data-placeholder="Box label">User Decision<br><small>plan the fire</small></div>
+  </div>
+  <div class="highlight-box" style="margin-top:12px;">
+    <span data-key="s4-note" data-placeholder="Architecture note"><strong style="color:#ffffff;">Design goal:</strong> keep the application easy to run in a console while still making the recommendations feel realistic, visual, and useful for an actual bonfire.</span>
+  </div>
+  <div class="slide-num">4 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 5 — CLASS DIAGRAM ══════════════════════ -->
+<div class="slide" id="slide-5">
+  <h2 data-key="s5-h2" data-placeholder="Slide title">Class Diagram</h2>
+
+  <div class="diagram-area">
+    <input type="file" id="diagram-file-input" accept="image/*">
+
+    <div class="drop-zone" id="drop-zone" title="Click or drag your class diagram here">
+      <div class="drop-zone-prompt" id="drop-prompt">
+        <div class="upload-icon">📐</div>
+        <p>Drop your class diagram image here</p>
+        <small>Supports PNG, JPG, GIF, SVG</small>
+        <button class="upload-btn-inner" id="browse-btn">Browse File</button>
+      </div>
+      <img id="diagram-img" alt="Class Diagram" draggable="false">
+      <div class="diagram-overlay">
+        <button id="replace-btn" title="Replace image">↑ Replace</button>
+        <button id="remove-btn" title="Remove image" style="color:#ff8888; border-color:rgba(255,80,80,0.4);">✕ Remove</button>
+      </div>
+    </div>
+
+    <p id="diagram-caption" data-key="s5-caption" data-placeholder="Add a caption or description for your diagram…">Add a caption or description for your Bonfire Planner class diagram here.</p>
+  </div>
+
+  <div class="slide-num">5 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 6 — DATA SOURCE 1: NWS FORECAST ══════════════════════ -->
+<div class="slide" id="slide-6">
+  <h2 data-key="s6-h2" data-placeholder="Slide title">Data Source: National Weather Service Forecast</h2>
+  <div class="two-col">
+    <div>
+      <div class="badge">LIVE FORECAST DATA</div>
+      <h3 data-key="s6-h3a" data-placeholder="Heading">Weather-to-Decision Flow</h3>
+      <div class="flow-row" style="flex-direction:column; align-items:flex-start; gap:8px; margin:0;">
+        <div class="flow-box" style="width:100%; text-align:left;" data-key="s6-step1" data-placeholder="Step 1">Step 1 — User enters a bonfire location</div>
+        <div class="flow-arrow" style="font-size:1em; margin-left:8px;">↓</div>
+        <div class="flow-box" style="width:100%; text-align:left;" data-key="s6-step2" data-placeholder="Step 2">Step 2 — NOAA / NWS forecast data is retrieved</div>
+        <div class="flow-arrow" style="font-size:1em; margin-left:8px;">↓</div>
+        <div class="flow-box" style="width:100%; text-align:left;" data-key="s6-step3" data-placeholder="Step 3">Step 3 — Weather conditions are converted into fire recommendations</div>
+      </div>
+    </div>
+    <div>
+      <div class="badge">FIELDS USED BY THE APP</div>
+      <table>
+        <tr><th>Field</th><th>How It Helps</th></tr>
+        <tr><td>Temperature</td><td>Determines comfort level for sitting outside</td></tr>
+        <tr><td>Wind Speed</td><td>Helps decide if fire conditions are safe or too risky</td></tr>
+        <tr><td>Wind Direction</td><td>Drives smoke flow and seating recommendations</td></tr>
+        <tr><td>Precipitation Chance</td><td>Warns users if rain may ruin the fire</td></tr>
+        <tr><td>Forecast Description</td><td>Gives a quick plain-English summary</td></tr>
+        <tr><td>Humidity / Conditions</td><td>Supports comfort and fire-readiness logic</td></tr>
+        <tr><td>Fire Readiness</td><td>Final recommendation for the user</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="slide-num">6 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 7 — WIND + SMOKE LOGIC ══════════════════════ -->
+<div class="slide" id="slide-7">
+  <h2 data-key="s7-h2" data-placeholder="Slide title">Wind and Smoke Logic</h2>
+  <div class="two-col">
+    <div>
+      <div class="badge">WHY THE LOGIC MATTERS</div>
+      <ul>
+        <li data-key="s7-li1" data-placeholder="Bullet">Wind direction tells where the wind is coming from, not where the smoke is safe</li>
+        <li data-key="s7-li2" data-placeholder="Bullet">Smoke drifts in the opposite direction of the wind source</li>
+        <li data-key="s7-li3" data-placeholder="Bullet">Sitting directly opposite the wind source puts the user in the smoke path</li>
+        <li data-key="s7-li4" data-placeholder="Bullet">The safest seats are adjacent or perpendicular to the smoke path</li>
+        <li data-key="s7-li5" data-placeholder="Bullet">The compass and arrow diagram make the decision easier to understand visually</li>
+      </ul>
+    </div>
+    <div>
+      <div class="badge">EXAMPLE</div>
+      <h3 data-key="s7-h3a" data-placeholder="Heading">Wind From North</h3>
+      <ul>
+        <li data-key="s7-li6" data-placeholder="Bullet">Wind comes from the North</li>
+        <li data-key="s7-li7" data-placeholder="Bullet">Smoke drifts toward the South</li>
+        <li data-key="s7-li8" data-placeholder="Bullet">South is not a good place to sit</li>
+        <li data-key="s7-li9" data-placeholder="Bullet">The best seats are East or West</li>
+        <li data-key="s7-li10" data-placeholder="Bullet">This gives users a real-world recommendation instead of a simple opposite-direction answer</li>
+      </ul>
+      <div class="highlight-box" style="margin-top:12px;">
+        <span data-key="s7-note" data-placeholder="Logic note"><strong style="color:#ffffff;">Key fix:</strong> <code>GetOpposite()</code> shows where smoke goes, while <code>GetBestDirection()</code> shows where people should sit.</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">7 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 8 — SEATING ADVISOR ══════════════════════ -->
+<div class="slide" id="slide-8">
+  <h2 data-key="s8-h2" data-placeholder="Slide title">The Seating Advisor</h2>
+  <div class="two-col">
+    <div>
+      <div class="badge">SAFE SEATING TABLE</div>
+      <table>
+        <tr><th>Wind From</th><th>Smoke Drifts To</th><th>Best Seats</th></tr>
+        <tr><td>North</td><td>South</td><td>East or West</td></tr>
+        <tr><td>South</td><td>North</td><td>East or West</td></tr>
+        <tr><td>East</td><td>West</td><td>North or South</td></tr>
+        <tr><td>West</td><td>East</td><td>North or South</td></tr>
+        <tr><td>Northeast</td><td>Southwest</td><td>Northwest or Southeast</td></tr>
+        <tr><td>Southwest</td><td>Northeast</td><td>Northwest or Southeast</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="badge">CODE DESIGN</div>
+      <p data-key="s8-p1" data-placeholder="Description">The seating advisor separates two different ideas: where smoke moves and where users should sit. This makes the code easier to explain and prevents the recommendation from placing someone directly in the smoke.</p>
+      <div class="highlight-box-blue">
+        <code style="font-size:0.9em; white-space:pre; color:#ffffff; display:block;" data-key="s8-code" data-placeholder="Code example">case "N":  return "East or West";
+case "E":  return "North or South";
+case "NE": return "Northwest or Southeast";</code>
+      </div>
+      <div class="highlight-box" style="margin-top:8px;">
+        <span data-key="s8-decision" data-placeholder="Design decision"><strong style="color:#ffffff;">Design decision:</strong> the app prioritizes practical comfort and smoke avoidance, not just raw compass opposites.</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">8 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 9 — CONSOLE UI ══════════════════════ -->
+<div class="slide" id="slide-9">
+  <h2 data-key="s9-h2" data-placeholder="Slide title">Key Feature: Console UI</h2>
+  <div class="two-col">
+    <div>
+      <div class="badge">RED + WHITE THEME</div>
+      <ul>
+        <li data-key="s9-li1" data-placeholder="Bullet">Red borders create a fire-themed visual style</li>
+        <li data-key="s9-li2" data-placeholder="Bullet">White text keeps the interface readable and clean</li>
+        <li data-key="s9-li3" data-placeholder="Bullet">The fire emoji is kept because it matches the project theme</li>
+        <li data-key="s9-li4" data-placeholder="Bullet"><code>PadRight()</code> and centered line helpers reduce spacing problems</li>
+      </ul>
+      <h3 data-key="s9-h3a" data-placeholder="Heading">User Actions</h3>
+      <ul>
+        <li data-key="s9-li5" data-placeholder="Bullet"><strong>[1]</strong> View forecast and fire conditions</li>
+        <li data-key="s9-li6" data-placeholder="Bullet"><strong>[2]</strong> Check smoke and seating recommendation</li>
+        <li data-key="s9-li7" data-placeholder="Bullet"><strong>[3]</strong> View compass and flow diagram</li>
+        <li data-key="s9-li8" data-placeholder="Bullet"><strong>[4]</strong> Review safety reminders before starting the fire</li>
+      </ul>
+    </div>
+    <div>
+      <div class="badge">SPLASH SCREEN DESIGN</div>
+      <p data-key="s9-p1" data-placeholder="Description">The splash screen gives the project a polished first impression while still staying simple enough for a C# console application. The red borders and fire emoji reinforce the bonfire theme immediately.</p>
+      <div class="highlight-box-blue">
+        <p style="margin:0; font-size:0.95em;" data-key="s9-spacing" data-placeholder="Spacing note"><strong style="color:#ffffff;">Spacing design:</strong> manually counting spaces is unreliable with emojis, so helper methods create consistent line widths and cleaner output.</p>
+      </div>
+      <div class="highlight-box" style="margin-top:8px;">
+        <p style="margin:0; font-size:0.95em;" data-key="s9-nofile" data-placeholder="No file note"><strong style="color:#ffffff;">No graphics required.</strong> The entire interface works in the terminal using colors, characters, and structured output.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">9 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 10 — FIRE CONDITION + RECOMMENDATION ══════════════════════ -->
+<div class="slide" id="slide-10">
+  <h2 data-key="s10-h2" data-placeholder="Slide title">Key Feature: Fire Conditions &amp; Recommendations</h2>
+  <div class="two-col">
+    <div>
+      <div class="badge">FIRE READINESS CHECK</div>
+      <ul>
+        <li data-key="s10-li1" data-placeholder="Bullet">Checks whether rain is likely enough to make the fire unpleasant or unsafe</li>
+        <li data-key="s10-li2" data-placeholder="Bullet">Uses wind speed to warn when smoke or fire spread may become a concern</li>
+        <li data-key="s10-li3" data-placeholder="Bullet">Uses temperature to help decide whether conditions are comfortable</li>
+        <li data-key="s10-li4" data-placeholder="Bullet">Combines multiple weather fields into a single plain-English recommendation</li>
+        <li data-key="s10-li5" data-placeholder="Bullet">Keeps the output student-friendly and easy to explain during a demo</li>
+      </ul>
+    </div>
+    <div>
+      <div class="badge">USER-FRIENDLY OUTPUT</div>
+      <ul>
+        <li data-key="s10-li6" data-placeholder="Bullet">Shows wind coming from and smoke drifting to as separate lines</li>
+        <li data-key="s10-li7" data-placeholder="Bullet">Displays a check mark next to the best seating recommendation</li>
+        <li data-key="s10-li8" data-placeholder="Bullet">Uses color to separate warning, fire, good, and dimmed text</li>
+        <li data-key="s10-li9" data-placeholder="Bullet">Avoids technical overload by explaining the result in normal language</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight-box" style="margin-top:20px;">
+    <span data-key="s10-fallback" data-placeholder="Fallback note"><strong style="color:#ffffff;">Practical value:</strong> the user does not have to interpret raw weather data. The app translates the forecast into what they actually need to know before sitting around a fire.</span>
+  </div>
+  <div class="slide-num">10 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 11 — WOW FEATURES ══════════════════════ -->
+<div class="slide" id="slide-11">
+  <h2 data-key="s11-h2" data-placeholder="Slide title">WOW Features</h2>
+  <div class="three-col">
+    <div class="card">
+      <div class="badge">WOW 1</div>
+      <h3 data-key="s11-c1h" data-placeholder="WOW Feature name">Smoke-Aware Seating</h3>
+      <p data-key="s11-c1p" data-placeholder="WOW Feature description">Instead of recommending the opposite side of the wind, the app finds the safest adjacent positions. This makes the feature feel realistic because users are kept out of the smoke path.</p>
+    </div>
+    <div class="card">
+      <div class="badge">WOW 2</div>
+      <h3 data-key="s11-c2h" data-placeholder="WOW Feature name">ASCII Compass + Flow Diagram</h3>
+      <p data-key="s11-c2p" data-placeholder="WOW Feature description">The app displays a compass with the fire in the center and a second smoke flow diagram with directional arrows. This makes wind direction easier to understand in a console-only project.</p>
+    </div>
+    <div class="card">
+      <div class="badge">WOW 3</div>
+      <h3 data-key="s11-c3h" data-placeholder="WOW Feature name">Polished Fire-Themed UI</h3>
+      <p data-key="s11-c3p" data-placeholder="WOW Feature description">The project uses a red and white visual theme, fire emojis, clean section headers, and centered splash screen formatting to make the console feel more like a complete product.</p>
+    </div>
+  </div>
+  <div class="highlight-box" style="margin-top:20px;">
+    <span data-key="s11-note" data-placeholder="WOW summary note"><strong style="color:#ffffff;">All three WOW features</strong> were built on top of the core MIST 352 console application structure, using AI assistance to refine the logic and presentation while keeping the project understandable and demo-ready.</span>
+  </div>
+  <div class="slide-num">11 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 12 — SUMMARY ══════════════════════ -->
+<div class="slide" id="slide-12">
+  <h2 data-key="s12-h2" data-placeholder="Slide title">Summary &amp; Key Design Decisions</h2>
+  <div class="two-col">
+    <div>
+      <h3 data-key="s12-h3a" data-placeholder="Heading">What Makes This System Work</h3>
+      <ul>
+        <li data-key="s12-li1" data-placeholder="Bullet">Live weather data makes the recommendations more realistic than hardcoded examples</li>
+        <li data-key="s12-li2" data-placeholder="Bullet">Wind and smoke are treated as separate concepts so the seating logic makes sense</li>
+        <li data-key="s12-li3" data-placeholder="Bullet">The console interface is simple, colorful, and easy to demo</li>
+        <li data-key="s12-li4" data-placeholder="Bullet">The project solves a real comfort problem: avoiding smoke while sitting around a fire</li>
+        <li data-key="s12-li5" data-placeholder="Bullet">The app stays lightweight and portable because everything runs in a C# console project</li>
+      </ul>
+    </div>
+    <div>
+      <h3 data-key="s12-h3b" data-placeholder="Heading">Development Model</h3>
+      <ul>
+        <li data-key="s12-li6" data-placeholder="Bullet">Core classes and menu flow were built through the MIST 352 project structure</li>
+        <li data-key="s12-li7" data-placeholder="Bullet">AI assistance helped polish the seating logic, console formatting, and presentation layer</li>
+        <li data-key="s12-li8" data-placeholder="Bullet">Result: a practical planning tool that combines coding concepts with a real-world outdoor scenario</li>
+      </ul>
+      <div class="highlight-box" style="margin-top:20px;">
+        <span data-key="s12-future" data-placeholder="Future enhancements text"><strong style="color:#ffffff;">Future enhancements:</strong> add local fire-ban alerts, save favorite bonfire locations, include group-size seating suggestions, and show hourly weather changes for the exact fire time.</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">12 / 12</div>
+</div>
+
+</div><!-- /slide-container -->
+
+<!-- ── Navigation ─────────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <button id="prev-btn" onclick="navigate(-1)" disabled>◀ Prev</button>
+  <span class="slide-counter" id="counter">1 / 12</span>
+  <button id="next-btn" onclick="navigate(1)">Next ▶</button>
+  <button id="edit-btn" onclick="toggleEdit()" title="Enable text editing">✏ Edit Mode</button>
+  <button id="reset-btn" onclick="resetAll()" title="Clear all saved edits and diagram">↺ Reset</button>
+</nav>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════════════════════════════════════ */
+let current = 1;
+const TOTAL  = 12;
+
+function navigate(dir) {
+  document.getElementById('slide-' + current).classList.remove('active');
+  current = Math.max(1, Math.min(TOTAL, current + dir));
+  document.getElementById('slide-' + current).classList.add('active');
+  document.getElementById('prev-btn').disabled = (current === 1);
+  document.getElementById('next-btn').disabled = (current === TOTAL);
+  document.getElementById('counter').textContent = current + ' / ' + TOTAL;
+  window.scrollTo(0, 0);
+}
+
+document.addEventListener('keydown', function(e) {
+  if (editMode) return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   navigate(-1);
+  if (e.key === 'Escape') { if (editMode) toggleEdit(); }
+});
+
+/* ════════════════════════════════════════════════════════════════════════
+   EDIT MODE
+════════════════════════════════════════════════════════════════════════ */
+let editMode = false;
+
+function toggleEdit() {
+  editMode = !editMode;
+  document.body.classList.toggle('edit-mode', editMode);
+  document.getElementById('edit-btn').classList.toggle('active', editMode);
+
+  document.querySelectorAll('[data-key]').forEach(el => {
+    if (el.id === 'diagram-caption' || el.tagName !== 'INPUT') {
+      el.contentEditable = editMode ? 'true' : 'false';
+    }
+  });
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   LOCALSTORAGE — text
+════════════════════════════════════════════════════════════════════════ */
+let saveTimer = null;
+
+function flashSaved() {
+  const f = document.getElementById('save-flash');
+  f.classList.add('show');
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => f.classList.remove('show'), 1600);
+}
+
+function saveText(key, html) {
+  try { localStorage.setItem('bonfire_pres_' + key, html); flashSaved(); } catch(e) {}
+}
+
+function loadTexts() {
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (!key) return;
+    const saved = localStorage.getItem('bonfire_pres_' + key);
+    if (saved !== null) el.innerHTML = saved;
+  });
+}
+
+document.addEventListener('input', function(e) {
+  const key = e.target.getAttribute && e.target.getAttribute('data-key');
+  if (key) saveText(key, e.target.innerHTML);
+});
+
+/* ════════════════════════════════════════════════════════════════════════
+   LOCALSTORAGE — image
+════════════════════════════════════════════════════════════════════════ */
+const IMG_KEY = 'bonfire_pres_class_diagram';
+
+function loadDiagramFromStorage() {
+  const saved = localStorage.getItem(IMG_KEY);
+  if (saved) applyDiagram(saved);
+}
+
+function applyDiagram(dataUrl) {
+  const img  = document.getElementById('diagram-img');
+  const zone = document.getElementById('drop-zone');
+  img.src = dataUrl;
+  zone.classList.add('has-image');
+}
+
+function saveDiagram(dataUrl) {
+  try {
+    localStorage.setItem(IMG_KEY, dataUrl);
+    flashSaved();
+  } catch(e) {
+    alert('Image is too large to save in the browser. Try a smaller or compressed image.');
+  }
+}
+
+function removeDiagram() {
+  const img  = document.getElementById('diagram-img');
+  const zone = document.getElementById('drop-zone');
+  img.src = '';
+  zone.classList.remove('has-image');
+  localStorage.removeItem(IMG_KEY);
+}
+
+function readImageFile(file) {
+  if (!file || !file.type.startsWith('image/')) {
+    alert('Please select an image file (PNG, JPG, GIF, SVG, etc.).');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = e => {
+    applyDiagram(e.target.result);
+    saveDiagram(e.target.result);
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ── Drop zone wiring ───────────────────────────────────────────────── */
+const dropZone  = document.getElementById('drop-zone');
+const fileInput = document.getElementById('diagram-file-input');
+
+dropZone.addEventListener('click', function(e) {
+  if (e.target.id === 'remove-btn' || e.target.id === 'replace-btn') return;
+  if (!dropZone.classList.contains('has-image') || e.target.id === 'replace-btn') {
+    fileInput.click();
+  }
+});
+
+document.getElementById('browse-btn').addEventListener('click', function(e) {
+  e.stopPropagation();
+  fileInput.click();
+});
+
+document.getElementById('replace-btn').addEventListener('click', function(e) {
+  e.stopPropagation();
+  fileInput.click();
+});
+
+document.getElementById('remove-btn').addEventListener('click', function(e) {
+  e.stopPropagation();
+  if (confirm('Remove the class diagram?')) removeDiagram();
+});
+
+fileInput.addEventListener('change', function() {
+  if (fileInput.files[0]) readImageFile(fileInput.files[0]);
+  fileInput.value = '';
+});
+
+dropZone.addEventListener('dragover', function(e) {
+  e.preventDefault();
+  dropZone.classList.add('drag-over');
+});
+dropZone.addEventListener('dragleave', function() {
+  dropZone.classList.remove('drag-over');
+});
+dropZone.addEventListener('drop', function(e) {
+  e.preventDefault();
+  dropZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) readImageFile(file);
+});
+
+/* ════════════════════════════════════════════════════════════════════════
+   RESET
+════════════════════════════════════════════════════════════════════════ */
+function resetAll() {
+  if (!confirm('Reset ALL edits and remove the uploaded diagram? This cannot be undone.')) return;
+  document.querySelectorAll('[data-key]').forEach(el => {
+    localStorage.removeItem('bonfire_pres_' + el.getAttribute('data-key'));
+  });
+  localStorage.removeItem(IMG_KEY);
+  location.reload();
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════════════════════════════════ */
+loadTexts();
+loadDiagramFromStorage();
+</script>
+</body>
+</html>

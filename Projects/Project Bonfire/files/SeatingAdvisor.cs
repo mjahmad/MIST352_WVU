@@ -8,25 +8,32 @@ namespace Project_1
     /// </summary>
     internal class SeatingAdvisor
     {
-        /// <summary>Returns the recommended seating side as text.</summary>
+        /// <summary>
+        /// Returns the safest adjacent (perpendicular) seating positions.
+        /// Wind from North pushes smoke South — so sitting South puts you
+        /// in the smoke path. The safe seats are East or West (perpendicular),
+        /// where smoke does not drift.
+        /// </summary>
         public string GetBestDirection(string windDirection)
-        {
-            if (windDirection == null) windDirection = "N";
-            windDirection = windDirection.Trim().ToUpper();
+{
+    if (windDirection == null) windDirection = "N";
+    windDirection = windDirection.Trim().ToUpper();
 
-            switch (windDirection)
-            {
-                case "N":   return "South";
-                case "NE":  return "Southwest";
-                case "E":   return "West";
-                case "SE":  return "Northwest";
-                case "S":   return "North";
-                case "SW":  return "Northeast";
-                case "W":   return "East";
-                case "NW":  return "Southeast";
-                default:    return "opposite side of the wind";
-            }
-        }
+    switch (windDirection)
+    {
+        case "N":   return "East or West";
+        case "S":   return "East or West";
+        case "E":   return "North or South";
+        case "W":   return "North or South";
+
+        case "NE":  return "Northwest or Southeast";
+        case "NW":  return "Northeast or Southwest";
+        case "SE":  return "Northeast or Southwest";
+        case "SW":  return "Northwest or Southeast";
+
+        default:    return "either side perpendicular to the wind";
+    }
+}
 
         /// <summary>Prints an ASCII compass showing wind origin and safe seating side.</summary>
         public void DrawCompass(string windDirection)
