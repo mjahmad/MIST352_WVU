@@ -32,7 +32,7 @@ namespace Project_2
 
             ConsoleUI.Loading("Fetching historical NOAA data (last year)...");
             try { history = service.GetHistoricalMonthlyStats(DateTime.Now.Year - 1); ConsoleUI.Done(); }
-            catch { Console.WriteLine(" skipped."); }
+            catch { Console.WriteLine(" using demo data."); history = NOAAService.GetFallbackHistoricalStats(); }
 
             var garden  = new GardenManager();
             var advisor = new PlantAdvisor(history, forecast);

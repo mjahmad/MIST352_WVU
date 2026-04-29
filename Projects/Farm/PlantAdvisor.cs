@@ -102,7 +102,9 @@ namespace Project_2
 
             ConsoleUI.Section("Full Season Calendar (All Suitable Plants)");
             string[] months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-            Console.WriteLine($"  {"Plant",-20} {"Zone",-5} {string.Join(" ", months)}");
+            Console.Write($"  {"Plant",-20} {"Zone",-5} ");
+            foreach (string m in months) Console.Write($" {m}");
+            Console.WriteLine();
             ConsoleUI.Divider();
 
             foreach (Plant p in GetAllSuitablePlants())
@@ -113,17 +115,17 @@ namespace Project_2
                     if (p.PlantingMonths.Contains(m))
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.Write(" P ");
+                        Console.Write(" P  ");
                     }
                     else if (p.HarvestMonths.Contains(m))
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write(" H ");
+                        Console.Write(" H  ");
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.DarkGray;
-                        Console.Write(" . ");
+                        Console.Write(" .  ");
                     }
                     Console.ResetColor();
                 }

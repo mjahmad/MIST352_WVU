@@ -88,7 +88,8 @@ namespace Project_2
                 ConsoleUI.Section("Options");
                 ConsoleUI.MenuItem("A", "Add a plant to a plot");
                 ConsoleUI.MenuItem("R", "Remove a plant");
-                ConsoleUI.MenuItem("V", "View plant details");
+                ConsoleUI.MenuItem("V", "View plant details / progress");
+                ConsoleUI.MenuItem("C", "Care actions  (Water / Cover / Skip)");
                 ConsoleUI.MenuItem("X", "Back to main menu");
 
                 ConsoleUI.Prompt("Choice");
@@ -98,8 +99,36 @@ namespace Project_2
 
                 if (input == "A")
                 {
-                    ConsoleUI.Prompt("Plant name");
-                    string name = Console.ReadLine()?.Trim() ?? "";
+                    Console.Clear();
+                    ConsoleUI.Header("ADD PLANT TO GARDEN");
+                    Console.WriteLine("\n  Choose a plant:\n");
+                    var allPlants = PlantDatabase.All;
+                    for (int i = 0; i < allPlants.Length; i++)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write($"  {i + 1,2}. ");
+                        Console.ResetColor();
+                        Console.Write($"{allPlants[i].Emoji} {allPlants[i].Name,-22}");
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.WriteLine($"[{allPlants[i].Category}]  {allPlants[i].DaysToHarvest}d to harvest");
+                        Console.ResetColor();
+                    }
+
+                    ConsoleUI.Prompt("Enter number or plant name");
+                    string nameInput = Console.ReadLine()?.Trim() ?? "";
+
+                    string name;
+                    if (int.TryParse(nameInput, out int plantIdx) && plantIdx >= 1 && plantIdx <= allPlants.Length)
+                    {
+                        name = allPlants[plantIdx - 1].Name;
+                    }
+                    else
+                    {
+                        Plant? found = PlantDatabase.Find(nameInput);
+                        if (found == null) { ConsoleUI.Error($"Plant '{nameInput}' not found."); Thread.Sleep(1200); continue; }
+                        name = found.Name;
+                    }
+
                     ConsoleUI.Prompt("Row (0-5)");
                     if (!int.TryParse(Console.ReadLine(), out int r)) { ConsoleUI.Error("Invalid row."); Thread.Sleep(1000); continue; }
                     ConsoleUI.Prompt("Column (0-9)");
@@ -126,15 +155,36 @@ namespace Project_2
                 else if (input == "V")
                 {
                     if (_entries.Count == 0) { ConsoleUI.Warning("No plants in garden yet."); Thread.Sleep(1200); continue; }
-                    Console.WriteLine("\n  Planted plots:");
-                    foreach (var e in _entries)
-                        Console.WriteLine($"  Row {e.Row}, Col {e.Col} — {e.PlantName} — Day {e.DaysGrown()} of growth");
-                    ConsoleUI.Prompt("Row");
-                    if (!int.TryParse(Console.ReadLine(), out int r)) continue;
-                    ConsoleUI.Prompt("Column");
-                    if (!int.TryParse(Console.ReadLine(), out int c)) continue;
-                    var entry = GetAt(r, c);
-                    if (entry == null) { ConsoleUI.Error("Nothing there."); Thread.Sleep(1200); continue; }
+                    Console.Clear();
+                    ConsoleUI.Header("PLANT PROGRESS");
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine($"  {"#",-4} {"Plant",-20} {"Plot",-8} {"Day",-6} {"Progress",-22} Status");
+                    ConsoleUI.Divider();
+                    Console.ResetColor();
+                    for (int i = 0; i < _entries.Count; i++)
+                    {
+                        var e = _entries[i];
+                        Plant? pl = PlantDatabase.Find(e.PlantName);
+                        int grown = e.DaysGrown();
+                        bool ready = pl != null && grown >= pl.DaysToHarvest;
+                        int daysLeft = pl != null ? Math.Max(0, pl.DaysToHarvest - grown) : 0;
+                        Console.ForegroundColor = ready ? ConsoleColor.Green : ConsoleColor.Gray;
+                        string bar = pl != null ? ConsoleUI.ProgressBar(grown, pl.DaysToHarvest, 16) : "----------------";
+                        string status = ready ? "READY!" : (pl != null ? $"{daysLeft}d left" : "unknown");
+                        Console.WriteLine($"  {i + 1,-4} {e.PlantName,-20} R{e.Row}C{e.Col,-6} {grown,3}d   {bar} {status}");
+                        Console.ResetColor();
+                    }
+
+                    ConsoleUI.Prompt("Enter number to view full profile (or ENTER to skip)");
+                    string sel = Console.ReadLine()?.Trim() ?? "";
+                    if (string.IsNullOrEmpty(sel)) continue;
+
+                    GardenEntry? entry = null;
+                    if (int.TryParse(sel, out int idx) && idx >= 1 && idx <= _entries.Count)
+                        entry = _entries[idx - 1];
+
+                    if (entry == null) { ConsoleUI.Error("Invalid selection."); Thread.Sleep(1200); continue; }
                     Plant? p = PlantDatabase.Find(entry.PlantName);
                     if (p != null)
                     {
@@ -152,6 +202,71 @@ namespace Project_2
                             : $"  {remaining} days until harvest  (planted {entry.DatePlanted})");
                         Console.ResetColor();
                     }
+                    ConsoleUI.WaitForKey();
+                }
+                else if (input == "C")
+                {
+                    if (_entries.Count == 0) { ConsoleUI.Warning("No plants in garden yet."); Thread.Sleep(1200); continue; }
+                    Console.Clear();
+                    ConsoleUI.Header("TODAY'S CARE ACTIONS");
+
+                    if (today != null) DisplayCareAdvice(today);
+
+                    ConsoleUI.Section("Choose an action for each plant");
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine("  [W] Water   [C] Cover (frost)   [S] Skip");
+                    Console.ResetColor();
+
+                    foreach (var e in _entries)
+                    {
+                        Plant? pl = PlantDatabase.Find(e.PlantName);
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.Write($"  {e.PlantName} ");
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write($"(R{e.Row}C{e.Col}");
+                        if (pl != null)
+                        {
+                            int grown = e.DaysGrown();
+                            int remaining = Math.Max(0, pl.DaysToHarvest - grown);
+                            Console.Write($"  Day {grown}/{pl.DaysToHarvest}");
+                            if (remaining == 0)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.Write("  READY TO HARVEST");
+                            }
+                        }
+                        Console.ResetColor();
+                        Console.Write(")");
+
+                        if (today != null)
+                        {
+                            string suggestion =
+                                today.LowTemp <= 36 ? "  → Suggest: COVER" :
+                                today.PrecipChance < 30 && today.Humidity < 60 ? "  → Suggest: WATER" :
+                                "  → Suggest: SKIP";
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.Write(suggestion);
+                            Console.ResetColor();
+                        }
+
+                        Console.WriteLine();
+                        ConsoleUI.Prompt("Action [W/C/S]");
+                        string action = Console.ReadLine()?.Trim().ToUpperInvariant() ?? "S";
+
+                        (string label, ConsoleColor col) = action switch
+                        {
+                            "W" => ("WATERED", ConsoleColor.Cyan),
+                            "C" => ("COVERED", ConsoleColor.Blue),
+                            _   => ("SKIPPED",  ConsoleColor.DarkGray),
+                        };
+                        Console.ForegroundColor = col;
+                        Console.WriteLine($"  → {e.PlantName}: {label}");
+                        Console.ResetColor();
+                    }
+
+                    Console.WriteLine();
+                    ConsoleUI.Success("Care actions recorded. Use Option 9 to log observations.");
                     ConsoleUI.WaitForKey();
                 }
             }

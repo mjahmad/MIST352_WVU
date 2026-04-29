@@ -15,7 +15,7 @@ namespace Project_2
         {
             _location = location;
             _http.DefaultRequestHeaders.UserAgent.ParseAdd("GardenBonfirePlanner/2.0 (MIST352-Educational)");
-            _http.Timeout = TimeSpan.FromSeconds(20);
+            _http.Timeout = TimeSpan.FromSeconds(60);
         }
 
         // ── Coordinates ──────────────────────────────────────────────
@@ -186,7 +186,9 @@ namespace Project_2
             }
 
             ComputeFrostDates(stats, frostByDate, year);
-            return stats;
+
+            bool hasData = stats.Any(s => s.CountHighTemp > 0);
+            return hasData ? stats : GetFallbackHistoricalStats(year);
         }
 
         private static void ComputeFrostDates(HistoricalStats[] stats, Dictionary<string, double> frostDates, int year)
@@ -304,6 +306,42 @@ namespace Project_2
             }
             catch { }
             return 0;
+        }
+
+        // ── Fallback Historical Stats ─────────────────────────────────
+
+        public static HistoricalStats[] GetFallbackHistoricalStats(int year = 0)
+        {
+            int refYear = year > 0 ? year : DateTime.Now.Year - 1;
+            // Approximate Morgantown, WV monthly normals
+            var data = new (int mo, double hi, double lo, double precip, int frost)[]
+            {
+                (1,  38.2, 21.8, 3.2, 22), (2,  41.8, 24.6, 2.9, 18),
+                (3,  52.3, 32.5, 4.1,  8), (4,  63.7, 42.1, 3.7,  1),
+                (5,  72.9, 51.4, 4.3,  0), (6,  81.0, 60.2, 4.2,  0),
+                (7,  84.6, 64.5, 4.8,  0), (8,  83.4, 63.0, 3.9,  0),
+                (9,  76.8, 55.1, 3.4,  0), (10, 64.9, 43.3, 3.1,  1),
+                (11, 53.2, 34.7, 3.6,  7), (12, 40.7, 25.4, 3.3, 18),
+            };
+
+            var stats = new HistoricalStats[12];
+            for (int i = 0; i < 12; i++)
+            {
+                var (mo, hi, lo, precip, frost) = data[i];
+                stats[i] = new HistoricalStats
+                {
+                    Month = mo,
+                    SumHighTemp = hi * 28, CountHighTemp = 28,
+                    SumLowTemp  = lo * 28, CountLowTemp  = 28,
+                    MinTemp = lo - 8,
+                    TotalPrecip = precip,
+                    PrecipDays  = (int)(precip * 4),
+                    FrostDays   = frost,
+                };
+            }
+            stats[3].LastSpringFrost = new DateTime(refYear, 4, 20);
+            stats[9].FirstFallFrost  = new DateTime(refYear, 10, 15);
+            return stats;
         }
 
         // ── Fallback Data ─────────────────────────────────────────────

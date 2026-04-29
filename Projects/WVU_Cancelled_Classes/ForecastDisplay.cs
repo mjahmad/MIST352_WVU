@@ -1,5 +1,5 @@
 using System;
-using System.Net;
+using System.Net.Http;
 using System.Text.Json;
 
 namespace Project_1
@@ -55,9 +55,10 @@ namespace Project_1
         {
             try
             {
-                var client = new WebClient();
-                client.Headers.Add("User-Agent", "WVU-WeatherApp-MIST352");
-                string json = client.DownloadString(URL);
+                using var client = new HttpClient();
+                client.Timeout = TimeSpan.FromSeconds(30);
+                client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "WVU-WeatherApp-MIST352");
+                string json = client.GetStringAsync(URL).GetAwaiter().GetResult();
                 return ParseForecast(json);
             }
             catch

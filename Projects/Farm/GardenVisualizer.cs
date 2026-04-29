@@ -120,32 +120,34 @@ namespace Project_2
                 foreach (string line in p.AsciiArt)
                     Console.WriteLine("    " + line);
 
-                var entry = entries.First(e => e.PlantName == name);
-                int grown = entry.DaysGrown();
                 Plant? found = PlantDatabase.Find(name);
                 if (found != null)
                 {
                     int dth = found.DaysToHarvest;
-                    int remaining = Math.Max(0, dth - grown);
-                    Console.Write($"    Progress: {ConsoleUI.ProgressBar(grown, dth, 20)} ");
-                    if (remaining == 0)
+                    foreach (var plotEntry in entries.Where(x => x.PlantName == name))
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("READY!");
+                        int grown = plotEntry.DaysGrown();
+                        int remaining = Math.Max(0, dth - grown);
+                        Console.Write($"    R{plotEntry.Row}C{plotEntry.Col}: {ConsoleUI.ProgressBar(grown, dth, 20)} ");
+                        if (remaining == 0)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("READY!");
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine($"{remaining} days left");
+                        }
+                        Console.ResetColor();
                     }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"{remaining} days left");
-                    }
-                    Console.ResetColor();
                 }
             }
         }
 
         private static string GetPlantSymbol(string name) => name.Length >= 3
-            ? $" {name[..3].ToUpper()} "
-            : $" {name.ToUpper(),-3} ";
+            ? name[..3].ToUpper()
+            : name.ToUpper().PadRight(3);
 
         private static ConsoleColor GetPlantColor(string name) => name.ToLower() switch
         {

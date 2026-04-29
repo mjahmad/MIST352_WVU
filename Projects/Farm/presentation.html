@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farm &amp; Garden Planner v2.0 — MIST 352 WVU</title>
+<style>
+  /* ── Reset & base ─────────────────────────────────────────────────────── */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #1a1a2e; color: #eee; }
+
+  /* ── Edit mode banner ────────────────────────────────────────────────── */
+  #edit-banner {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: #EAAA00; color: #002855;
+    text-align: center; padding: 8px 16px;
+    font-weight: bold; font-size: 0.95em; letter-spacing: 0.5px;
+  }
+  body.edit-mode #edit-banner { display: block; }
+  body.edit-mode .slide { padding-top: 60px; }
+
+  /* ── Slide container & slides ────────────────────────────────────────── */
+  .slide-container { width: 100%; max-width: 960px; margin: 0 auto; }
+
+  .slide {
+    display: none;
+    min-height: 100vh;
+    padding: 48px 64px 80px;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .slide.active { display: flex; }
+
+  .slide::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 6px;
+    background: linear-gradient(90deg, #002855, #EAAA00, #002855);
+  }
+
+  .slide-num {
+    position: absolute; bottom: 20px; right: 30px;
+    font-size: 13px; color: #EAAA00; opacity: 0.7; letter-spacing: 1px;
+  }
+
+  /* ── Typography ──────────────────────────────────────────────────────── */
+  h1 { font-size: 2.6em; color: #EAAA00; line-height: 1.2; margin-bottom: 12px; }
+  h2 { font-size: 1.9em; color: #EAAA00; margin-bottom: 24px; border-bottom: 2px solid #EAAA00; padding-bottom: 8px; }
+  h3 { font-size: 1.2em; color: #7ecfff; margin-bottom: 8px; margin-top: 18px; }
+  .subtitle { font-size: 1.3em; color: #7ecfff; margin-bottom: 8px; }
+  .course-tag { font-size: 1em; color: #aaa; margin-top: 12px; }
+  p { font-size: 1.05em; line-height: 1.7; color: #ddd; margin-bottom: 12px; }
+  code { background: rgba(255,255,255,0.1); padding: 1px 6px; border-radius: 4px; font-size: 0.92em; }
+
+  ul { list-style: none; padding: 0; }
+  ul li { padding: 7px 0 7px 28px; position: relative; font-size: 1.02em; line-height: 1.5; color: #ddd; }
+  ul li::before { content: '▶'; position: absolute; left: 0; color: #EAAA00; font-size: 0.75em; top: 10px; }
+
+  /* ── Layouts ─────────────────────────────────────────────────────────── */
+  .two-col   { display: grid; grid-template-columns: 1fr 1fr;     gap: 32px; margin-top: 16px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 16px; }
+
+  .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(234,170,0,0.3); border-radius: 10px; padding: 20px; }
+  .card h3 { margin-top: 0; }
+
+  .badge { display: inline-block; background: #EAAA00; color: #002855; font-weight: bold; font-size: 0.85em; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; }
+  .badge-blue { display: inline-block; background: #002855; color: #EAAA00; border: 1px solid #EAAA00; font-weight: bold; font-size: 0.85em; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; }
+
+  .highlight-box { background: rgba(234,170,0,0.12); border-left: 4px solid #EAAA00; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+  .highlight-box-blue { background: rgba(126,207,255,0.08); border-left: 4px solid #7ecfff; border-radius: 6px; padding: 16px 20px; margin: 16px 0; }
+
+  .flow-row  { display: flex; align-items: center; gap: 12px; margin: 16px 0; flex-wrap: wrap; }
+  .flow-box  { background: rgba(255,255,255,0.07); border: 1px solid #7ecfff; border-radius: 8px; padding: 12px 18px; text-align: center; font-size: 0.95em; color: #7ecfff; min-width: 120px; }
+  .flow-arrow { font-size: 1.5em; color: #EAAA00; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.95em; }
+  th { background: rgba(234,170,0,0.2); color: #EAAA00; padding: 10px 14px; text-align: left; border-bottom: 2px solid #EAAA00; }
+  td { padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.08); color: #ddd; }
+  tr:hover td { background: rgba(255,255,255,0.04); }
+
+  .wvu-logo-text { font-size: 3.5em; font-weight: 900; color: #002855; background: #EAAA00; display: inline-block; padding: 8px 20px; border-radius: 8px; margin-bottom: 24px; letter-spacing: 2px; }
+
+  .dev-row { display: flex; gap: 24px; margin-top: 20px; }
+  .dev-col { flex: 1; background: rgba(255,255,255,0.04); border-radius: 10px; padding: 20px; border: 1px solid rgba(255,255,255,0.08); }
+  .dev-col.gold-border { border-color: rgba(234,170,0,0.4); }
+  .dev-col.blue-border { border-color: rgba(126,207,255,0.3); }
+
+  /* ── Edit mode: editable element highlighting ────────────────────────── */
+  body.edit-mode [contenteditable="true"] {
+    outline: 2px dashed rgba(234,170,0,0.6);
+    border-radius: 4px;
+    min-height: 1em;
+    cursor: text;
+    transition: outline 0.2s;
+  }
+  body.edit-mode [contenteditable="true"]:focus {
+    outline: 2px solid #EAAA00;
+    background: rgba(234,170,0,0.06);
+  }
+  body.edit-mode [contenteditable="true"]:empty::before {
+    content: attr(data-placeholder);
+    color: rgba(255,255,255,0.3);
+    font-style: italic;
+  }
+
+  /* ── Save flash ──────────────────────────────────────────────────────── */
+  #save-flash {
+    position: fixed; top: 44px; right: 16px; z-index: 300;
+    background: #00aa44; color: #fff; padding: 6px 16px; border-radius: 20px;
+    font-size: 0.85em; font-weight: bold; opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  #save-flash.show { opacity: 1; }
+
+  /* ── Navigation bar ──────────────────────────────────────────────────── */
+  .nav {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 10px; align-items: center; z-index: 100;
+    background: rgba(26,26,46,0.85); backdrop-filter: blur(6px);
+    padding: 8px 16px; border-radius: 32px;
+    border: 1px solid rgba(234,170,0,0.2);
+  }
+  .nav button {
+    background: rgba(234,170,0,0.85); color: #002855; border: none;
+    padding: 8px 22px; font-size: 0.95em; font-weight: bold;
+    border-radius: 20px; cursor: pointer; transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .nav button:hover { background: #EAAA00; }
+  .nav button:disabled { background: #444; color: #777; cursor: default; }
+  .nav .slide-counter { color: #EAAA00; font-size: 0.9em; min-width: 60px; text-align: center; }
+  #edit-btn { background: rgba(255,255,255,0.1); color: #EAAA00; border: 1px solid rgba(234,170,0,0.4); }
+  #edit-btn:hover { background: rgba(234,170,0,0.2); }
+  #edit-btn.active { background: #EAAA00; color: #002855; }
+  #reset-btn { background: rgba(255,80,80,0.15); color: #ff8080; border: 1px solid rgba(255,80,80,0.3); font-size: 0.8em; padding: 8px 14px; }
+  #reset-btn:hover { background: rgba(255,80,80,0.3); color: #ffaaaa; }
+
+  /* ════════════════════════════════════════════════════════════════════════
+     CLASS DIAGRAM SLIDE
+  ════════════════════════════════════════════════════════════════════════ */
+  .diagram-area {
+    flex: 1; display: flex; flex-direction: column; margin-top: 16px; min-height: 400px;
+  }
+  .drop-zone {
+    flex: 1; border: 2px dashed rgba(234,170,0,0.5); border-radius: 12px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    cursor: pointer; transition: border-color 0.2s, background 0.2s;
+    position: relative; overflow: hidden; min-height: 340px;
+    background: rgba(255,255,255,0.03);
+  }
+  .drop-zone:hover, .drop-zone.drag-over {
+    border-color: #EAAA00; background: rgba(234,170,0,0.06);
+  }
+  .drop-zone.has-image { border-style: solid; border-color: rgba(234,170,0,0.3); }
+
+  .drop-zone-prompt {
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    color: #aaa; text-align: center; padding: 24px;
+    pointer-events: none;
+  }
+  .drop-zone-prompt .upload-icon { font-size: 3.5em; }
+  .drop-zone-prompt p { margin: 0; font-size: 1.05em; color: #bbb; }
+  .drop-zone-prompt small { color: #777; font-size: 0.85em; }
+
+  #diagram-img {
+    max-width: 100%; max-height: 100%;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: none;
+    border-radius: 8px;
+  }
+  .drop-zone.has-image #diagram-img { display: block; }
+  .drop-zone.has-image .drop-zone-prompt { display: none; }
+
+  .diagram-overlay {
+    position: absolute; top: 8px; right: 8px;
+    display: flex; gap: 6px;
+  }
+  .diagram-overlay button {
+    background: rgba(26,26,46,0.85); color: #EAAA00; border: 1px solid rgba(234,170,0,0.4);
+    padding: 5px 12px; border-radius: 14px; font-size: 0.8em; cursor: pointer;
+    backdrop-filter: blur(4px); display: none;
+  }
+  .drop-zone.has-image .diagram-overlay button { display: inline-block; }
+
+  #diagram-caption {
+    margin-top: 10px; font-size: 0.9em; color: #999; text-align: center;
+    font-style: italic; min-height: 1.4em;
+  }
+  #diagram-file-input { display: none; }
+
+  .upload-btn-inner {
+    background: rgba(234,170,0,0.85); color: #002855; border: none;
+    padding: 9px 24px; border-radius: 20px; font-size: 0.95em; font-weight: bold;
+    cursor: pointer; pointer-events: all; transition: background 0.2s;
+  }
+  .upload-btn-inner:hover { background: #EAAA00; }
+</style>
+</head>
+<body>
+
+<!-- Edit mode banner -->
+<div id="edit-banner">
+  ✏ EDIT MODE — Click any highlighted text to edit it &nbsp;|&nbsp; Changes are auto-saved to this browser &nbsp;|&nbsp; Press Esc or click "Edit Mode" again to exit
+</div>
+
+<!-- Save flash -->
+<div id="save-flash">✓ Saved</div>
+
+<div class="slide-container">
+
+<!-- ══════════════════════ SLIDE 1 — TITLE ══════════════════════ -->
+<div class="slide active" id="slide-1">
+  <div class="wvu-logo-text">WVU</div>
+  <h1 data-key="s1-h1" data-placeholder="Presentation Title">Farm &amp; Garden Planner v2.0</h1>
+  <p class="subtitle" data-key="s1-subtitle" data-placeholder="Subtitle">Powered by Real Government Weather Data</p>
+  <div class="highlight-box" style="margin-top:24px;">
+    <p style="margin:0; font-size:1.1em;" data-key="s1-desc" data-placeholder="Description">
+      A full-featured garden planning and decision-support system combining
+      <strong style="color:#EAAA00;">live NWS 7-day forecasts</strong>,
+      <strong style="color:#7ecfff;">NOAA GHCN historical climate data</strong>, and
+      <strong style="color:#90ee90;">a smart plant advisory engine</strong>
+      — all in a single C# console application with no paid APIs.
+    </p>
+  </div>
+  <p class="course-tag" style="margin-top:28px;" data-key="s1-course" data-placeholder="Course / Team / Semester">MIST 352 &nbsp;|&nbsp; West Virginia University &nbsp;|&nbsp; 2025</p>
+  <div class="slide-num">1 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 2 — DEVELOPMENT STORY ══════════════════════ -->
+<div class="slide" id="slide-2">
+  <h2 data-key="s2-h2" data-placeholder="Slide title">How This System Was Built</h2>
+  <div class="dev-row">
+    <div class="dev-col gold-border">
+      <div class="badge">GROUP WORK — Course Assessments</div>
+      <h3 data-key="s2-h3a" data-placeholder="Heading">Core Classes — Built by the Team</h3>
+      <p data-key="s2-p1" data-placeholder="Description">The group designed and coded the foundational classes of this system across several assessments throughout MIST 352. These form the backbone of the application:</p>
+      <ul>
+        <li data-key="s2-li1" data-placeholder="Bullet"><code>Plant.cs</code> — plant entity with all properties &amp; metadata</li>
+        <li data-key="s2-li2" data-placeholder="Bullet"><code>WeatherDay.cs</code> — daily weather data model</li>
+        <li data-key="s2-li3" data-placeholder="Bullet"><code>GardenEntry.cs</code> — individual planted plot record</li>
+        <li data-key="s2-li4" data-placeholder="Bullet"><code>HistoricalStats.cs</code> — monthly climate aggregates</li>
+        <li data-key="s2-li5" data-placeholder="Bullet"><code>GardenManager.cs</code> — 6×10 garden grid with JSON persistence</li>
+        <li data-key="s2-li6" data-placeholder="Bullet"><code>PlantDatabase.cs</code> — static catalog of 23 plants</li>
+        <li data-key="s2-li7" data-placeholder="Bullet"><code>NOAAService.cs</code> — NOAA &amp; NWS API integration layer</li>
+        <li data-key="s2-li8" data-placeholder="Bullet"><code>Program.cs</code> — application entry point &amp; menu orchestration</li>
+      </ul>
+    </div>
+    <div class="dev-col blue-border">
+      <div class="badge-blue">CLAUDE CODE — Advanced Features</div>
+      <h3 data-key="s2-h3b" data-placeholder="Heading">Features Built on Top — Using Claude Code</h3>
+      <p data-key="s2-p2" data-placeholder="Description"><strong style="color:#EAAA00;">Claude Code</strong> (Anthropic's AI-powered CLI) was used to implement the advanced feature modules on top of the group's core class foundation:</p>
+      <ul>
+        <li data-key="s2-li9" data-placeholder="Bullet"><code>PlantAdvisor.cs</code> — USDA zone calc &amp; seasonal recommendations</li>
+        <li data-key="s2-li10" data-placeholder="Bullet"><code>FrostCalculator.cs</code> — spring/fall frost date analysis</li>
+        <li data-key="s2-li11" data-placeholder="Bullet"><code>CompanionPlanting.cs</code> — plant pairing &amp; conflict detection</li>
+        <li data-key="s2-li12" data-placeholder="Bullet"><code>MoonPhaseCalculator.cs</code> — lunar planting calendar (WOW)</li>
+        <li data-key="s2-li13" data-placeholder="Bullet"><code>WeatherComparison.cs</code> — historical vs. forecast deltas (WOW)</li>
+        <li data-key="s2-li14" data-placeholder="Bullet"><code>GardenJournal.cs</code> — harvest tracker &amp; journal log (WOW)</li>
+        <li data-key="s2-li15" data-placeholder="Bullet"><code>WeatherDashboard.cs</code> — 7-day visual forecast display</li>
+        <li data-key="s2-li16" data-placeholder="Bullet"><code>GardenVisualizer.cs</code> — ASCII scenic garden with progress bars</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-num">2 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 3 — WHAT THE APP DOES ══════════════════════ -->
+<div class="slide" id="slide-3">
+  <h2 data-key="s3-h2" data-placeholder="Slide title">What the App Does</h2>
+  <p data-key="s3-intro" data-placeholder="Intro text">A 10-option menu system covering every aspect of backyard garden planning — from real-time weather to lunar planting cycles:</p>
+  <div class="three-col" style="margin-top:12px;">
+    <div class="card">
+      <div class="badge">[1]</div>
+      <h3 data-key="s3-c1h" data-placeholder="Feature name">Weather Dashboard</h3>
+      <p data-key="s3-c1p" data-placeholder="Feature description">Live 7-day forecast with temperature bars, rain indicators, and garden-at-a-glance summary</p>
+    </div>
+    <div class="card">
+      <div class="badge">[2]</div>
+      <h3 data-key="s3-c2h" data-placeholder="Feature name">Plant Recommendations</h3>
+      <p data-key="s3-c2p" data-placeholder="Feature description">USDA hardiness zone detection from NOAA data; shows what to plant this month with a seasonal calendar</p>
+    </div>
+    <div class="card">
+      <div class="badge">[3]</div>
+      <h3 data-key="s3-c3h" data-placeholder="Feature name">Garden Manager</h3>
+      <p data-key="s3-c3p" data-placeholder="Feature description">6×10 grid — add, remove, and care for individual plots; JSON-persisted between sessions</p>
+    </div>
+    <div class="card">
+      <div class="badge">[4]</div>
+      <h3 data-key="s3-c4h" data-placeholder="Feature name">Smart Care Advisor</h3>
+      <p data-key="s3-c4p" data-placeholder="Feature description">Weather-based watering, planting, and frost-cover decisions for each plot in your garden</p>
+    </div>
+    <div class="card">
+      <div class="badge">[5]</div>
+      <h3 data-key="s3-c5h" data-placeholder="Feature name">Frost Calculator</h3>
+      <p data-key="s3-c5p" data-placeholder="Feature description">Last spring frost / first fall frost from NOAA history; growing season length; monthly risk table</p>
+    </div>
+    <div class="card">
+      <div class="badge">[6]</div>
+      <h3 data-key="s3-c6h" data-placeholder="Feature name">Companion Planting</h3>
+      <p data-key="s3-c6p" data-placeholder="Feature description">Detects conflicts in your actual garden; suggests beneficial neighbors; explains Three Sisters method</p>
+    </div>
+    <div class="card">
+      <div class="badge">[7] WOW</div>
+      <h3 data-key="s3-c7h" data-placeholder="Feature name">Moon Phase Guide</h3>
+      <p data-key="s3-c7p" data-placeholder="Feature description">Calculates current lunar phase (29.53-day cycle); 14-day planting calendar; ASCII moon art</p>
+    </div>
+    <div class="card">
+      <div class="badge">[8] WOW</div>
+      <h3 data-key="s3-c8h" data-placeholder="Feature name">Historical Comparison</h3>
+      <p data-key="s3-c8p" data-placeholder="Feature description">This week vs. last year's averages; per-day deviation display; climate insights for gardening</p>
+    </div>
+    <div class="card">
+      <div class="badge">[9] WOW</div>
+      <h3 data-key="s3-c9h" data-placeholder="Feature name">Garden Journal</h3>
+      <p data-key="s3-c9p" data-placeholder="Feature description">Harvest countdown with progress bars; log observations, issues, and notes; persisted to file</p>
+    </div>
+  </div>
+  <div class="slide-num">3 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 4 — SYSTEM ARCHITECTURE ══════════════════════ -->
+<div class="slide" id="slide-4">
+  <h2 data-key="s4-h2" data-placeholder="Slide title">System Architecture</h2>
+  <div class="flow-row">
+    <div class="flow-box" data-key="s4-f1" data-placeholder="Box label">Nominatim API<br><small>city → lat/lon</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f2" data-placeholder="Box label">api.weather.gov<br><small>points endpoint</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f3" data-placeholder="Box label">NWS Forecast<br><small>14 periods</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f4" data-placeholder="Box label">WeatherDay[]<br><small>7-day array</small></div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-box" data-key="s4-f5" data-placeholder="Box label">NOAA GHCN S3<br><small>station CSV</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f6" data-placeholder="Box label">NOAAService<br><small>parse + convert</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f7" data-placeholder="Box label">HistoricalStats[]<br><small>12 months</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f8" data-placeholder="Box label">Zone + Frost Dates<br><small>USDA + growing season</small></div>
+  </div>
+  <div class="flow-row">
+    <div class="flow-box" data-key="s4-f9" data-placeholder="Box label">PlantDatabase<br><small>23 plants</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f10" data-placeholder="Box label">PlantAdvisor<br><small>zone filter</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f11" data-placeholder="Box label">GardenManager<br><small>6×10 grid + JSON</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" data-key="s4-f12" data-placeholder="Box label">ConsoleUI<br><small>10-menu app</small></div>
+  </div>
+  <div class="highlight-box" style="margin-top:12px;">
+    <span data-key="s4-note" data-placeholder="Architecture note"><strong style="color:#EAAA00;">No paid APIs, no API keys.</strong> All three external services — api.weather.gov, NOAA GHCN on AWS S3, and Nominatim — are 100% free and open. If NOAA S3 is unreachable, a complete Morgantown, WV fallback dataset keeps every feature functional.</span>
+  </div>
+  <div class="slide-num">4 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 5 — CLASS DIAGRAM ══════════════════════ -->
+<div class="slide" id="slide-5">
+  <h2 data-key="s5-h2" data-placeholder="Slide title">Class Diagram</h2>
+
+  <div class="diagram-area">
+    <input type="file" id="diagram-file-input" accept="image/*">
+
+    <div class="drop-zone" id="drop-zone" title="Click or drag your class diagram here">
+      <div class="drop-zone-prompt" id="drop-prompt">
+        <div class="upload-icon">📐</div>
+        <p>Drop your class diagram image here</p>
+        <small>Supports PNG, JPG, GIF, SVG</small>
+        <button class="upload-btn-inner" id="browse-btn">Browse File</button>
+      </div>
+      <img id="diagram-img" alt="Class Diagram" draggable="false">
+      <div class="diagram-overlay">
+        <button id="replace-btn" title="Replace image">↑ Replace</button>
+        <button id="remove-btn" title="Remove image" style="color:#ff8888; border-color:rgba(255,80,80,0.4);">✕ Remove</button>
+      </div>
+    </div>
+
+    <p id="diagram-caption" data-key="s5-caption" data-placeholder="Add a caption or description for your diagram…">Add a caption or description for your class diagram here.</p>
+  </div>
+
+  <div class="slide-num">5 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 6 — DATA SOURCE 1: NWS FORECAST ══════════════════════ -->
+<div class="slide" id="slide-6">
+  <h2 data-key="s6-h2" data-placeholder="Slide title">Data Source 1: National Weather Service API</h2>
+  <div class="two-col">
+    <div>
+      <div class="badge">LIVE 7-DAY FORECAST</div>
+      <h3 data-key="s6-h3a" data-placeholder="Heading">3-Step API Chain</h3>
+      <div class="flow-row" style="flex-direction:column; align-items:flex-start; gap:8px; margin:0;">
+        <div class="flow-box" style="width:100%; text-align:left;" data-key="s6-step1" data-placeholder="Step 1">Step 1 — Nominatim geocodes city name → lat/lon</div>
+        <div class="flow-arrow" style="font-size:1em; margin-left:8px;">↓</div>
+        <div class="flow-box" style="width:100%; text-align:left;" data-key="s6-step2" data-placeholder="Step 2">Step 2 — api.weather.gov/points/{lat},{lon} → forecast URL</div>
+        <div class="flow-arrow" style="font-size:1em; margin-left:8px;">↓</div>
+        <div class="flow-box" style="width:100%; text-align:left;" data-key="s6-step3" data-placeholder="Step 3">Step 3 — Forecast URL → 14 periods (day/night × 7 days)</div>
+      </div>
+    </div>
+    <div>
+      <div class="badge">FIELDS CAPTURED PER DAY</div>
+      <table>
+        <tr><th>Field</th><th>Source</th></tr>
+        <tr><td>High / Low Temp (°F)</td><td>Day + Night periods</td></tr>
+        <tr><td>Wind Speed &amp; Direction</td><td>windSpeed, windDirection</td></tr>
+        <tr><td>Precipitation Chance (%)</td><td>probabilityOfPrecipitation</td></tr>
+        <tr><td>Relative Humidity (%)</td><td>relativeHumidity</td></tr>
+        <tr><td>Short Description</td><td>shortForecast</td></tr>
+        <tr><td>Sunrise / Sunset</td><td>computed from lat/lon</td></tr>
+        <tr><td>IsGoodForFire()</td><td>wind + precip + humidity logic</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="slide-num">6 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 7 — DATA SOURCE 2: NOAA GHCN ══════════════════════ -->
+<div class="slide" id="slide-7">
+  <h2 data-key="s7-h2" data-placeholder="Slide title">Data Source 2: NOAA GHCN Historical Data</h2>
+  <div class="two-col">
+    <div>
+      <div class="badge">HISTORICAL CLIMATE</div>
+      <ul>
+        <li data-key="s7-li1" data-placeholder="Bullet"><strong>Source:</strong> NOAA Global Historical Climatology Network (GHCN-Daily) via AWS S3 public bucket — no key required</li>
+        <li data-key="s7-li2" data-placeholder="Bullet"><strong>Station lookup:</strong> Downloads 14 MB master station list; applies Haversine distance to find the nearest 10 stations</li>
+        <li data-key="s7-li3" data-placeholder="Bullet"><strong>Fallback chain:</strong> Tries each of the 10 nearest stations until one has data; falls back to embedded Morgantown normals if all fail</li>
+        <li data-key="s7-li4" data-placeholder="Bullet"><strong>Format:</strong> CSV with rows of <code>StationID, YYYYMMDD, Element, Value</code></li>
+        <li data-key="s7-li5" data-placeholder="Bullet"><strong>Unit conversion:</strong> tenths-of-°C → °F; tenths-of-mm → inches</li>
+      </ul>
+    </div>
+    <div>
+      <div class="badge">WHAT WE COMPUTE</div>
+      <h3 data-key="s7-h3a" data-placeholder="Heading">Monthly Aggregates (12 months)</h3>
+      <ul>
+        <li data-key="s7-li6" data-placeholder="Bullet">Average high &amp; low temp (°F)</li>
+        <li data-key="s7-li7" data-placeholder="Bullet">Minimum recorded temp → USDA hardiness zone</li>
+        <li data-key="s7-li8" data-placeholder="Bullet">Total precipitation &amp; frost day count</li>
+        <li data-key="s7-li9" data-placeholder="Bullet">Last spring frost date (Jan–Jun ≤ 32°F)</li>
+        <li data-key="s7-li10" data-placeholder="Bullet">First fall frost date (Aug–Dec ≤ 32°F)</li>
+        <li data-key="s7-li11" data-placeholder="Bullet">Growing season length (days between the two)</li>
+      </ul>
+      <div class="highlight-box" style="margin-top:12px;">
+        <span data-key="s7-zone" data-placeholder="Zone note"><strong style="color:#EAAA00;">USDA Zone is not hardcoded.</strong> It is derived live from last year's actual minimum temperature — making plant recommendations accurate for your real local climate.</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">7 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 8 — PLANT DATABASE ══════════════════════ -->
+<div class="slide" id="slide-8">
+  <h2 data-key="s8-h2" data-placeholder="Slide title">The Plant Database</h2>
+  <div class="two-col">
+    <div>
+      <div class="badge">23 PLANTS — NO EXTERNAL FILE</div>
+      <h3 data-key="s8-h3a" data-placeholder="Heading">Categories</h3>
+      <ul>
+        <li data-key="s8-li1" data-placeholder="Bullet"><strong style="color:#EAAA00;">10 Vegetables</strong> — Tomato, Cucumber, Pepper, Lettuce, Spinach, Carrot, Kale, Zucchini, Green Beans, Broccoli</li>
+        <li data-key="s8-li2" data-placeholder="Bullet"><strong style="color:#7ecfff;">5 Herbs</strong> — Basil, Mint, Rosemary, Lavender, Chives</li>
+        <li data-key="s8-li3" data-placeholder="Bullet"><strong style="color:#90ee90;">4 Flowers</strong> — Sunflower, Marigold, Zinnia, Black-Eyed Susan</li>
+      </ul>
+      <h3 data-key="s8-h3b" data-placeholder="Heading">Per-Plant Data Stored</h3>
+      <ul>
+        <li data-key="s8-li4" data-placeholder="Bullet">Min USDA zone, temp range (min/max °F), water &amp; sun needs</li>
+        <li data-key="s8-li5" data-placeholder="Bullet">Planting months &amp; harvest months (arrays)</li>
+        <li data-key="s8-li6" data-placeholder="Bullet">Days to harvest; companion plants &amp; plants to avoid</li>
+        <li data-key="s8-li7" data-placeholder="Bullet">Expert planting tip + ASCII art (5–6 lines)</li>
+      </ul>
+    </div>
+    <div>
+      <div class="badge">SEASONAL PLANTING CALENDAR</div>
+      <p data-key="s8-p1" data-placeholder="Description">The PlantAdvisor generates a 12-month grid for each plant showing planting windows (P) and harvest windows (H):</p>
+      <div class="highlight-box-blue">
+        <code style="font-size:0.9em; white-space:pre; color:#7ecfff; display:block;" data-key="s8-calendar" data-placeholder="Calendar example">         J  F  M  A  M  J  J  A  S  O  N  D
+Tomato   .  .  .  P  P  P  H  H  H  .  .  .
+Lettuce  .  .  P  P  H  H  .  P  P  H  H  .
+Kale     .  .  P  P  H  H  .  P  H  H  .  .</code>
+      </div>
+      <div class="highlight-box" style="margin-top:8px;">
+        <span data-key="s8-decision" data-placeholder="Design decision"><strong style="color:#EAAA00;">Design decision:</strong> All plant data is hardcoded in <code>PlantDatabase.cs</code> — no external file to lose or corrupt. The app is fully self-contained and portable across any machine.</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">8 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 9 — GARDEN MANAGER ══════════════════════ -->
+<div class="slide" id="slide-9">
+  <h2 data-key="s9-h2" data-placeholder="Slide title">Key Feature: Garden Manager</h2>
+  <div class="two-col">
+    <div>
+      <div class="badge">6 × 10 PLOT GRID</div>
+      <ul>
+        <li data-key="s9-li1" data-placeholder="Bullet">60 individual plots — each stores plant name, date planted, row, column, and notes</li>
+        <li data-key="s9-li2" data-placeholder="Bullet">ASCII grid displays 3-letter codes (<code>TOM</code>, <code>CUC</code>, <code>PEP</code>) or a dot for empty cells</li>
+        <li data-key="s9-li3" data-placeholder="Bullet">State auto-saved to <code>garden_state.json</code> after every change — garden survives between sessions</li>
+        <li data-key="s9-li4" data-placeholder="Bullet"><code>GardenEntry.DaysGrown()</code> tracks exact elapsed days per plot since planting date</li>
+      </ul>
+      <h3 data-key="s9-h3a" data-placeholder="Heading">User Actions</h3>
+      <ul>
+        <li data-key="s9-li5" data-placeholder="Bullet"><strong>[A]</strong> Add — pick from 23 plants, choose row/column</li>
+        <li data-key="s9-li6" data-placeholder="Bullet"><strong>[R]</strong> Remove — by row/column coordinate</li>
+        <li data-key="s9-li7" data-placeholder="Bullet"><strong>[V]</strong> View progress — days grown + harvest progress bars</li>
+        <li data-key="s9-li8" data-placeholder="Bullet"><strong>[C]</strong> Care actions — Water / Cover for frost / Skip, with live weather suggestion</li>
+      </ul>
+    </div>
+    <div>
+      <div class="badge">SCENIC GARDEN VIEW</div>
+      <p data-key="s9-p1" data-placeholder="Description">Before the grid manager loads, <code>GardenVisualizer.cs</code> renders a full ASCII art garden scene — each plant type appears with its stored ASCII art, and per-plot progress bars show harvest proximity at a glance.</p>
+      <div class="highlight-box-blue">
+        <p style="margin:0; font-size:0.95em;" data-key="s9-persist" data-placeholder="Persistence note"><strong style="color:#7ecfff;">Persistence design:</strong> Two tomatoes planted on different dates show different progress bars. Per-plot tracking uses the exact <code>DatePlanted</code> stored in each <code>GardenEntry</code> — not a shared global counter.</p>
+      </div>
+      <div class="highlight-box" style="margin-top:8px;">
+        <p style="margin:0; font-size:0.95em;" data-key="s9-nofile" data-placeholder="No file note"><strong style="color:#EAAA00;">No database required.</strong> <code>garden_state.json</code> is written and read directly — a lightweight, portable solution any student can run without setup.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">9 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 10 — FROST + COMPARISON ══════════════════════ -->
+<div class="slide" id="slide-10">
+  <h2 data-key="s10-h2" data-placeholder="Slide title">Key Feature: Frost Calculator &amp; Weather Comparison</h2>
+  <div class="two-col">
+    <div>
+      <div class="badge">OPTION 5 — FROST CALCULATOR</div>
+      <ul>
+        <li data-key="s10-li1" data-placeholder="Bullet">Finds the <strong>last spring frost</strong> (latest Jan–Jun date where low ≤ 32°F)</li>
+        <li data-key="s10-li2" data-placeholder="Bullet">Finds the <strong>first fall frost</strong> (earliest Aug–Dec date where low ≤ 32°F)</li>
+        <li data-key="s10-li3" data-placeholder="Bullet">Calculates <strong>growing season length</strong> in days and shows where in the season you are today</li>
+        <li data-key="s10-li4" data-placeholder="Bullet">Monthly frost risk table: None / Low / Moderate / High / Very High</li>
+        <li data-key="s10-li5" data-placeholder="Bullet">Real-time alert if the 7-day forecast has any night below 36°F</li>
+      </ul>
+    </div>
+    <div>
+      <div class="badge">OPTION 8 — HISTORICAL COMPARISON</div>
+      <ul>
+        <li data-key="s10-li6" data-placeholder="Bullet">Compares this week's avg high/low/precip against last year's monthly averages for the same month</li>
+        <li data-key="s10-li7" data-placeholder="Bullet">Per-day deviation: <strong style="color:#ff6b6b;">"+4.2°F above normal"</strong> or <strong style="color:#7ecfff;">"–1.5°F below normal"</strong></li>
+        <li data-key="s10-li8" data-placeholder="Bullet">Full 12-month historical table with the current month highlighted in gold</li>
+        <li data-key="s10-li9" data-placeholder="Bullet">Auto-generated climate insights: running hot → shade cloth advice; running cold → heat-lover warning</li>
+      </ul>
+    </div>
+  </div>
+  <div class="highlight-box" style="margin-top:20px;">
+    <span data-key="s10-fallback" data-placeholder="Fallback note"><strong style="color:#EAAA00;">Both features need NOAA historical data.</strong> If the NOAA S3 fetch fails or times out, both fall back to embedded Morgantown, WV climate averages — the app stays fully functional and demonstrates the complete feature set without a network connection.</span>
+  </div>
+  <div class="slide-num">10 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 11 — WOW FEATURES ══════════════════════ -->
+<div class="slide" id="slide-11">
+  <h2 data-key="s11-h2" data-placeholder="Slide title">WOW Features</h2>
+  <div class="three-col">
+    <div class="card">
+      <div class="badge">WOW 1</div>
+      <h3 data-key="s11-c1h" data-placeholder="WOW Feature name">Moon Phase Planting Guide</h3>
+      <p data-key="s11-c1p" data-placeholder="WOW Feature description">Calculates the current lunar phase using a 29.53-day synodic cycle. Maps the phase to one of 8 named phases (New, Waxing Crescent … Full … Waning Crescent) and recommends which plants to focus on. Renders a 14-day lunar calendar and ASCII moon art. Based on traditional biodynamic agriculture principles.</p>
+    </div>
+    <div class="card">
+      <div class="badge">WOW 2</div>
+      <h3 data-key="s11-c2h" data-placeholder="WOW Feature name">Historical vs. Forecast Comparison</h3>
+      <p data-key="s11-c2p" data-placeholder="WOW Feature description">Side-by-side comparison of this week's NWS forecast against last year's NOAA monthly averages for the same period. Shows temperature and precipitation deltas per day, a full 12-month climate summary table, and auto-generated gardening insights (shade cloth, heat-lovers, frost risk).</p>
+    </div>
+    <div class="card">
+      <div class="badge">WOW 3</div>
+      <h3 data-key="s11-c3h" data-placeholder="WOW Feature name">Garden Journal &amp; Harvest Tracker</h3>
+      <p data-key="s11-c3p" data-placeholder="WOW Feature description">Tracks days-to-harvest for every plot with live progress bars and harvest urgency alerts. Users can log typed entries — observations, harvest records, pest issues, or general notes — each stamped with date, plot, and type tag. Persisted to <code>garden_journal.txt</code> between sessions.</p>
+    </div>
+  </div>
+  <div class="highlight-box" style="margin-top:20px;">
+    <span data-key="s11-note" data-placeholder="WOW summary note"><strong style="color:#EAAA00;">All three WOW features</strong> were built on top of the core classes the group developed across MIST 352 assessments, using <strong>Claude Code</strong> to accelerate the implementation of complex domain logic (lunar calculations, climate analysis, and file-backed journaling) without changing the underlying data models.</span>
+  </div>
+  <div class="slide-num">11 / 12</div>
+</div>
+
+<!-- ══════════════════════ SLIDE 12 — SUMMARY ══════════════════════ -->
+<div class="slide" id="slide-12">
+  <h2 data-key="s12-h2" data-placeholder="Slide title">Summary &amp; Key Design Decisions</h2>
+  <div class="two-col">
+    <div>
+      <h3 data-key="s12-h3a" data-placeholder="Heading">What Makes This System Work</h3>
+      <ul>
+        <li data-key="s12-li1" data-placeholder="Bullet">Two NOAA sources answer different questions — forecast tells you <em>what's coming</em>; historical tells you <em>what's normal</em></li>
+        <li data-key="s12-li2" data-placeholder="Bullet">USDA zone is derived from actual last-year temperature data — not a hardcoded lookup table</li>
+        <li data-key="s12-li3" data-placeholder="Bullet">Plant data is fully embedded — no file dependency, works on any machine instantly</li>
+        <li data-key="s12-li4" data-placeholder="Bullet">Garden state persists to JSON — two sessions, same garden, exact progress per plot</li>
+        <li data-key="s12-li5" data-placeholder="Bullet">All three external services are completely free — no API keys required for any student</li>
+      </ul>
+    </div>
+    <div>
+      <h3 data-key="s12-h3b" data-placeholder="Heading">Development Model</h3>
+      <ul>
+        <li data-key="s12-li6" data-placeholder="Bullet">Core data classes &amp; service layer built by the group through iterative MIST 352 assessments</li>
+        <li data-key="s12-li7" data-placeholder="Bullet">Claude Code extended the system with advanced advisory, WOW features, and visual UI layers — without modifying the group's foundational class design</li>
+        <li data-key="s12-li8" data-placeholder="Bullet">Result: a clean separation between <em>what the group designed</em> and <em>what AI built on top</em></li>
+      </ul>
+      <div class="highlight-box" style="margin-top:20px;">
+        <span data-key="s12-future" data-placeholder="Future enhancements text"><strong style="color:#EAAA00;">Future enhancements:</strong> Multi-year NOAA history for more accurate frost averages; push alerts when frost risk is high; a web-based garden grid replacing the console UI; integration with local soil data from USDA Web Soil Survey.</span>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">12 / 12</div>
+</div>
+
+</div><!-- /slide-container -->
+
+<!-- ── Navigation ─────────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <button id="prev-btn" onclick="navigate(-1)" disabled>◀ Prev</button>
+  <span class="slide-counter" id="counter">1 / 12</span>
+  <button id="next-btn" onclick="navigate(1)">Next ▶</button>
+  <button id="edit-btn" onclick="toggleEdit()" title="Enable text editing">✏ Edit Mode</button>
+  <button id="reset-btn" onclick="resetAll()" title="Clear all saved edits and diagram">↺ Reset</button>
+</nav>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════════════════════════════════════ */
+let current = 1;
+const TOTAL  = 12;
+
+function navigate(dir) {
+  document.getElementById('slide-' + current).classList.remove('active');
+  current = Math.max(1, Math.min(TOTAL, current + dir));
+  document.getElementById('slide-' + current).classList.add('active');
+  document.getElementById('prev-btn').disabled = (current === 1);
+  document.getElementById('next-btn').disabled = (current === TOTAL);
+  document.getElementById('counter').textContent = current + ' / ' + TOTAL;
+  window.scrollTo(0, 0);
+}
+
+document.addEventListener('keydown', function(e) {
+  if (editMode) return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   navigate(-1);
+  if (e.key === 'Escape') { if (editMode) toggleEdit(); }
+});
+
+/* ════════════════════════════════════════════════════════════════════════
+   EDIT MODE
+════════════════════════════════════════════════════════════════════════ */
+let editMode = false;
+
+function toggleEdit() {
+  editMode = !editMode;
+  document.body.classList.toggle('edit-mode', editMode);
+  document.getElementById('edit-btn').classList.toggle('active', editMode);
+
+  document.querySelectorAll('[data-key]').forEach(el => {
+    if (el.id === 'diagram-caption' || el.tagName !== 'INPUT') {
+      el.contentEditable = editMode ? 'true' : 'false';
+    }
+  });
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   LOCALSTORAGE — text
+════════════════════════════════════════════════════════════════════════ */
+let saveTimer = null;
+
+function flashSaved() {
+  const f = document.getElementById('save-flash');
+  f.classList.add('show');
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => f.classList.remove('show'), 1600);
+}
+
+function saveText(key, html) {
+  try { localStorage.setItem('farm_pres_' + key, html); flashSaved(); } catch(e) {}
+}
+
+function loadTexts() {
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (!key) return;
+    const saved = localStorage.getItem('farm_pres_' + key);
+    if (saved !== null) el.innerHTML = saved;
+  });
+}
+
+document.addEventListener('input', function(e) {
+  const key = e.target.getAttribute && e.target.getAttribute('data-key');
+  if (key) saveText(key, e.target.innerHTML);
+});
+
+/* ════════════════════════════════════════════════════════════════════════
+   LOCALSTORAGE — image
+════════════════════════════════════════════════════════════════════════ */
+const IMG_KEY = 'farm_pres_class_diagram';
+
+function loadDiagramFromStorage() {
+  const saved = localStorage.getItem(IMG_KEY);
+  if (saved) applyDiagram(saved);
+}
+
+function applyDiagram(dataUrl) {
+  const img  = document.getElementById('diagram-img');
+  const zone = document.getElementById('drop-zone');
+  img.src = dataUrl;
+  zone.classList.add('has-image');
+}
+
+function saveDiagram(dataUrl) {
+  try {
+    localStorage.setItem(IMG_KEY, dataUrl);
+    flashSaved();
+  } catch(e) {
+    alert('Image is too large to save in the browser. Try a smaller or compressed image.');
+  }
+}
+
+function removeDiagram() {
+  const img  = document.getElementById('diagram-img');
+  const zone = document.getElementById('drop-zone');
+  img.src = '';
+  zone.classList.remove('has-image');
+  localStorage.removeItem(IMG_KEY);
+}
+
+function readImageFile(file) {
+  if (!file || !file.type.startsWith('image/')) {
+    alert('Please select an image file (PNG, JPG, GIF, SVG, etc.).');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = e => {
+    applyDiagram(e.target.result);
+    saveDiagram(e.target.result);
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ── Drop zone wiring ───────────────────────────────────────────────── */
+const dropZone  = document.getElementById('drop-zone');
+const fileInput = document.getElementById('diagram-file-input');
+
+dropZone.addEventListener('click', function(e) {
+  if (e.target.id === 'remove-btn' || e.target.id === 'replace-btn') return;
+  if (!dropZone.classList.contains('has-image') || e.target.id === 'replace-btn') {
+    fileInput.click();
+  }
+});
+
+document.getElementById('browse-btn').addEventListener('click', function(e) {
+  e.stopPropagation();
+  fileInput.click();
+});
+
+document.getElementById('replace-btn').addEventListener('click', function(e) {
+  e.stopPropagation();
+  fileInput.click();
+});
+
+document.getElementById('remove-btn').addEventListener('click', function(e) {
+  e.stopPropagation();
+  if (confirm('Remove the class diagram?')) removeDiagram();
+});
+
+fileInput.addEventListener('change', function() {
+  if (fileInput.files[0]) readImageFile(fileInput.files[0]);
+  fileInput.value = '';
+});
+
+dropZone.addEventListener('dragover', function(e) {
+  e.preventDefault();
+  dropZone.classList.add('drag-over');
+});
+dropZone.addEventListener('dragleave', function() {
+  dropZone.classList.remove('drag-over');
+});
+dropZone.addEventListener('drop', function(e) {
+  e.preventDefault();
+  dropZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) readImageFile(file);
+});
+
+/* ════════════════════════════════════════════════════════════════════════
+   RESET
+════════════════════════════════════════════════════════════════════════ */
+function resetAll() {
+  if (!confirm('Reset ALL edits and remove the uploaded diagram? This cannot be undone.')) return;
+  document.querySelectorAll('[data-key]').forEach(el => {
+    localStorage.removeItem('farm_pres_' + el.getAttribute('data-key'));
+  });
+  localStorage.removeItem(IMG_KEY);
+  location.reload();
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════════════════════════════════ */
+loadTexts();
+loadDiagramFromStorage();
+</script>
+</body>
+</html>

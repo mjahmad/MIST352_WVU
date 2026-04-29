@@ -6,12 +6,12 @@
 #
 # ---- KNOWN / CONFIRMED CANCELLATIONS (fill in as you research) ----
 #
-# 2025-01-06 | Winter storm - ice/snow accumulation
-# 2025-01-07 | Continued winter storm conditions
-# 2025-01-21 | Cold snap - extreme wind chill
-# 2025-02-12 | Winter Storm Blair - heavy snow
-# 2025-02-13 | Continued Winter Storm Blair aftermath
-# 2025-03-03 | Late-season snowstorm
+2025-01-06 | Winter storm - ice/snow accumulation
+2025-01-07 | Continued winter storm conditions
+2025-01-21 | Cold snap - extreme wind chill
+2025-02-12 | Winter Storm Blair - heavy snow
+2025-02-13 | Continued Winter Storm Blair aftermath
+2025-03-03 | Late-season snowstorm
 #
 # ---- INSTRUCTIONS ----
 # Remove the leading "#" from any line above to activate it.

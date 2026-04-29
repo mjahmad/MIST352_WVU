@@ -1,0 +1,271 @@
+================================================================================
+  FARM & GARDEN PLANNER v2.0 — PRESENTATION OUTLINE (10 Slides)
+  MIST 352 | WVU
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+SLIDE 1 — TITLE
+────────────────────────────────────────────────────────────────────────────────
+  Farm & Garden Planner v2.0
+
+  Powered by Real Government Weather Data
+
+  · Built in C# / .NET 10.0
+  · No paid APIs — 100% free public data sources
+  · Covers forecasting, planting guidance, frost analysis, and garden tracking
+
+  Tools Used: api.weather.gov  |  NOAA GHCN (AWS S3)  |  Nominatim OpenStreetMap
+
+
+────────────────────────────────────────────────────────────────────────────────
+SLIDE 2 — WHAT THE APP DOES
+────────────────────────────────────────────────────────────────────────────────
+  10-Option Menu — What Each Feature Covers:
+
+  [1]  Live 7-day weather dashboard
+  [2]  Plant recommendations based on your zone & current conditions
+  [3]  Garden grid manager — add, view, and care for individual plots
+  [4]  Smart care advisor — should you water or plant today?
+  [5]  Frost date calculator — last spring frost / first fall frost
+  [6]  Companion planting guide
+  [7]  Moon phase planting guide
+  [8]  This week vs. historical weather comparison
+  [9]  Garden journal & harvest countdown tracker
+  [10] Browse all 19 plant profiles with ASCII art
+
+  Decision: A console app was chosen over a GUI to keep the project
+  self-contained, portable, and easy to demo without external dependencies.
+
+
+────────────────────────────────────────────────────────────────────────────────
+SLIDE 3 — DATA SOURCE 1: WHERE THE FORECAST COMES FROM
+────────────────────────────────────────────────────────────────────────────────
+  Source: api.weather.gov  (U.S. National Weather Service)
+  Free, no API key required.
+
+  HOW IT WORKS — 3 API calls:
+
+  Step 1  User enters a location (e.g. "Morgantown, WV")
+          ↓
+          Nominatim / OpenStreetMap geocoding API converts the city name
+          to a latitude/longitude coordinate pair.
+          Example: Morgantown, WV → 39.6295°N, -79.9789°W
+
+  Step 2  GET https://api.weather.gov/points/{lat},{lon}
+          ↓
+          Returns a JSON object that contains a "forecast URL" specific
+          to that grid cell in the NWS prediction system.
+
+  Step 3  GET {forecastUrl}
+          ↓
+          Returns 14 forecast "periods" (day/night pairs for 7 days).
+          Each period includes: temperature, wind speed & direction,
+          precipitation probability, relative humidity, and description text.
+
+  WHAT WE EXTRACT PER DAY:
+  · High Temp (°F)        · Low Temp (°F)
+  · Wind Speed (mph)      · Wind Direction
+  · Precip Chance (%)     · Humidity (%)
+  · Short description     · Date & day name
+
+
+────────────────────────────────────────────────────────────────────────────────
+SLIDE 4 — DATA SOURCE 2: WHERE HISTORICAL DATA COMES FROM
+────────────────────────────────────────────────────────────────────────────────
+  Source: NOAA Global Historical Climatology Network (GHCN)
+  Hosted publicly on AWS S3 — no API key, no cost.
+
+  Base URL: https://noaa-ghcn-pds.s3.amazonaws.com/
+
+  WHY HISTORICAL DATA?
+  The 7-day forecast only tells you what's coming THIS week.
+  Historical data tells you what is NORMAL for your area — enabling
+  frost date calculation, zone detection, and trend comparison.
+
+  THE DATA FORMAT (GHCN Daily):
+  · One CSV file per weather station
+  · Each row: StationID, YYYYMMDD, ElementCode, Value
+  · Element codes used in this app:
+      TMAX — daily high temperature (in tenths of °C)
+      TMIN — daily low temperature  (in tenths of °C)
+      PRCP — precipitation          (in tenths of mm)
+      SNOW — snowfall               (in tenths of mm)
+
+  UNIT CONVERSION applied in code:
+      Raw value ÷ 10 → actual °C → × 9/5 + 32 → °F
+      Raw PRCP ÷ 10 → mm × 0.0393701 → inches
+
+
+────────────────────────────────────────────────────────────────────────────────
+SLIDE 5 — HOW WE FIND THE RIGHT WEATHER STATION
+────────────────────────────────────────────────────────────────────────────────
+  The NOAA GHCN dataset has ~120,000 weather stations worldwide.
+  We need the one closest to the user's location.
+
+  STATION LOOKUP PROCESS:
+
+  1. Download the master station list:
+     https://noaa-ghcn-pds.s3.amazonaws.com/ghcnd-stations.txt
+     (~14 MB fixed-width text file, one station per line)
+
+  2. Parse each line to extract:
+     Station ID (11 chars) | Latitude | Longitude | Name
+
+  3. Calculate the Haversine distance from the user's lat/lon
+     to every station in the file.
+
+  4. Keep the 10 nearest stations. Try each in order until one has
+     data for the requested year.
+
+  5. Download that station's full CSV:
+     https://noaa-ghcn-pds.s3.amazonaws.com/csv/by_station/{ID}.csv
+
+  DECISION: We try multiple stations (not just the nearest one) because
+  some stations have incomplete records or don't report certain elements.
+  Fallback to demo Morgantown, WV averages if all stations fail.
+
+
+────────────────────────────────────────────────────────────────────────────────
+SLIDE 6 — WHAT WE COMPUTE FROM HISTORICAL DATA
+────────────────────────────────────────────────────────────────────────────────
+  After downloading last year's station CSV, we aggregate into
+  12 monthly summary objects (HistoricalStats[]):
+
+  PER MONTH WE TRACK:
+  · Average High Temp (°F)      — sum of TMAX readings ÷ count
+  · Average Low Temp (°F)       — sum of TMIN readings ÷ count
+  · Minimum Recorded Temp (°F)  — used to determine USDA hardiness zone
+  · Total Precipitation (in.)   — sum of all PRCP values
+  · Number of Frost Days        — days where low temp ≤ 32°F
+  · Number of Precip Days       — days where PRCP > 0
+
+  DERIVED CALCULATIONS:
+  · Last Spring Frost — latest date (Jan–Jun) with a temp ≤ 32°F
+  · First Fall Frost  — earliest date (Aug–Dec) with a temp ≤ 32°F
+  · Growing Season    — days between those two dates
+
+  USDA HARDINESS ZONE (derived from annual minimum temp):
+  · Min temp ≤ 0°F  → Zone 6
+  · Min temp ≤ 10°F → Zone 7
+  · Min temp ≤ 20°F → Zone 8  ...etc.
+
+  This zone determines which plants are recommended for the user's area.
+
+
+────────────────────────────────────────────────────────────────────────────────
+SLIDE 7 — THE PLANT DATABASE
+────────────────────────────────────────────────────────────────────────────────
+  19 plants hardcoded in PlantDatabase.cs — no external file needed.
+
+  CATEGORIES:
+  · 10 Vegetables  (Tomato, Cucumber, Pepper, Lettuce, Spinach,
+                    Carrot, Kale, Zucchini, Green Beans, Broccoli)
+  · 5 Herbs        (Basil, Mint, Rosemary, Lavender, Chives)
+  · 4 Flowers      (Sunflower, Marigold, Zinnia, Black-Eyed Susan)
+
+  EACH PLANT STORES:
+  · Name, Category, Emoji code
+  · Minimum USDA hardiness zone
+  · Temperature range (min/max °F)
+  · Water needs & Sun needs
+  · Planting months (array of month numbers)
+  · Harvest months  (array of month numbers)
+  · Days to harvest (integer)
+  · Companion plants & plants to avoid
+  · Planting tip (expert advice string)
+  · ASCII art (5–6 lines, displayed in the console)
+
+  DECISION: Hardcoded data was chosen over a database/file because it
+  keeps the app fully self-contained and eliminates file-loading errors.
+
+
+────────────────────────────────────────────────────────────────────────────────
+SLIDE 8 — KEY FEATURE: GARDEN MANAGER (OPTION 3)
+────────────────────────────────────────────────────────────────────────────────
+  The Garden Manager tracks what is planted, where, and when.
+
+  GRID SYSTEM:
+  · 6 rows × 10 columns = 60 individual plots
+  · Each plot stores: plant name, date planted, row, column, notes
+  · Grid is displayed as an ASCII table in the console
+  · Symbols: first 3 letters of plant name (TOM, CUC, PEP...) or dot (.)
+
+  PERSISTENCE:
+  · Garden state is saved to garden_state.json automatically after every change
+  · JSON is loaded on startup — garden survives between sessions
+
+  USER ACTIONS AVAILABLE:
+  [A] Add a plant — pick from a numbered list of all 19 plants, then choose plot
+  [R] Remove a plant by row/column
+  [V] View progress — numbered table showing all plants, days grown, progress bar
+  [C] Care Actions — for each plant, choose Water / Cover (frost) / Skip
+       Weather-based suggestion shown before each prompt
+  [X] Back to main menu
+
+  SCENIC VIEW (shown before the manager):
+  ASCII art for each plant type + per-plot progress bars for all instances.
+
+
+────────────────────────────────────────────────────────────────────────────────
+SLIDE 9 — KEY FEATURE: FROST CALCULATOR & WEATHER COMPARISON
+────────────────────────────────────────────────────────────────────────────────
+  OPTION 5 — FROST DATE CALCULATOR (powered by NOAA historical data)
+
+  · Finds the last date in spring (Jan–Jun) where the low was ≤ 32°F
+  · Finds the first date in fall (Aug–Dec) where the low was ≤ 32°F
+  · Calculates growing season length in days
+  · Shows where in the season the user currently is (Day X of Y)
+  · Monthly frost risk table: None / Low / Moderate / High / Very High
+  · Real-time alert if the 7-day forecast has nights below 36°F
+
+  OPTION 8 — WEATHER vs. HISTORICAL COMPARISON (both NOAA sources)
+
+  · Compares this week's average high/low/precip against last year's
+    monthly average for the same month
+  · Shows deviation per day: "+4.2°F above normal" (red) or "–1.5°F" (blue)
+  · Full 12-month historical table with current month highlighted
+  · Climate insights auto-generated:
+      - Running hot → recommend shade cloth
+      - Running cold → heat-lovers may be slow
+      - Colder nights → watch for frost
+
+  DECISION: Both features require NOAA historical data. If the NOAA fetch
+  fails or times out, both features fall back to Morgantown, WV averages
+  so the app remains functional and demonstrates the full feature set.
+
+
+────────────────────────────────────────────────────────────────────────────────
+SLIDE 10 — MAJOR DESIGN DECISIONS SUMMARY
+────────────────────────────────────────────────────────────────────────────────
+  DECISION 1 — TWO NOAA DATA SOURCES, NOT ONE
+  The 7-day forecast (api.weather.gov) gives real-time conditions.
+  GHCN historical data gives context. Both are needed to answer the
+  question a gardener actually asks: "Is this week unusual for this time of year?"
+
+  DECISION 2 — NO API KEY REQUIRED
+  All three external services (api.weather.gov, NOAA GHCN S3, Nominatim)
+  are completely free and open. The app works for any student on any machine
+  without account setup.
+
+  DECISION 3 — GRACEFUL FALLBACK DATA
+  If NOAA historical data fails (network timeout, no station data),
+  the app substitutes known Morgantown, WV climate averages. Options 5 and 8
+  remain fully functional instead of showing an error and stopping.
+
+  DECISION 4 — ZONE-BASED PLANT FILTERING
+  USDA hardiness zones are not hardcoded by zip code. Instead, the app
+  derives the zone from the actual minimum temperature in last year's
+  NOAA data — making recommendations accurate for the real local climate.
+
+  DECISION 5 — GARDEN STATE PERSISTENCE
+  All planted plots are written to garden_state.json after every change.
+  The user's garden is never lost between sessions. No database required.
+
+  DECISION 6 — PER-PLANT PROGRESS TRACKING
+  Every plot is tracked independently. Two tomatoes planted on different
+  days show different progress bars. The scenic view and harvest tracker
+  reflect the exact planted date for each plot, not a global average.
+
+================================================================================
+  END OF PRESENTATION OUTLINE
+================================================================================
