@@ -8,28 +8,31 @@
     "net10.0": []
   },
   "packageFolders": {
-    "/Users/kaylamatey/.nuget/packages/": {}
+    "C:\\Users\\mjahm\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/kaylamatey/Downloads/MIST352_Fall25/Kayla_Matey_MIST352_Fall2025/Project Bonfire/files/Project_2.csproj",
+      "projectUniqueName": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\Project Bonfire\\files\\Project_2.csproj",
       "projectName": "BonfirePlanner",
-      "projectPath": "/Users/kaylamatey/Downloads/MIST352_Fall25/Kayla_Matey_MIST352_Fall2025/Project Bonfire/files/Project_2.csproj",
-      "packagesPath": "/Users/kaylamatey/.nuget/packages/",
-      "outputPath": "/Users/kaylamatey/Downloads/MIST352_Fall25/Kayla_Matey_MIST352_Fall2025/Project Bonfire/files/obj/",
+      "projectPath": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\Project Bonfire\\files\\Project_2.csproj",
+      "packagesPath": "C:\\Users\\mjahm\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\Project Bonfire\\files\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/kaylamatey/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\mjahm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {}
         }
@@ -48,6 +51,7 @@
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "imports": [
           "net461",
@@ -65,7 +69,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.203/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
