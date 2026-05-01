@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BonfirePlanner")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc5ca8e7a2345ca3d1c82d42694c9f6217855669")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53171b4009d2105b66d2b5d74c85a1f1edb46de8")]
 [assembly: System.Reflection.AssemblyProductAttribute("BonfirePlanner")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BonfirePlanner")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
