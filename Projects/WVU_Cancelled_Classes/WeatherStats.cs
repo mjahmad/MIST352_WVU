@@ -275,7 +275,7 @@ namespace Project_1
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write($"{count,4} days");
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine($"  ({(total > 0 ? 100.0 * count / total : 0):F1}% of year)");
+            Console.WriteLine($"  ({(total > 0 ? 10.0 * count / total : 0):F1}% of year)");
             Console.ResetColor();
         }
 

@@ -1,57 +1,67 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 
 namespace Project_1
 {
     /// <summary>
-    /// Fetches weather data from two sources:
-    ///   1. NOAA GHCN-Daily S3 bucket  → full-year historical data (13 elements)
-    ///   2. Open-Meteo (no key needed)  → live current-conditions snapshot
+    /// Fetches weather data from Open-Meteo (free, no API key required):
+    ///   1. Archive API  → full-year historical daily data
+    ///   2. Forecast API → live current-conditions snapshot
     /// </summary>
     internal class NOAAService
     {
         public string _location;
 
-        // Morgantown WV coordinates and primary GHCN station
-        private const double LAT             = 39.6295;
-        private const double LON             = -79.9559;
-        private const string PRIMARY_STATION = "USC00555882"; // MORGANTOWN LOCK 4
+        private const double LAT = 39.6295;
+        private const double LON = -79.9559;
+
+        private const string UNITS = "&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America/New_York";
 
         public NOAAService(string location)
         {
             _location = location;
         }
 
-        // ── Historical data (full year from NOAA GHCN) ─────────────────────────
+        // ── Historical data (full year from Open-Meteo archive) ────────────────
 
         public WeatherDay[] GetHistoricalData(int year = 2025)
         {
-            Console.WriteLine($"  Downloading NOAA GHCN data for station {PRIMARY_STATION} ({year})...");
+            string start = $"{year}-01-01";
+            string end   = $"{year}-12-31";
+            string url   = "https://archive-api.open-meteo.com/v1/archive" +
+                $"?latitude={LAT}&longitude={LON}" +
+                $"&start_date={start}&end_date={end}" +
+                "&daily=temperature_2m_max,temperature_2m_min,precipitation_sum," +
+                "snowfall_sum,snow_depth_max,wind_speed_10m_max,wind_gusts_10m_max,weather_code" +
+                UNITS;
 
-            string[] csvLines = DownloadStationCSV(PRIMARY_STATION);
+            Console.WriteLine($"  Downloading Open-Meteo historical data ({year})...");
 
-            if (csvLines.Length < 5)
+            try
+            {
+                using var client = new HttpClient();
+                client.Timeout = TimeSpan.FromSeconds(30);
+                client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "WVU-WeatherApp-MIST352");
+                string json = client.GetStringAsync(url).GetAwaiter().GetResult();
+                WeatherDay[] days = ParseOpenMeteoHistory(json);
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"  Loaded {days.Length} days of historical data ({year}).");
+                Console.ResetColor();
+                return days;
+            }
+            catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("  Could not reach NOAA. Using built-in sample data.");
+                Console.WriteLine($"  Historical fetch failed ({ex.GetType().Name}): {ex.Message}");
+                Console.WriteLine("  Using built-in sample data.");
                 Console.ResetColor();
                 return FallbackData();
             }
-
-            Dictionary<string, WeatherDay> days = ParseCSV(csvLines, year);
-
-            var list = new List<WeatherDay>(days.Values);
-            list.Sort((a, b) => string.Compare(a.Date, b.Date, StringComparison.Ordinal));
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"  Loaded {list.Count} days of NOAA data ({year}).");
-            Console.ResetColor();
-            return list.ToArray();
         }
 
-        // ── Current conditions (Open-Meteo, free, no key) ──────────────────────
+        // ── Current conditions (Open-Meteo forecast, free, no key) ────────────
 
         public WeatherDay GetCurrentWeather()
         {
@@ -61,7 +71,7 @@ namespace Project_1
                 "precipitation,wind_speed_10m,wind_gusts_10m,weather_code" +
                 "&daily=temperature_2m_max,temperature_2m_min" +
                 "&forecast_days=1" +
-                "&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America/New_York";
+                UNITS;
 
             try
             {
@@ -69,88 +79,62 @@ namespace Project_1
                 client.Timeout = TimeSpan.FromSeconds(30);
                 client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "WVU-WeatherApp-MIST352");
                 string json = client.GetStringAsync(url).GetAwaiter().GetResult();
-                return ParseOpenMeteo(json);
+                return ParseOpenMeteoCurrentWeather(json);
             }
             catch
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("  Open-Meteo unavailable – using last known NOAA day as current.");
+                Console.WriteLine("  Open-Meteo unavailable – using last known day as current.");
                 Console.ResetColor();
                 return new WeatherDay(DateTime.Today.ToString("yyyy-MM-dd"),
                     28, 34, 3, 5, 0.3, 14, 28, false, false, false, false, false);
             }
         }
 
-        // ── Private helpers ─────────────────────────────────────────────────────
+        // ── Private helpers ────────────────────────────────────────────────────
 
-        private static string[] DownloadStationCSV(string stationId)
+        private static WeatherDay[] ParseOpenMeteoHistory(string json)
         {
-            string url = "https://noaa-ghcn-pds.s3.amazonaws.com/csv/by_station/" + stationId + ".csv";
-            try
+            var doc   = JsonDocument.Parse(json);
+            var daily = doc.RootElement.GetProperty("daily");
+
+            var dates  = daily.GetProperty("time");
+            var maxT   = daily.GetProperty("temperature_2m_max");
+            var minT   = daily.GetProperty("temperature_2m_min");
+            var precip = daily.GetProperty("precipitation_sum");
+            var snow   = daily.GetProperty("snowfall_sum");
+            var depth  = daily.GetProperty("snow_depth_max");
+            var wind   = daily.GetProperty("wind_speed_10m_max");
+            var gust   = daily.GetProperty("wind_gusts_10m_max");
+            var codes  = daily.GetProperty("weather_code");
+
+            int count  = dates.GetArrayLength();
+            var result = new WeatherDay[count];
+
+            for (int i = 0; i < count; i++)
             {
-                using var client = new HttpClient();
-                client.Timeout = TimeSpan.FromSeconds(90);
-                client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "WVU-WeatherApp-MIST352");
-                string data = client.GetStringAsync(url).GetAwaiter().GetResult();
-                return data.Split('\n');
+                string date  = dates[i].GetString() ?? "";
+                double mn    = Get(minT,   i, 32);
+                double mx    = Get(maxT,   i, 45);
+                double sn    = Get(snow,   i, 0);
+                double dp    = Get(depth,  i, 0) * 39.3701; // metres → inches
+                double pr    = Get(precip, i, 0);
+                double ws    = Get(wind,   i, 0);
+                double wg    = Get(gust,   i, 0);
+                int    wCode = codes[i].ValueKind == JsonValueKind.Null ? 0 : codes[i].GetInt32();
+
+                result[i] = new WeatherDay(date, mn, mx, sn, dp, pr, ws, wg,
+                    fog:    wCode is 45 or 48,
+                    ice:    wCode is 66 or 67 or 77,
+                    thunder:wCode >= 95,
+                    blowingSnow: wCode is 38 or 39,
+                    freeze: wCode is 56 or 57 or 66 or 67);
             }
-            catch (Exception ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"\n  NOAA fetch error: {ex.Message}");
-                Console.ResetColor();
-                return Array.Empty<string>();
-            }
+
+            return result;
         }
 
-        private static Dictionary<string, WeatherDay> ParseCSV(string[] lines, int year)
-        {
-            string yearStr = year.ToString();
-            var days = new Dictionary<string, WeatherDay>();
-
-            foreach (string line in lines)
-            {
-                if (string.IsNullOrWhiteSpace(line)) continue;
-                string[] p = line.Split(',');
-                if (p.Length < 4) continue;
-
-                string rawDate = p[1].Trim();
-                if (rawDate.Length < 8 || !rawDate.StartsWith(yearStr)) continue;
-
-                string element  = p[2].Trim();
-                string rawValue = p[3].Trim();
-                if (!double.TryParse(rawValue, out double value)) continue;
-
-                // Q-flag in column index 5 – skip flagged (erroneous) data
-                if (p.Length > 5 && !string.IsNullOrWhiteSpace(p[5].Trim())) continue;
-
-                string date = $"{rawDate[..4]}-{rawDate[4..6]}-{rawDate[6..8]}";
-                if (!days.ContainsKey(date))
-                    days[date] = new WeatherDay { Date = date };
-
-                WeatherDay d = days[date];
-
-                switch (element)
-                {
-                    case "TMIN": d.MinTemp       = CtoF(value / 10.0);         break;
-                    case "TMAX": d.MaxTemp       = CtoF(value / 10.0);         break;
-                    case "PRCP": d.Precipitation = value / 10.0 / 25.4;        break; // tenths-mm → in
-                    case "SNOW": d.Snowfall      = value / 25.4;               break; // mm → in
-                    case "SNWD": d.SnowDepth     = value / 25.4;               break; // mm → in
-                    case "AWND": d.WindSpeed     = value / 10.0 * 2.23694;     break; // tenths-m/s → mph
-                    case "WSF2": d.WindGust      = value / 10.0 * 2.23694;     break;
-                    case "WT01": d.HasFog        = value == 1;                  break;
-                    case "WT03": d.HasThunder    = value == 1;                  break;
-                    case "WT04": d.HasIce        = value == 1;                  break;
-                    case "WT06": d.HasFreeze     = value == 1;                  break;
-                    case "WT09": d.HasBlowingSnow= value == 1;                  break;
-                }
-            }
-
-            return days;
-        }
-
-        private static WeatherDay ParseOpenMeteo(string json)
+        private static WeatherDay ParseOpenMeteoCurrentWeather(string json)
         {
             var doc = JsonDocument.Parse(json);
             var cur = doc.RootElement.GetProperty("current");
@@ -164,26 +148,24 @@ namespace Project_1
             }
             catch { }
 
-            double snow    = cur.GetProperty("snowfall").GetDouble();
-            double depth   = cur.GetProperty("snow_depth").GetDouble() * 39.3701; // m → in
-            double precip  = cur.GetProperty("precipitation").GetDouble();
-            double wind    = cur.GetProperty("wind_speed_10m").GetDouble();
-            double gust    = cur.GetProperty("wind_gusts_10m").GetDouble();
-            int    wCode   = cur.GetProperty("weather_code").GetInt32();
-
-            // Decode WMO weather codes into event flags
-            bool fog     = wCode is 45 or 48;
-            bool ice     = wCode is 66 or 67 or 77;
-            bool freeze  = wCode is 56 or 57 or 66 or 67;
-            bool thunder  = wCode >= 95;
-            bool blowSn  = wCode is 38 or 39;
+            double snow   = cur.GetProperty("snowfall").GetDouble();
+            double depth  = cur.GetProperty("snow_depth").GetDouble() * 39.3701;
+            double precip = cur.GetProperty("precipitation").GetDouble();
+            double wind   = cur.GetProperty("wind_speed_10m").GetDouble();
+            double gust   = cur.GetProperty("wind_gusts_10m").GetDouble();
+            int    wCode  = cur.GetProperty("weather_code").GetInt32();
 
             string today = DateTime.Today.ToString("yyyy-MM-dd");
-            return new WeatherDay(today, minT, maxT, snow, depth, precip,
-                                  wind, gust, fog, ice, thunder, blowSn, freeze);
+            return new WeatherDay(today, minT, maxT, snow, depth, precip, wind, gust,
+                fog:    wCode is 45 or 48,
+                ice:    wCode is 66 or 67 or 77,
+                thunder:wCode >= 95,
+                blowingSnow: wCode is 38 or 39,
+                freeze: wCode is 56 or 57 or 66 or 67);
         }
 
-        private static double CtoF(double c) => c * 9.0 / 5.0 + 32.0;
+        private static double Get(JsonElement arr, int i, double fallback) =>
+            arr[i].ValueKind == JsonValueKind.Null ? fallback : arr[i].GetDouble();
 
         private static WeatherDay[] FallbackData() => new WeatherDay[]
         {

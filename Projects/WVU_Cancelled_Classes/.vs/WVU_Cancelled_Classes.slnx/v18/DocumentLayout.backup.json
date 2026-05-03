@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\WVU_Cancelled_Classes\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{40BC5902-09D8-4797-2C14-0D9470CC6D07}|WVU_Cancelled_Classes.csproj|d:\\github_repos\\mist352_wvu\\projects\\wvu_cancelled_classes\\noaaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40BC5902-09D8-4797-2C14-0D9470CC6D07}|WVU_Cancelled_Classes.csproj|solutionrelative:noaaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{40BC5902-09D8-4797-2C14-0D9470CC6D07}|WVU_Cancelled_Classes.csproj|d:\\github_repos\\mist352_wvu\\projects\\wvu_cancelled_classes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40BC5902-09D8-4797-2C14-0D9470CC6D07}|WVU_Cancelled_Classes.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40BC5902-09D8-4797-2C14-0D9470CC6D07}|WVU_Cancelled_Classes.csproj|d:\\github_repos\\mist352_wvu\\projects\\wvu_cancelled_classes\\wvu_canceled_history.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{40BC5902-09D8-4797-2C14-0D9470CC6D07}|WVU_Cancelled_Classes.csproj|solutionrelative:wvu_canceled_history.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40BC5902-09D8-4797-2C14-0D9470CC6D07}|WVU_Cancelled_Classes.csproj|d:\\github_repos\\mist352_wvu\\projects\\wvu_cancelled_classes\\user_guide.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{40BC5902-09D8-4797-2C14-0D9470CC6D07}|WVU_Cancelled_Classes.csproj|solutionrelative:user_guide.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40BC5902-09D8-4797-2C14-0D9470CC6D07}|WVU_Cancelled_Classes.csproj|d:\\github_repos\\mist352_wvu\\projects\\wvu_cancelled_classes\\weatherstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40BC5902-09D8-4797-2C14-0D9470CC6D07}|WVU_Cancelled_Classes.csproj|solutionrelative:weatherstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,15 +43,63 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "NOAAService.cs",
+              "DocumentMoniker": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\WVU_Cancelled_Classes\\NOAAService.cs",
+              "RelativeDocumentMoniker": "NOAAService.cs",
+              "ToolTip": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\WVU_Cancelled_Classes\\NOAAService.cs",
+              "RelativeToolTip": "NOAAService.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAQwD0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T23:30:06.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WVU_canceled_history.txt",
+              "DocumentMoniker": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\WVU_Cancelled_Classes\\WVU_canceled_history.txt",
+              "RelativeDocumentMoniker": "WVU_canceled_history.txt",
+              "ToolTip": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\WVU_Cancelled_Classes\\WVU_canceled_history.txt",
+              "RelativeToolTip": "WVU_canceled_history.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-05-03T23:03:47.559Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\WVU_Cancelled_Classes\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\WVU_Cancelled_Classes\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAALwAAAAAAAAAAAASwNkAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-27T18:11:10.451Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-27T18:11:10.451Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "USER_GUIDE.txt",
+              "DocumentMoniker": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\WVU_Cancelled_Classes\\USER_GUIDE.txt",
+              "RelativeDocumentMoniker": "USER_GUIDE.txt",
+              "ToolTip": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\WVU_Cancelled_Classes\\USER_GUIDE.txt",
+              "RelativeToolTip": "USER_GUIDE.txt",
+              "ViewState": "AgIAAFcBAAAAAAAAAAArwG0BAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-05-03T23:23:25.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WeatherStats.cs",
+              "DocumentMoniker": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\WVU_Cancelled_Classes\\WeatherStats.cs",
+              "RelativeDocumentMoniker": "WeatherStats.cs",
+              "ToolTip": "D:\\GitHub_Repos\\MIST352_WVU\\Projects\\WVU_Cancelled_Classes\\WeatherStats.cs",
+              "RelativeToolTip": "WeatherStats.cs",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAgwBUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T23:12:51.532Z"
             }
           ]
         }

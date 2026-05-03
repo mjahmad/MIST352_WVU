@@ -13,3 +13,4 @@ D:\GitHub_Repos\MIST352_WVU\Projects\WVU_Cancelled_Classes\obj\Debug\net10.0\ref
 D:\GitHub_Repos\MIST352_WVU\Projects\WVU_Cancelled_Classes\obj\Debug\net10.0\WVU_Cancelled_Classes.pdb
 D:\GitHub_Repos\MIST352_WVU\Projects\WVU_Cancelled_Classes\obj\Debug\net10.0\WVU_Cancelled_Classes.genruntimeconfig.cache
 D:\GitHub_Repos\MIST352_WVU\Projects\WVU_Cancelled_Classes\obj\Debug\net10.0\ref\WVU_Cancelled_Classes.dll
+D:\GitHub_Repos\MIST352_WVU\Projects\WVU_Cancelled_Classes\bin\Debug\net10.0\WVU_canceled_history.txt
