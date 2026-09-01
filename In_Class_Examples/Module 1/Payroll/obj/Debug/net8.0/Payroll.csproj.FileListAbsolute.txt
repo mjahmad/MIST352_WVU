@@ -1,0 +1,15 @@
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\bin\Debug\net8.0\Payroll.exe
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\bin\Debug\net8.0\Payroll.deps.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\bin\Debug\net8.0\Payroll.runtimeconfig.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\bin\Debug\net8.0\Payroll.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\bin\Debug\net8.0\Payroll.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\obj\Debug\net8.0\Payroll.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\obj\Debug\net8.0\Payroll.AssemblyInfoInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\obj\Debug\net8.0\Payroll.AssemblyInfo.cs
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\obj\Debug\net8.0\Payroll.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\obj\Debug\net8.0\Payroll.sourcelink.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\obj\Debug\net8.0\Payroll.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\obj\Debug\net8.0\refint\Payroll.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\obj\Debug\net8.0\Payroll.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\obj\Debug\net8.0\Payroll.genruntimeconfig.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Payroll\obj\Debug\net8.0\ref\Payroll.dll

@@ -1,0 +1,15 @@
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\bin\Debug\net8.0\Circle.exe
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\bin\Debug\net8.0\Circle.deps.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\bin\Debug\net8.0\Circle.runtimeconfig.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\bin\Debug\net8.0\Circle.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\bin\Debug\net8.0\Circle.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\obj\Debug\net8.0\Circle.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\obj\Debug\net8.0\Circle.AssemblyInfoInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\obj\Debug\net8.0\Circle.AssemblyInfo.cs
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\obj\Debug\net8.0\Circle.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\obj\Debug\net8.0\Circle.sourcelink.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\obj\Debug\net8.0\Circle.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\obj\Debug\net8.0\refint\Circle.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\obj\Debug\net8.0\Circle.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\obj\Debug\net8.0\Circle.genruntimeconfig.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 1\Circle\obj\Debug\net8.0\ref\Circle.dll
