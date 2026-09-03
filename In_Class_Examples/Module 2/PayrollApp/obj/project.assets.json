@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MIST352_Spring2026\\MIST352_WVU\\In_Class_Examples\\Module 2\\PayrollApp\\PayrollApp.csproj",
+      "projectUniqueName": "D:\\MIST352_Fall2026\\MIST352_WVU\\In_Class_Examples\\Module 2\\PayrollApp\\PayrollApp.csproj",
       "projectName": "PayrollApp",
-      "projectPath": "D:\\MIST352_Spring2026\\MIST352_WVU\\In_Class_Examples\\Module 2\\PayrollApp\\PayrollApp.csproj",
+      "projectPath": "D:\\MIST352_Fall2026\\MIST352_WVU\\In_Class_Examples\\Module 2\\PayrollApp\\PayrollApp.csproj",
       "packagesPath": "C:\\Users\\mjahm\\.nuget\\packages\\",
-      "outputPath": "D:\\MIST352_Spring2026\\MIST352_WVU\\In_Class_Examples\\Module 2\\PayrollApp\\obj\\",
+      "outputPath": "D:\\MIST352_Fall2026\\MIST352_WVU\\In_Class_Examples\\Module 2\\PayrollApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

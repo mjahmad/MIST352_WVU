@@ -1,7 +1,7 @@
 ﻿// Mohammad Jamil Ahmad
 // MIST352 
-// Tuesday 1/20/26
-// Module 2 - App1
+// 
+// 
 
 
 namespace PayrollApp

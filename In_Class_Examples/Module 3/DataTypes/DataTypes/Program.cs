@@ -20,9 +20,14 @@ class Program
     static void Main()
     {
 
-        string strName = "Mohammad Jamil Ahmad";
-        Console.WriteLine(strName.ToLower());
-        Console.WriteLine(strName.Replace('a','b'));
+
+        int intRes = 1 / 2;
+
+        Console.WriteLine(intRes);
+
+        //string strName = "Mohammad Jamil Ahmad";
+        //Console.WriteLine(strName.ToLower());
+        //Console.WriteLine(strName.Replace('a','b'));
 
 
     }
