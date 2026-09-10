@@ -1,0 +1,15 @@
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\bin\Debug\net8.0\If_Statements.exe
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\bin\Debug\net8.0\If_Statements.deps.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\bin\Debug\net8.0\If_Statements.runtimeconfig.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\bin\Debug\net8.0\If_Statements.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\bin\Debug\net8.0\If_Statements.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\obj\Debug\net8.0\If_Statements.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\obj\Debug\net8.0\If_Statements.AssemblyInfoInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\obj\Debug\net8.0\If_Statements.AssemblyInfo.cs
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\obj\Debug\net8.0\If_Statements.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\obj\Debug\net8.0\If_Statements.sourcelink.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\obj\Debug\net8.0\If_Statements.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\obj\Debug\net8.0\refint\If_Statements.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\obj\Debug\net8.0\If_Statements.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\obj\Debug\net8.0\If_Statements.genruntimeconfig.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\If_Statements\obj\Debug\net8.0\ref\If_Statements.dll
