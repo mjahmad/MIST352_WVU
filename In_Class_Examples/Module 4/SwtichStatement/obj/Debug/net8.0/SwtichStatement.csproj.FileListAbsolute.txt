@@ -1,0 +1,15 @@
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\bin\Debug\net8.0\SwtichStatement.exe
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\bin\Debug\net8.0\SwtichStatement.deps.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\bin\Debug\net8.0\SwtichStatement.runtimeconfig.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\bin\Debug\net8.0\SwtichStatement.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\bin\Debug\net8.0\SwtichStatement.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\obj\Debug\net8.0\SwtichStatement.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\obj\Debug\net8.0\SwtichStatement.AssemblyInfoInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\obj\Debug\net8.0\SwtichStatement.AssemblyInfo.cs
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\obj\Debug\net8.0\SwtichStatement.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\obj\Debug\net8.0\SwtichStatement.sourcelink.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\obj\Debug\net8.0\SwtichStatement.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\obj\Debug\net8.0\refint\SwtichStatement.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\obj\Debug\net8.0\SwtichStatement.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\obj\Debug\net8.0\SwtichStatement.genruntimeconfig.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\SwtichStatement\obj\Debug\net8.0\ref\SwtichStatement.dll

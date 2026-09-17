@@ -1,0 +1,15 @@
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\bin\Debug\net8.0\ComplexIfStatements.exe
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\bin\Debug\net8.0\ComplexIfStatements.deps.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\bin\Debug\net8.0\ComplexIfStatements.runtimeconfig.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\bin\Debug\net8.0\ComplexIfStatements.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\bin\Debug\net8.0\ComplexIfStatements.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\obj\Debug\net8.0\ComplexIfStatements.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\obj\Debug\net8.0\ComplexIfStatements.AssemblyInfoInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\obj\Debug\net8.0\ComplexIfStatements.AssemblyInfo.cs
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\obj\Debug\net8.0\ComplexIfStatements.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\obj\Debug\net8.0\ComplexIfStatements.sourcelink.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\obj\Debug\net8.0\ComplexIfStatements.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\obj\Debug\net8.0\refint\ComplexIfStatements.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\obj\Debug\net8.0\ComplexIfStatements.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\obj\Debug\net8.0\ComplexIfStatements.genruntimeconfig.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 4\ComplexIfStatements\obj\Debug\net8.0\ref\ComplexIfStatements.dll
