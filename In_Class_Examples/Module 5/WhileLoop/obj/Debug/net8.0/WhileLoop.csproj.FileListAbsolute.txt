@@ -1,0 +1,15 @@
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\bin\Debug\net8.0\WhileLoop.exe
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\bin\Debug\net8.0\WhileLoop.deps.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\bin\Debug\net8.0\WhileLoop.runtimeconfig.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\bin\Debug\net8.0\WhileLoop.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\bin\Debug\net8.0\WhileLoop.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\obj\Debug\net8.0\WhileLoop.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\obj\Debug\net8.0\WhileLoop.AssemblyInfoInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\obj\Debug\net8.0\WhileLoop.AssemblyInfo.cs
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\obj\Debug\net8.0\WhileLoop.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\obj\Debug\net8.0\WhileLoop.sourcelink.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\obj\Debug\net8.0\WhileLoop.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\obj\Debug\net8.0\refint\WhileLoop.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\obj\Debug\net8.0\WhileLoop.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\obj\Debug\net8.0\WhileLoop.genruntimeconfig.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 5\WhileLoop\obj\Debug\net8.0\ref\WhileLoop.dll

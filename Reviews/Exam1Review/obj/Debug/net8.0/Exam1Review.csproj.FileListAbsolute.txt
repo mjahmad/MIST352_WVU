@@ -1,0 +1,15 @@
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\bin\Debug\net8.0\Exam1Review.exe
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\bin\Debug\net8.0\Exam1Review.deps.json
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\bin\Debug\net8.0\Exam1Review.runtimeconfig.json
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\bin\Debug\net8.0\Exam1Review.dll
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\bin\Debug\net8.0\Exam1Review.pdb
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\obj\Debug\net8.0\Exam1Review.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\obj\Debug\net8.0\Exam1Review.AssemblyInfoInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\obj\Debug\net8.0\Exam1Review.AssemblyInfo.cs
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\obj\Debug\net8.0\Exam1Review.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\obj\Debug\net8.0\Exam1Review.sourcelink.json
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\obj\Debug\net8.0\Exam1Review.dll
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\obj\Debug\net8.0\refint\Exam1Review.dll
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\obj\Debug\net8.0\Exam1Review.pdb
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\obj\Debug\net8.0\Exam1Review.genruntimeconfig.cache
+D:\MIST352_Fall2026\MIST352_WVU\Reviews\Exam1Review\obj\Debug\net8.0\ref\Exam1Review.dll
