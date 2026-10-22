@@ -1,0 +1,15 @@
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\bin\Debug\net8.0\Methods3.exe
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\bin\Debug\net8.0\Methods3.deps.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\bin\Debug\net8.0\Methods3.runtimeconfig.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\bin\Debug\net8.0\Methods3.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\bin\Debug\net8.0\Methods3.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\obj\Debug\net8.0\Methods3.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\obj\Debug\net8.0\Methods3.AssemblyInfoInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\obj\Debug\net8.0\Methods3.AssemblyInfo.cs
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\obj\Debug\net8.0\Methods3.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\obj\Debug\net8.0\Methods3.sourcelink.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\obj\Debug\net8.0\Methods3.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\obj\Debug\net8.0\refint\Methods3.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\obj\Debug\net8.0\Methods3.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\obj\Debug\net8.0\Methods3.genruntimeconfig.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 6\Methods3\obj\Debug\net8.0\ref\Methods3.dll
