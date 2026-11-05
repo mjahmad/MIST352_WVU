@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\MIST352_Fall2026\\MIST352_WVU\\In_Class_Examples\\Module 7\\Classes_1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{652345D9-644C-4ED5-AE3F-6687B3FC650D}|Classes_1.csproj|d:\\mist352_fall2026\\mist352_wvu\\in_class_examples\\module 7\\classes_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{652345D9-644C-4ED5-AE3F-6687B3FC650D}|Classes_1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{652345D9-644C-4ED5-AE3F-6687B3FC650D}|Classes_1.csproj|d:\\mist352_fall2026\\mist352_wvu\\in_class_examples\\module 7\\classes_1\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{652345D9-644C-4ED5-AE3F-6687B3FC650D}|Classes_1.csproj|solutionrelative:student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{652345D9-644C-4ED5-AE3F-6687B3FC650D}|Classes_1.csproj|d:\\mist352_fall2026\\mist352_wvu\\in_class_examples\\module 7\\classes_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{652345D9-644C-4ED5-AE3F-6687B3FC650D}|Classes_1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,26 +26,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "STUDENT.cs",
               "DocumentMoniker": "D:\\MIST352_Fall2026\\MIST352_WVU\\In_Class_Examples\\Module 7\\Classes_1\\STUDENT.cs",
               "RelativeDocumentMoniker": "STUDENT.cs",
               "ToolTip": "D:\\MIST352_Fall2026\\MIST352_WVU\\In_Class_Examples\\Module 7\\Classes_1\\STUDENT.cs",
               "RelativeToolTip": "STUDENT.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwA8AAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwDMAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-27T15:48:02.822Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\MIST352_Fall2026\\MIST352_WVU\\In_Class_Examples\\Module 7\\Classes_1\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\MIST352_Fall2026\\MIST352_WVU\\In_Class_Examples\\Module 7\\Classes_1\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAgwA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwAkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-27T14:08:28.625Z",
               "EditorCaption": ""
