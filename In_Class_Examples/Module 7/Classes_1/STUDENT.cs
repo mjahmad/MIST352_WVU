@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,62 +17,94 @@ namespace Classes_1
         private string strSSN;
 
 
+       
         //Properties
-        /// </This tell us how to interact with the private variable strFirstName>
-
         public string theFirstName
+            {
+            get => this.strFirstName; 
+            set => this.strFirstName = value;
+
+            
+            }
+
+        public string theLastName
         {
-            //get means, allow users to view with strFirstName by calling theFirstName
-           get => strFirstName;
-            //set measn allow users to change it by passing. Take is, verify its not empty then assign it to the private variable
+            get => this.strLastName;
             set
-            {
-                if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Name cannot be empty.");
-               strFirstName = value.Trim();
+            { 
+            if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentNullException("Last name can not be empty");
+            else
+
+             this.strLastName = value;
+
             }
+
+
+
+
         }
+        //Construtor 
+     
 
-
-
-        //Constructor(s): These tell us how to create new objects.
-        //Here, we are saying you can create a student by providing their SSN only
-        public STUDENT(string theSSN)
+        public STUDENT(string ssn)
         {
-            this.strSSN = theSSN;
+            string tempSSN = ssn;
+
+            while (!tempSSN.Contains('-')) //as long as rhe ssn has a dash
+
+            {
+                Console.WriteLine("SSN is missing a -, provde it again.");
+
+
+                tempSSN = Console.ReadLine();
+            }
+            this.strSSN = tempSSN; 
+
+
+
         }
-
-        //Here, we are saying you can create a student by providing their first and last names
-        public STUDENT(string firstName, string lastName)
+        /// <summary>
+        /// 
+        /// Construcotr 1: Allow creating students using first and last names
+        /// </summary>
+        /// <param name="fName">First Name</param>
+        /// <param name="lName"> Last name</param>
+        /// <exception cref="ArgumentNullException">Raised if either is empty or null</exception>
+        public STUDENT(string fName, string lName)
         {
+
+            if (string.IsNullOrWhiteSpace(fName) || string.IsNullOrWhiteSpace(lName))
+            {
+                throw new ArgumentNullException("names can not ve empty");
+                
+                   
+            }
+
+            
+            else
+
+            {
+                this.strFirstName = fName;
+                this.strLastName = lName;
+            }
         
-            this.strFirstName = firstName;
-            this.strLastName = lastName;
         }
 
-        //And here we ar saying you can create a student object by provindg ALL INFO.
-        public STUDENT(string firstName, string lastName, int theID, double theGrade, string theSSN)
+
+        public STUDENT(string fName, string lName, string ssn, double grade, int id)
         {
+            this.strFirstName = fName;
+            this.strLastName = lName;
+            this.strSSN = ssn;
+            this.intID = id;
+            this.dbl1stGrade = grade;
 
-            this.strFirstName = firstName;
-            this.strLastName = lastName;
-            if (theID == 0)
-            {
-                Console.WriteLine("ID can not be zero. Try again");
-            }
-            if (firstName.Equals("") ||lastName.Equals("") ||theSSN.Equals(""))
-            {
-
-                Console.WriteLine("Data can not be empty");
-                    
-                    }
-            this.intID = theID;
-            this.dbl1stGrade = theGrade;
-            this.strSSN = theSSN;
         }
 
 
-        // Properties
-      
+
+
+
     }
 }

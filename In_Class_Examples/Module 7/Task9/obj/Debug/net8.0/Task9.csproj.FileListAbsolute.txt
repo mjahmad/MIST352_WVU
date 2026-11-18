@@ -1,0 +1,15 @@
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\bin\Debug\net8.0\Task9.exe
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\bin\Debug\net8.0\Task9.deps.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\bin\Debug\net8.0\Task9.runtimeconfig.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\bin\Debug\net8.0\Task9.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\bin\Debug\net8.0\Task9.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\obj\Debug\net8.0\Task9.GeneratedMSBuildEditorConfig.editorconfig
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\obj\Debug\net8.0\Task9.AssemblyInfoInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\obj\Debug\net8.0\Task9.AssemblyInfo.cs
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\obj\Debug\net8.0\Task9.csproj.CoreCompileInputs.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\obj\Debug\net8.0\Task9.sourcelink.json
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\obj\Debug\net8.0\Task9.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\obj\Debug\net8.0\refint\Task9.dll
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\obj\Debug\net8.0\Task9.pdb
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\obj\Debug\net8.0\Task9.genruntimeconfig.cache
+D:\MIST352_Fall2026\MIST352_WVU\In_Class_Examples\Module 7\Task9\obj\Debug\net8.0\ref\Task9.dll
